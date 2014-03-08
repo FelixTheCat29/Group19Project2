@@ -4,5 +4,9 @@
     <string name="app_name">OrderApp</string>
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>
+    <string name="welcome_message">Welcome to Our Restaurant!</string>
+    <string name="next">Next</string>
+    <string name="title_activity_number_customers">NumberCustomers</string>
+    <string name="input_number_customers">First, please input the number of your party</string>
 
 </resources>
