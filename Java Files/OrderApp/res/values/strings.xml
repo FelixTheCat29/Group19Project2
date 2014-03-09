@@ -8,5 +8,6 @@
     <string name="next">Next</string>
     <string name="title_activity_number_customers">NumberCustomers</string>
     <string name="input_number_customers">First, please input the number of your party</string>
+    <string name="title_activity_split_bill">SplitBill</string>
 
 </resources>

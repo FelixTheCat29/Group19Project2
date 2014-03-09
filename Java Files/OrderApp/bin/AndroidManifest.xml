@@ -26,6 +26,10 @@
             android:name="com.example.orderapp.NumberCustomers"
             android:label="@string/title_activity_number_customers" >
         </activity>
+        <activity
+            android:name="com.example.orderapp.SplitBill"
+            android:label="@string/title_activity_split_bill" >
+        </activity>
     </application>
 
 </manifest>
