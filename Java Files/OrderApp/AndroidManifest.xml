@@ -30,6 +30,10 @@
             android:name="com.example.orderapp.SplitBill"
             android:label="@string/title_activity_split_bill" >
         </activity>
+        <activity
+            android:name="com.example.orderapp.ViewMenu"
+            android:label="@string/title_activity_view_menu" >
+        </activity>
     </application>
 
 </manifest>

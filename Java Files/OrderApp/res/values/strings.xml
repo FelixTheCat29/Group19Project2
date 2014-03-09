@@ -9,5 +9,7 @@
     <string name="title_activity_number_customers">NumberCustomers</string>
     <string name="input_number_customers">First, please input the number of your party</string>
     <string name="title_activity_split_bill">SplitBill</string>
+    <string name="title_activity_view_menu">ViewMenu</string>
+    <string name="table_info">You are sitting at table 19, your table can seat a maximum of 4 people.</string>
 
 </resources>

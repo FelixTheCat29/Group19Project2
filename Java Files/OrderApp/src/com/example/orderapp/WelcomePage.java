@@ -7,6 +7,8 @@ import android.content.Intent;
 import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.SeekBar;
 import android.view.View.OnClickListener;
 
 public class WelcomePage extends Activity {
@@ -30,18 +32,36 @@ public class WelcomePage extends Activity {
  
 		button = (Button) findViewById(R.id.buttonNext);
  
+		
+		
+		
+		
 		button.setOnClickListener(new OnClickListener() {
  
+			
+			
 			@Override
 			public void onClick(View arg0) {
- 
-			    Intent intent = new Intent(context, SplitBill.class);
-                            startActivity(intent);   
- 
+				EditText editText = (EditText) findViewById(R.id.editText1);
+			    String message = editText.getText().toString();
+			    Integer x = Integer.valueOf(message);
+
+			    Intent intent = new Intent(context, SplitBill.class); 
+                Intent intent2 = new Intent(context, ViewMenu.class);
+
+                if (x == 1){
+                startActivity(intent2);   	
+                }
+                
+                if (x > 1){
+                startActivity(intent);
+                }
+
 			}
  
 		});
  
 	}
 
+ 
 }
