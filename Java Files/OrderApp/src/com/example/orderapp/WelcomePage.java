@@ -17,6 +17,8 @@ public class WelcomePage extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.welcome_screen);
+
+	
 	}
 
 	@Override
@@ -26,42 +28,24 @@ public class WelcomePage extends Activity {
 		return true;
 	}
 	
-	public void addListenerOnButton() {
-		 
-		final Context context = this;
- 
-		button = (Button) findViewById(R.id.buttonNext);
- 
+	public void Transistion(View view){
 		
-		
-		
-		
-		button.setOnClickListener(new OnClickListener() {
- 
-			
-			
-			@Override
-			public void onClick(View arg0) {
-				EditText editText = (EditText) findViewById(R.id.editText1);
-			    String message = editText.getText().toString();
-			    Integer x = Integer.valueOf(message);
+	EditText editText = (EditText) findViewById(R.id.editText1);
+    String message = editText.getText().toString();
+    Integer x = Integer.valueOf(message);
 
-			    Intent intent = new Intent(context, SplitBill.class); 
-                Intent intent2 = new Intent(context, ViewMenu.class);
+    Intent intent = new Intent(this, SplitBill.class); 
 
-                if (x == 1){
-                startActivity(intent2);   	
-                }
-                
-                if (x > 1){
-                startActivity(intent);
-                }
+    Intent intent2 = new Intent(this, ViewMenu.class);
 
-			}
- 
-		});
- 
+    if (x == 1){
+    startActivity(intent2);   	
+    }
+    
+    if (x > 1){
+    startActivity(intent);
+    }
+
 	}
-
  
 }
