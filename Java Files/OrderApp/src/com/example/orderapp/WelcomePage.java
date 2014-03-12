@@ -4,21 +4,34 @@ import android.os.Bundle;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
+import android.widget.PopupWindow;
 import android.widget.SeekBar;
+import android.widget.TextView;
 import android.view.View.OnClickListener;
+import android.view.ViewGroup.LayoutParams;
 
 public class WelcomePage extends Activity {
+	
+	
 	Button button;
+	Button insidePopupButton;
+	LinearLayout layoutOfPopup;
+	TextView popupText;
+	PopupWindow popupMessage;
+	Button btnClosePopup;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.welcome_screen);
-
-	
 	}
 
 	@Override
@@ -42,10 +55,42 @@ public class WelcomePage extends Activity {
     startActivity(intent2);   	
     }
     
-    if (x > 1){
-    startActivity(intent);
+    if (x > 1 && x < 5){
+    startActivity(intent);    
     }
-
+    
+    if (x > 4 || x == 0)
+    {
+    	initiatePopupWindow();
+    }
+    
+    
 	}
- 
+	private PopupWindow pwindo;
+	private void initiatePopupWindow() { 
+		try { 
+		// We need to get the instance of the LayoutInflater 
+		LayoutInflater inflater = (LayoutInflater) WelcomePage.this 
+		.getSystemService(Context.LAYOUT_INFLATER_SERVICE); 
+		View layout = inflater.inflate(R.layout.popup,(ViewGroup)
+
+		findViewById(R.id.popup_element)); 
+		pwindo = new PopupWindow(layout, 350, 350, true); 
+		pwindo.showAtLocation(layout, Gravity.CENTER, 0, 0);
+
+		btnClosePopup = (Button) layout.findViewById(R.id.btn_close_popup); 
+		btnClosePopup.setOnClickListener(cancel_button_click_listener);
+
+		} catch (Exception e) { 
+		e.printStackTrace(); 
+		} 
+		}
+
+		private OnClickListener cancel_button_click_listener = new OnClickListener() { 
+		public void onClick(View v) { 
+		pwindo.dismiss();
+
+		}
+
+		};
 }
