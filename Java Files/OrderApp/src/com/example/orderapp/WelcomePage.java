@@ -27,6 +27,7 @@ public class WelcomePage extends Activity {
 	TextView popupText;
 	PopupWindow popupMessage;
 	Button btnClosePopup;
+	static int numCust = 1;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -46,8 +47,9 @@ public class WelcomePage extends Activity {
 	EditText editText = (EditText) findViewById(R.id.editText1);
     String message = editText.getText().toString();
     Integer x = Integer.valueOf(message);
+    numCust = x;
 
-    Intent intent = new Intent(this, SplitBill.class); 
+    Intent intent = new Intent(this, NumberCustomers.class); 
 
     Intent intent2 = new Intent(this, ViewMenu.class);
 
@@ -93,4 +95,8 @@ public class WelcomePage extends Activity {
 		}
 
 		};
+		public static int getNumCust(){
+		return numCust;
+			
+		}
 }

@@ -11,5 +11,11 @@
     <string name="title_activity_split_bill">SplitBill</string>
     <string name="title_activity_view_menu">ViewMenu</string>
     <string name="table_info">You are sitting at table 19, your table can seat a maximum of 4 people.</string>
+    <string name="error_numb_people">Sorry, please enter a number between 1 and 4 inclusive</string>
+    <string name="close">Close</string>
+    <string name="Ask_split_bill">Would you like to split your bill?</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="orderGuestNumber">You are the only guest at this table, please place your order.</string>
 
 </resources>

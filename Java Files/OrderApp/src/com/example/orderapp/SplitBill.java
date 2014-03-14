@@ -19,4 +19,5 @@ public class SplitBill extends Activity {
 		return true;
 	}
 
+	
 }
