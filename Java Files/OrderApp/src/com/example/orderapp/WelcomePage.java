@@ -28,7 +28,7 @@ public class WelcomePage extends Activity {
 	PopupWindow popupMessage;
 	Button btnClosePopup;
 	static int numCust = 1;
-	
+	int x = 0;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -45,14 +45,28 @@ public class WelcomePage extends Activity {
 	public void Transistion(View view){
 		
 	EditText editText = (EditText) findViewById(R.id.editText1);
-    String message = editText.getText().toString();
-    Integer x = Integer.valueOf(message);
+	if(editText.getText().toString().matches("")){
+		x = 0;
+	}
+try{    
+	int message = Integer.parseInt(editText.getText().toString());	
+	x = message;
+{
+	
+}
+}
+catch(NumberFormatException nfe)
+{
+	
+}
+    
     numCust = x;
 
     Intent intent = new Intent(this, NumberCustomers.class); 
 
     Intent intent2 = new Intent(this, ViewMenu.class);
 
+    
     if (x == 1){
     startActivity(intent2);   	
     }
