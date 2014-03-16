@@ -34,6 +34,26 @@
             android:name="com.example.orderapp.ViewMenu"
             android:label="@string/title_activity_view_menu" >
         </activity>
+        <activity
+            android:name="com.example.orderapp.Menu_selection"
+            android:label="@string/title_activity_menu_selection" >
+        </activity>
+        <activity
+            android:name="com.example.orderapp.Menu_Qnt_selection"
+            android:label="@string/title_activity_menu__qnt_selection" >
+        </activity>
+        <activity
+            android:name="com.example.orderapp.MenuQntySelection"
+            android:label="@string/title_activity_menu_qnty_selection" >
+        </activity>
+        <activity
+            android:name="com.example.orderapp.Menu_Alcohol"
+            android:label="@string/title_activity_menu__alcohol" >
+        </activity>
+        <activity
+            android:name="com.example.orderapp.Alcohol"
+            android:label="@string/title_activity_alcohol" >
+        </activity>
     </application>
 
 </manifest>

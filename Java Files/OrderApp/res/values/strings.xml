@@ -17,5 +17,17 @@
     <string name="yes">Yes</string>
     <string name="no">No</string>
     <string name="orderGuestNumber">You are the only guest at this table, please place your order.</string>
+    <string name="appetizer_line">Appetizer</string>
+    <string name="dessert_line">Dessert</string>
+    <string name="Main_Menu_line">Main Menu</string>
+    <string name="Alcohol_line">Alcohol</string>
+    <string name="Pops_line">Pops</string>
+    <string name="title_activity_menu_selection">Menu_selection</string>
+    <string name="title_activity_menu__qnt_selection">Menu_Qnt_selection</string>
+    <string name="title_activity_menu_qnty_selection">MenuQntySelection</string>
+    <string name="title_activity_menu__alcohol">Menu_Alcohol</string>
+    <string name="title_activity_alcohol">Alcohol</string>
+    <string name="Kokanee_line">Kokanee (bottle) $5.00</string>
+    <string name="ChivasRegal_line">Chivas Regal (shot) $7.00</string>
 
 </resources>

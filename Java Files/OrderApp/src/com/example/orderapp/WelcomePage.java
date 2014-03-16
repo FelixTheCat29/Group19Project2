@@ -48,7 +48,7 @@ public class WelcomePage extends Activity {
 	if(editText.getText().toString().matches("")){
 		x = 0;
 	}
-try{    
+try{
 	int message = Integer.parseInt(editText.getText().toString());	
 	x = message;
 {
