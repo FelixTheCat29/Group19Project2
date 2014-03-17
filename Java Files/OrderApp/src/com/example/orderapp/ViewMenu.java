@@ -33,4 +33,10 @@ public class ViewMenu extends Activity {
 		
 	}
 	
+	public void onClickReviewAndCheckout(View view){
+		Intent intent = new Intent(this, ReviewPage.class);
+		startActivity(intent);
+		
+	}
+	
 }

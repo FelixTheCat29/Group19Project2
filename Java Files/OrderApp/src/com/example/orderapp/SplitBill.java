@@ -18,6 +18,13 @@ public class SplitBill extends Activity {
 		getMenuInflater().inflate(R.menu.split_bill, menu);
 		return true;
 	}
+	
+	//needs to be implemented
+	//needs to be implemented
+	//needs to be implemented
+	//needs to be implemented
+	//needs to be implemented
+	
 
 	
 }

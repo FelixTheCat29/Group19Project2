@@ -54,6 +54,10 @@
             android:name="com.example.orderapp.Alcohol"
             android:label="@string/title_activity_alcohol" >
         </activity>
+        <activity
+            android:name="com.example.orderapp.ReviewPage"
+            android:label="@string/title_activity_review_page" >
+        </activity>
     </application>
 
 </manifest>
