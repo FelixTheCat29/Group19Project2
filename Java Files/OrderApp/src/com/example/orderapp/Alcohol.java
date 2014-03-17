@@ -1,0 +1,87 @@
+package com.example.orderapp;
+
+import android.app.Activity;
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.Menu;
+import android.view.View;
+import android.widget.EditText;
+
+public class Alcohol extends Activity {
+	
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_alcohol);
+	}
+
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		// Inflate the menu; this adds items to the action bar if it is present.
+		getMenuInflater().inflate(R.menu.alcohol, menu);
+		return true;
+	}
+	
+	public void onClickSaveAndCont(View view){
+		int Kokanee = 0;
+		int Budweiser = 0;
+		int Chivas = 0;
+		int Ballantines = 0;
+		
+		//buffer to send to DE2
+		int Alcohol[] = {0,0,0,0}; //fixed elements just for now
+		
+		EditText editText1 = (EditText) findViewById(R.id.editText1);
+		EditText editText2 = (EditText) findViewById(R.id.editText2);
+		EditText editText3 = (EditText) findViewById(R.id.editText3);
+		EditText editText4 = (EditText) findViewById(R.id.editText4);
+		
+		
+		if(editText1.getText().toString().matches("")){
+			Kokanee = 0;
+		}
+		if(editText2.getText().toString().matches("")){
+			Budweiser = 0;
+		}
+		if(editText3.getText().toString().matches("")){
+			Chivas = 0;
+		}
+		if(editText4.getText().toString().matches("")){
+			Ballantines = 0;
+		}
+		try{
+			int message = Integer.parseInt(editText1.getText().toString());	
+			Kokanee = message;
+			
+			int message2 = Integer.parseInt(editText2.getText().toString());	
+			Budweiser = message2;
+			
+			int message3 = Integer.parseInt(editText3.getText().toString());	
+			Chivas = message3;
+			
+			int message4 = Integer.parseInt(editText4.getText().toString());	
+			Ballantines = message4;
+		{
+			
+		}
+		
+		}
+		catch(NumberFormatException nfe)
+		{
+			
+		}
+		
+		Alcohol[0] = Kokanee;
+		Alcohol[1] = Chivas;
+		Alcohol[2] = Budweiser;
+		Alcohol[3] = Ballantines;
+		
+		Intent intent = new Intent(this, ViewMenu.class);
+		startActivity(intent);
+		
+		
+	}
+	
+	
+}
+
