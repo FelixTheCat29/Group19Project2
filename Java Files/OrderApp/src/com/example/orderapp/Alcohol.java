@@ -9,6 +9,7 @@ import android.widget.EditText;
 
 public class Alcohol extends Activity {
 	
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -21,6 +22,11 @@ public class Alcohol extends Activity {
 		getMenuInflater().inflate(R.menu.alcohol, menu);
 		return true;
 	}
+	public static String getAlcohols(int i){
+		String Al[] = {"Kokanee","Chivas","Budweiser","Ballantines"};
+		
+		return Al[i];
+	}
 	
 	public void onClickSaveAndCont(View view){
 		int Kokanee = 0;
@@ -29,7 +35,7 @@ public class Alcohol extends Activity {
 		int Ballantines = 0;
 		
 		//buffer to send to DE2
-		int Alcohol[] = {0,0,0,0}; //fixed elements just for now
+		int Alcohol[] = {0,0,0,0}; //fixed elements just for now : Alcohol[kok, Bud, Chivas, Ballan]
 		
 		EditText editText1 = (EditText) findViewById(R.id.editText1);
 		EditText editText2 = (EditText) findViewById(R.id.editText2);
@@ -50,8 +56,8 @@ public class Alcohol extends Activity {
 			Ballantines = 0;
 		}
 		try{
-			int message = Integer.parseInt(editText1.getText().toString());	
-			Kokanee = message;
+			int message1 = Integer.parseInt(editText1.getText().toString());	
+			Kokanee = message1;
 			
 			int message2 = Integer.parseInt(editText2.getText().toString());	
 			Budweiser = message2;
@@ -77,6 +83,7 @@ public class Alcohol extends Activity {
 		Alcohol[3] = Ballantines;
 		
 		Intent intent = new Intent(this, ViewMenu.class);
+		intent.putExtra("Alcohol_Data", Alcohol);
 		startActivity(intent);
 		
 		

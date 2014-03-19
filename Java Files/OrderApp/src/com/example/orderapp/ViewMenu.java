@@ -28,8 +28,8 @@ public class ViewMenu extends Activity {
 	
 	public void onClickAlcohol(View view){
 		
-		Intent intent3 = new Intent(this, Alcohol.class);
-		startActivity(intent3);
+		Intent intent4 = new Intent(this, Alcohol.class);
+		startActivity(intent4);
 		
 	}
 	
