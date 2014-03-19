@@ -35,6 +35,8 @@
     <string name="ReviewAndCheckout_line">Review order and Check out</string>
     <string name="title_activity_review_page">ReviewPage</string>
     <string name="connection_line">connect</string>
+   
+    <!-- Strings for activity_connection.xml -->
     <string name="label_ip">IP:</string>
     <string name="playsong">Play Song</string>
     <string name="label_port">Port:</string>
@@ -47,5 +49,6 @@
     <string name="play">Play</string>
     <string name="stop">Stop</string>
     <string name="refresh_socket">Show Sock.</string>
+	<string name="ClientID">Client ID</string>
 
 </resources>
