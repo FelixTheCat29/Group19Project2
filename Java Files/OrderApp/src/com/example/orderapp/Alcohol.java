@@ -15,7 +15,8 @@ public class Alcohol extends Activity {
 	int Ballantines = 0;
 	static int Alcohol[] = {0,0,0,0}; //fixed elements just for now : Alcohol[kok, Bud, Chivas, Ballan]
 	int AlcoholKind = Alcohol.length;
-
+	static double AlcoholPrice[] = {5.00,7.00,5.00,6.00};
+	static double price = 0;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -41,32 +42,37 @@ public class Alcohol extends Activity {
 		
 	}
 	
+	public static double getAlPrice(){
+		return price;
+		
+	}
+	
 	public void onClickSaveAndCont(View view){
 
 		
 		//buffer to send to DE2
 //		int Alcohol[] = {0,0,0,0}; //fixed elements just for now : Alcohol[kok, Bud, Chivas, Ballan]
 		
-		EditText editText1 = (EditText) findViewById(R.id.editText1);
-		EditText editText2 = (EditText) findViewById(R.id.editText2);
-		EditText editText3 = (EditText) findViewById(R.id.editText3);
-		EditText editText4 = (EditText) findViewById(R.id.editText4);
+		EditText EditText1 = (EditText) findViewById(R.id.editText1);
+		EditText EditText2 = (EditText) findViewById(R.id.editText2);
+		EditText EditText3 = (EditText) findViewById(R.id.editText3);
+		EditText EditText4 = (EditText) findViewById(R.id.editText4);
 		
 		
-		if(editText1.getText().toString().matches("")){
+		if(EditText1.getText().toString().matches("")){
 			Kokanee = 0;
 		}
-		if(editText2.getText().toString().matches("")){
+		if(EditText2.getText().toString().matches("")){
 			Chivas = 0;
 		}
-		if(editText3.getText().toString().matches("")){
+		if(EditText3.getText().toString().matches("")){
 			Budweiser = 0;
 		}
-		if(editText4.getText().toString().matches("")){
+		if(EditText4.getText().toString().matches("")){
 			Ballantines = 0;
 		}
 		try{
-			int message1 = Integer.parseInt(editText1.getText().toString());	
+			int message1 = Integer.parseInt(EditText1.getText().toString());	
 			Kokanee = message1;
 		}
 			catch(NumberFormatException nfe)
@@ -75,7 +81,7 @@ public class Alcohol extends Activity {
 			}
 		
 		try{
-			int message2 = Integer.parseInt(editText2.getText().toString());	
+			int message2 = Integer.parseInt(EditText2.getText().toString());	
 			Chivas = message2;
 		}
 			catch(NumberFormatException nfe)
@@ -83,7 +89,7 @@ public class Alcohol extends Activity {
 				Chivas = 0;
 			}
 		try{
-			int message3 = Integer.parseInt(editText3.getText().toString());	
+			int message3 = Integer.parseInt(EditText3.getText().toString());	
 			Budweiser = message3;
 		}
 			catch(NumberFormatException nfe)
@@ -91,7 +97,7 @@ public class Alcohol extends Activity {
 				Budweiser = 0;
 			}
 		try{
-			int message4 = Integer.parseInt(editText4.getText().toString());	
+			int message4 = Integer.parseInt(EditText4.getText().toString());	
 			Ballantines = message4;
 		}
 			catch(NumberFormatException nfe)
@@ -103,6 +109,11 @@ public class Alcohol extends Activity {
 		Alcohol[1] = Chivas;
 		Alcohol[2] = Budweiser;
 		Alcohol[3] = Ballantines;
+		
+		for(int i=0; i<AlcoholKind; i++)
+		{
+			price = AlcoholPrice[i]*Alcohol[i]+price;
+		}
 		
 		Intent intent = new Intent(this, ViewMenu.class);
 		//intent.putExtra("Alcohol_Data", Alcohol);
