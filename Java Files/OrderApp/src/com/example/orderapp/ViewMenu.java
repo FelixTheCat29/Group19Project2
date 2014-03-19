@@ -15,7 +15,7 @@ public class ViewMenu extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_view_menu);
 		TextView textViewToChange = (TextView) findViewById(R.id.text111);
-		textViewToChange.setText("Currently ordering for guest "+NumberCustomers.getSelCust()+".");
+		textViewToChange.setText("Currently ordering for guest "+NumberCustomers.getSelCust()+":");
 	}
 
 	@Override

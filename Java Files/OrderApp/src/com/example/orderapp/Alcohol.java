@@ -57,10 +57,10 @@ public class Alcohol extends Activity {
 			Kokanee = 0;
 		}
 		if(editText2.getText().toString().matches("")){
-			Budweiser = 0;
+			Chivas = 0;
 		}
 		if(editText3.getText().toString().matches("")){
-			Chivas = 0;
+			Budweiser = 0;
 		}
 		if(editText4.getText().toString().matches("")){
 			Ballantines = 0;
@@ -76,19 +76,19 @@ public class Alcohol extends Activity {
 		
 		try{
 			int message2 = Integer.parseInt(editText2.getText().toString());	
-			Budweiser = message2;
-		}
-			catch(NumberFormatException nfe)
-			{
-				Budweiser = 0;
-			}
-		try{
-			int message3 = Integer.parseInt(editText3.getText().toString());	
-			Chivas = message3;
+			Chivas = message2;
 		}
 			catch(NumberFormatException nfe)
 			{
 				Chivas = 0;
+			}
+		try{
+			int message3 = Integer.parseInt(editText3.getText().toString());	
+			Budweiser = message3;
+		}
+			catch(NumberFormatException nfe)
+			{
+				Budweiser = 0;
 			}
 		try{
 			int message4 = Integer.parseInt(editText4.getText().toString());	
