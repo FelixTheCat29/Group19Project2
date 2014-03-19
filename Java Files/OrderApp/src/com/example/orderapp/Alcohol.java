@@ -49,7 +49,7 @@ public class Alcohol extends Activity {
 	
 	public void onClickSaveAndCont(View view){
 
-		
+		price = 0;
 		//buffer to send to DE2
 //		int Alcohol[] = {0,0,0,0}; //fixed elements just for now : Alcohol[kok, Bud, Chivas, Ballan]
 		

@@ -1,5 +1,7 @@
 package com.example.orderapp;
 
+import java.text.DecimalFormat;
+
 import android.app.Activity;
 import android.graphics.Typeface;
 import android.os.Bundle;
@@ -26,6 +28,7 @@ public class ReviewPage extends Activity {
 	        scrollview.addView(linearlayout);
 	        TextView b;
 	        TextView a;
+	        TextView c;
 	        
 	       //Dynamically print "Below is the order for quest#" on top of the screen
 	        LinearLayout linear0 = new LinearLayout(this);
@@ -63,6 +66,21 @@ public class ReviewPage extends Activity {
 	        	
 	            this.setContentView(scrollview);
 	        }
+	        
+	        LinearLayout linear2 = new LinearLayout(this);
+            linear2.setOrientation(LinearLayout.HORIZONTAL);
+            linearlayout.addView(linear2);
+	        c = new TextView(this);
+	        DecimalFormat df = new DecimalFormat("#.##");
+            c.setText("Below is the total price for guest "+NumberCustomers.getSelCust()+": $"
+	        +String.valueOf(df.format(Alcohol.getAlPrice()))+".00");
+            c.setId(50);
+            c.setTextSize(25);
+            c.setPadding(18, 13, 18, 13);
+            c.setTypeface(Typeface.SERIF,Typeface.BOLD_ITALIC);
+            c.setLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT,LayoutParams.WRAP_CONTENT));
+            linear2.addView(c);
+            this.setContentView(scrollview);
 	}
 
 	@Override
