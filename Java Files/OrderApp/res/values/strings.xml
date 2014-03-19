@@ -34,5 +34,18 @@
     <string name="Ballantines_line">Ballantine\'s (shot)</string>
     <string name="ReviewAndCheckout_line">Review order and Check out</string>
     <string name="title_activity_review_page">ReviewPage</string>
+    <string name="connection_line">connect</string>
+    <string name="label_ip">IP:</string>
+    <string name="playsong">Play Song</string>
+    <string name="label_port">Port:</string>
+    <string name="printsong">Print Song on Debug</string>
+    <string name="connect">Connect</string>
+    <string name="clear">Clear</string>
+    <string name="menu_settings">Settings</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="label_myip">My IP:</string>
+    <string name="play">Play</string>
+    <string name="stop">Stop</string>
+    <string name="refresh_socket">Show Sock.</string>
 
 </resources>
