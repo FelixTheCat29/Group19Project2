@@ -9,11 +9,19 @@ import android.widget.EditText;
 
 public class Alcohol extends Activity {
 	
+	int Kokanee = 0;
+	int Budweiser = 0;
+	int Chivas = 0;
+	int Ballantines = 0;
+	static int Alcohol[] = {0,0,0,0}; //fixed elements just for now : Alcohol[kok, Bud, Chivas, Ballan]
+	int AlcoholKind = Alcohol.length;
+
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_alcohol);
+		
 	}
 
 	@Override
@@ -28,14 +36,16 @@ public class Alcohol extends Activity {
 		return Al[i];
 	}
 	
+	public static int[] getAl(){
+		return Alcohol;// = {"Kokanee","Chivas","Budweiser","Ballantines"};
+		
+	}
+	
 	public void onClickSaveAndCont(View view){
-		int Kokanee = 0;
-		int Budweiser = 0;
-		int Chivas = 0;
-		int Ballantines = 0;
+
 		
 		//buffer to send to DE2
-		int Alcohol[] = {0,0,0,0}; //fixed elements just for now : Alcohol[kok, Bud, Chivas, Ballan]
+//		int Alcohol[] = {0,0,0,0}; //fixed elements just for now : Alcohol[kok, Bud, Chivas, Ballan]
 		
 		EditText editText1 = (EditText) findViewById(R.id.editText1);
 		EditText editText2 = (EditText) findViewById(R.id.editText2);
@@ -58,32 +68,44 @@ public class Alcohol extends Activity {
 		try{
 			int message1 = Integer.parseInt(editText1.getText().toString());	
 			Kokanee = message1;
-			
+		}
+			catch(NumberFormatException nfe)
+			{
+				Kokanee = 0;
+			}
+		
+		try{
 			int message2 = Integer.parseInt(editText2.getText().toString());	
 			Budweiser = message2;
-			
+		}
+			catch(NumberFormatException nfe)
+			{
+				Budweiser = 0;
+			}
+		try{
 			int message3 = Integer.parseInt(editText3.getText().toString());	
 			Chivas = message3;
-			
+		}
+			catch(NumberFormatException nfe)
+			{
+				Chivas = 0;
+			}
+		try{
 			int message4 = Integer.parseInt(editText4.getText().toString());	
 			Ballantines = message4;
-		{
+		}
+			catch(NumberFormatException nfe)
+			{
+				Ballantines = 0;
+			}
 			
-		}
-		
-		}
-		catch(NumberFormatException nfe)
-		{
-			
-		}
-		
 		Alcohol[0] = Kokanee;
 		Alcohol[1] = Chivas;
 		Alcohol[2] = Budweiser;
 		Alcohol[3] = Ballantines;
 		
 		Intent intent = new Intent(this, ViewMenu.class);
-		intent.putExtra("Alcohol_Data", Alcohol);
+		//intent.putExtra("Alcohol_Data", Alcohol);
 		startActivity(intent);
 		
 		

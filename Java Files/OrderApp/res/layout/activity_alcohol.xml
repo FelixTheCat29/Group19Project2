@@ -56,7 +56,7 @@
         android:layout_alignLeft="@+id/editText3"
         android:ems="10"
         android:inputType="number"
-        android:width="1dp" >
+        android:width="10dp" >
 
         <requestFocus />
     </EditText>
