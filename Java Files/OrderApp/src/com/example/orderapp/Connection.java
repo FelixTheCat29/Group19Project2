@@ -9,12 +9,15 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 import android.app.Activity;
+import android.graphics.Typeface;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.View;
+import android.view.ViewGroup.LayoutParams;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 public class Connection extends Activity {
@@ -71,6 +74,35 @@ public class Connection extends Activity {
 		new SocketConnect().execute((Void) null);
 	}
 
+   public void onClickSendOrderWithClientID(View view){
+	   String orderToSend = "";
+	   ConnectionApplication app = (ConnectionApplication) getApplication();
+	   int array1[] = Alcohol.getAl();
+	   for(int i = 0 ; i < Alcohol.getAl().length ; i++)
+       { 	
+       	if (array1[i] != 0)
+       	{
+           orderToSend = orderToSend + Alcohol.getAlcohols(i)+": "+ array1[i];       
+       	}
+       }
+	   EditText clientET = (EditText)findViewById(R.id.clientid);
+	   int client_to_send = Integer.parseInt(clientET.getText().toString());
+	   byte buf[] = new byte[orderToSend.length() + 1];
+	   buf[0] = (byte) client_to_send; 
+	   System.arraycopy(orderToSend.getBytes(), 0, buf, 1, orderToSend.length()); 
+	   OutputStream out;
+		try {
+			out = app.sock.getOutputStream();
+			try {
+				out.write(buf, 0, orderToSend.length() + 1);
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		}  
+   }
+	
 	//  Called when the user wants to send a message
 	
 	public void sendMessage(View view) {

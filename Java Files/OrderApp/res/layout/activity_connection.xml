@@ -98,11 +98,24 @@
         android:onClick="openSocket"
         android:text="@string/connect" />
 
-    <Button
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:onClick="sendMessage"
-        android:text="Send Message" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="sendMessage"
+            android:text="Send Message" />
+
+        <Button
+            android:id="@+id/button1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onClickSendOrderWithClientID"
+            android:text="Send Order" />
+
+    </LinearLayout>
 
     <Button
         android:layout_width="fill_parent"

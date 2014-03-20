@@ -48,7 +48,7 @@ public class ReviewPage extends Activity {
             
             //print the order for Alcohol on the screen
 	        for(int i = 0 ; i < Alcohol.getAl().length ; i++)
-	        {
+	        {	//array1[] should be outside of the for loop
 	        	int array1[] = Alcohol.getAl();
 	        	if (array1[i] != 0)
 	        	{
