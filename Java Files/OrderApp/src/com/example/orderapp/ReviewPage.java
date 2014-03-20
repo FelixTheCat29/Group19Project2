@@ -15,7 +15,8 @@ import android.widget.ScrollView;
 import android.widget.TextView;
 
 public class ReviewPage extends Activity {
-	
+	static String alcoholSum="";
+	static String totalSum="";
 
     
 	@Override
@@ -32,6 +33,7 @@ public class ReviewPage extends Activity {
 	        TextView a;
 	        TextView c;
 	        
+	        
 	       //Dynamically print "Below is the order for quest#" on top of the screen
 	        LinearLayout linear0 = new LinearLayout(this);
             linear0.setOrientation(LinearLayout.HORIZONTAL);
@@ -46,16 +48,18 @@ public class ReviewPage extends Activity {
             linear0.addView(a);
             this.setContentView(scrollview);
             
+            
             //print the order for Alcohol on the screen
 	        for(int i = 0 ; i < Alcohol.getAl().length ; i++)
 	        {	//array1[] should be outside of the for loop
 	        	int array1[] = Alcohol.getAl();
 	        	if (array1[i] != 0)
-	        	{
+	        	{	
 	        		LinearLayout linear1 = new LinearLayout(this);
                     linear1.setOrientation(LinearLayout.HORIZONTAL);
                     linearlayout.addView(linear1);
                     b = new TextView(this);
+                    alcoholSum += Alcohol.getAlcohols(i)+": "+ array1[i];
                     b.setText(Alcohol.getAlcohols(i)+": "+ array1[i]);
                     b.setId(i);
                     b.setTextSize(20);
@@ -88,7 +92,7 @@ public class ReviewPage extends Activity {
             linear3.setOrientation(LinearLayout.HORIZONTAL);
             linearlayout.addView(linear3);
             Button d = new Button(this);
-            d.setText("Confrim Order");
+            d.setText("Confirm Order");
             d.setId(1); 
             d.setTextSize(10);
             d.setPadding(8, 3, 8, 3);
@@ -126,6 +130,13 @@ public class ReviewPage extends Activity {
 		Intent intent = new Intent(this, Connection.class);
 		//intent.putExtra("Alcohol_Data", Alcohol);
 		startActivity(intent);
+	}
+	
+	public static String OrderSum(){
+		totalSum ="";
+		totalSum = alcoholSum;
+		alcoholSum = "";
+		return totalSum;
 	}
 	
 }
