@@ -3,10 +3,13 @@ package com.example.orderapp;
 import java.text.DecimalFormat;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.Menu;
+import android.view.View;
 import android.view.ViewGroup.LayoutParams;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
@@ -62,7 +65,7 @@ public class ReviewPage extends Activity {
 			           
 	            linear1.addView(b);
 	        	}
-	        	
+	  
 	            this.setContentView(scrollview);
 	        }
 	        
@@ -80,13 +83,49 @@ public class ReviewPage extends Activity {
             c.setLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT,LayoutParams.WRAP_CONTENT));
             linear2.addView(c);
             this.setContentView(scrollview);
+            
+	        LinearLayout linear3 = new LinearLayout(this);
+            linear3.setOrientation(LinearLayout.HORIZONTAL);
+            linearlayout.addView(linear3);
+            Button d = new Button(this);
+            d.setText("Confrim Order");
+            d.setId(1); 
+            d.setTextSize(10);
+            d.setPadding(8, 3, 8, 3);
+            d.setTypeface(Typeface.SERIF,Typeface.BOLD_ITALIC);
+            d.setLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT,LayoutParams.WRAP_CONTENT));
+           
+            
+            linear3.addView(d);            
+            d.setOnClickListener(new View.OnClickListener(){
+                
+                @Override
+                public void onClick(View v) {
+                      // TODO Auto-generated method stub
+                      //Toast.makeText(getApplicationContext(), "Button Clicked.."+ (v.getId()+1), Toast.LENGTH_SHORT).show();
+                		JumpAct(v);
+                }
+            });
+             this.setContentView(scrollview);
 	}
-
+	
+	private void JumpAct(View v) {
+		// TODO Auto-generated method stub
+        Intent intent = new Intent(this, Connection.class);
+        startActivity(intent);
+	}
+	
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.review_page, menu);
 		return true;
+	}
+	
+	public void onClickConnect(View view) {
+		Intent intent = new Intent(this, Connection.class);
+		//intent.putExtra("Alcohol_Data", Alcohol);
+		startActivity(intent);
 	}
 	
 }

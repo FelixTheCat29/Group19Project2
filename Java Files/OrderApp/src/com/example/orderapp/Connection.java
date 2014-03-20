@@ -11,14 +11,14 @@ import java.util.TimerTask;
 import android.app.Activity;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.os.StrictMode;
+import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
 public class Connection extends Activity {
-
+	int chef_ID=0;
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		
@@ -82,6 +82,8 @@ public class Connection extends Activity {
 		String msg = et.getText().toString();
 
 		EditText clientET = (EditText)findViewById(R.id.clientid);
+		//clientET.setText(chef_ID);
+		//Log.i("chef",""+chef_ID);
 		int client_to_send = Integer.parseInt(clientET.getText().toString());
 		// Create an array of bytes.  First byte will be the
 		// message length, and the next ones will be the message
@@ -204,9 +206,11 @@ public class Connection extends Activity {
 						
 						byte buf[] = new byte[bytes_avail];
 						in.read(buf);
-
+						
+						//chef_ID = (int)buf[0];
 						final String s = new String(buf, 0, bytes_avail, "US-ASCII");
-		
+						//chef_ID = Integer.parseInt(s, 0);
+						
 						// As explained in the tutorials, the GUI can not be
 						// updated in an asyncrhonous task.  So, update the GUI
 						// using the UI thread.
