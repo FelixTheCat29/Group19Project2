@@ -2,7 +2,9 @@ package com.example.chefapp;
 
 import android.os.Bundle;
 import android.app.Activity;
+import android.content.Intent;
 import android.view.Menu;
+import android.view.View;
 
 public class MainPage extends Activity {
 
@@ -19,4 +21,9 @@ public class MainPage extends Activity {
 		return true;
 	}
 
+	public void Transistion(View view){
+	    Intent intent = new Intent(this, Connection.class);
+	    startActivity(intent); 
+		
+	}
 }
