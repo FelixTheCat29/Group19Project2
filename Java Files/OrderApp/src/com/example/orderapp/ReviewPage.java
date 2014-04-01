@@ -13,16 +13,21 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class ReviewPage extends Activity {
-	static String alcoholSum="";
-	static String totalSum="";
-
+	static String AlcoholOrder="";
+	static double totalSum=0;
+	static double[] TableOrder;
+	static String OrderString="";
     
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
+		
+		//TableOrder = new String[WelcomePage.getNumCust()];
+		
 	
 	      ScrollView scrollview;
 		  	scrollview = new ScrollView(this);
@@ -59,7 +64,7 @@ public class ReviewPage extends Activity {
                     linear1.setOrientation(LinearLayout.HORIZONTAL);
                     linearlayout.addView(linear1);
                     b = new TextView(this);
-                    alcoholSum += Alcohol.getAlcohols(i)+": "+ array1[i];
+                    AlcoholOrder += Alcohol.getAlcohols(i)+": "+ array1[i];
                     b.setText(Alcohol.getAlcohols(i)+": "+ array1[i]);
                     b.setId(i);
                     b.setTextSize(20);
@@ -92,7 +97,10 @@ public class ReviewPage extends Activity {
             linear3.setOrientation(LinearLayout.HORIZONTAL);
             linearlayout.addView(linear3);
             Button d = new Button(this);
-            d.setText("Confirm Order");
+            
+            //OrderSum();
+            
+            d.setText("Confirm Order"+ReturnTableSum());
             d.setId(1); 
             d.setTextSize(10);
             d.setPadding(8, 3, 8, 3);
@@ -132,11 +140,31 @@ public class ReviewPage extends Activity {
 		startActivity(intent);
 	}
 	
-	public static String OrderSum(){
-		totalSum ="";
-		totalSum = alcoholSum;
-		alcoholSum = "";
+	public static double OrderSum(){
+		totalSum = Alcohol.getAlPrice();
+		TableSum(NumberCustomers.getSelCust(), totalSum);
 		return totalSum;
+	}
+	
+	public static String OrderString(){
+		OrderString= "";
+		OrderString= AlcoholOrder;
+		AlcoholOrder="";
+		return OrderString;
+	}
+	
+	public static void TableSum(int SelCust, double totalSum){
+	//TableOrder[SelCust] = totalSum;
+		WelcomePage.editTableOrder((SelCust-1),totalSum);
+	}
+	
+	public static double ReturnTableSum(){
+		double sum = 0;
+	    for(int i=0; i<WelcomePage.TableOrder.length; i++)
+	    {
+	    	sum+= WelcomePage.TableOrder[i];
+	    }
+		return sum;
 	}
 	
 }

@@ -112,7 +112,7 @@ public class Connection extends Activity {
 		
 		//EditText et = (EditText) findViewById(R.id.MessageText);
 		//String msg = et.getText().toString();
-		String msg = ReviewPage.OrderSum();
+		String msg = ReviewPage.OrderString();
 
 		EditText clientET = (EditText)findViewById(R.id.clientid);
 		//clientET.setText(chef_ID);
@@ -262,8 +262,8 @@ public class Connection extends Activity {
 			}
 		}	
 	}
-	@Override
-	public void onBackPressed() {
-	}
+	//@Override
+	//public void onBackPressed() {
+	//}
 }
 

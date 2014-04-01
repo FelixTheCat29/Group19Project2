@@ -26,6 +26,7 @@ public class WelcomePage extends Activity {
 	LinearLayout layoutOfPopup;
 	TextView popupText;
 	PopupWindow popupMessage;
+    static double[] TableOrder;
 	Button btnClosePopup;
 	static int numCust = 1;
 	int x = 0;
@@ -62,6 +63,13 @@ catch(NumberFormatException nfe)
     
     numCust = x;
 
+    TableOrder = new double[numCust];
+    for(int i=0; i<TableOrder.length; i++)
+    {
+    	TableOrder[i]=0;
+    }
+
+    
     Intent intent = new Intent(this, NumberCustomers.class); 
 
     Intent intent2 = new Intent(this, ViewMenu.class);
@@ -113,4 +121,15 @@ catch(NumberFormatException nfe)
 		return numCust;
 			
 		}
+		
+		public static void editTableOrder(int NumCust, Double sum)
+		{
+			TableOrder[NumCust]= sum;
+		}
+		
+		public static double[] getTableOrder()
+		{
+		return TableOrder;
+		}
+		
 }
