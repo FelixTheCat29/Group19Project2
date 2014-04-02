@@ -26,7 +26,6 @@ public class ReviewPage extends Activity {
 		super.onCreate(savedInstanceState);
 
 		
-		//TableOrder = new String[WelcomePage.getNumCust()];
 		
 	
 	      ScrollView scrollview;
@@ -55,9 +54,9 @@ public class ReviewPage extends Activity {
             
             
             //print the order for Alcohol on the screen
-	        for(int i = 0 ; i < Alcohol.getAl().length ; i++)
+	        for(int i = 0 ; i < NumberCustomers.CurrentCust.alcohol.length ; i++)
 	        {	//array1[] should be outside of the for loop
-	        	int array1[] = Alcohol.getAl();
+	        	int array1[] = NumberCustomers.CurrentCust.alcohol;
 	        	if (array1[i] != 0)
 	        	{	
 	        		LinearLayout linear1 = new LinearLayout(this);
@@ -84,7 +83,7 @@ public class ReviewPage extends Activity {
 	        c = new TextView(this);
 	        DecimalFormat df = new DecimalFormat("#.##");
             c.setText("Below is the total price for guest "+NumberCustomers.getSelCust()+": $"
-	        +String.valueOf(df.format(Alcohol.getAlPrice()))+".00");
+	        +String.valueOf(df.format(NumberCustomers.CurrentCust.Alsum))+".00");
             c.setId(50);
             c.setTextSize(25);
             c.setPadding(18, 13, 18, 13);
@@ -98,7 +97,6 @@ public class ReviewPage extends Activity {
             linearlayout.addView(linear3);
             Button d = new Button(this);
             
-            //OrderSum();
             
             d.setText("Confirm Order"+ReturnTableSum());
             d.setId(1); 
@@ -107,6 +105,26 @@ public class ReviewPage extends Activity {
             d.setTypeface(Typeface.SERIF,Typeface.BOLD_ITALIC);
             d.setLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT,LayoutParams.WRAP_CONTENT));
            
+            if(NumberCustomers.getSelCust() == 1)
+            {
+            	WelcomePage.Customer1 = NumberCustomers.CurrentCust;
+            }
+            
+            if(NumberCustomers.getSelCust() == 2)
+            {
+            	WelcomePage.Customer2 = NumberCustomers.CurrentCust;
+            }
+            
+            if(NumberCustomers.getSelCust() == 3)
+            {
+            	WelcomePage.Customer3 = NumberCustomers.CurrentCust;
+            }
+            
+            if(NumberCustomers.getSelCust() == 4)
+            {
+            	WelcomePage.Customer4 = NumberCustomers.CurrentCust;
+            }
+            
             
             linear3.addView(d);            
             d.setOnClickListener(new View.OnClickListener(){
@@ -154,7 +172,6 @@ public class ReviewPage extends Activity {
 	}
 	
 	public static void TableSum(int SelCust, double totalSum){
-	//TableOrder[SelCust] = totalSum;
 		WelcomePage.editTableOrder((SelCust-1),totalSum);
 	}
 	
