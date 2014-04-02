@@ -81,9 +81,9 @@ public class ReviewPage extends Activity {
             linear2.setOrientation(LinearLayout.HORIZONTAL);
             linearlayout.addView(linear2);
 	        c = new TextView(this);
-	        DecimalFormat df = new DecimalFormat("#.##");
+	        DecimalFormat df = new DecimalFormat("#.00");
             c.setText("Below is the total price for guest "+NumberCustomers.getSelCust()+": $"
-	        +String.valueOf(df.format(NumberCustomers.CurrentCust.Alsum))+".00");
+	        +String.valueOf(df.format(NumberCustomers.CurrentCust.Alsum)));
             c.setId(50);
             c.setTextSize(25);
             c.setPadding(18, 13, 18, 13);
@@ -98,12 +98,21 @@ public class ReviewPage extends Activity {
             Button d = new Button(this);
             
             
-            d.setText("Confirm Order"+ReturnTableSum());
+            d.setText("Confirm Order");
             d.setId(1); 
             d.setTextSize(10);
             d.setPadding(8, 3, 8, 3);
             d.setTypeface(Typeface.SERIF,Typeface.BOLD_ITALIC);
             d.setLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT,LayoutParams.WRAP_CONTENT));
+	      
+            Button e = new Button(this);
+              
+            e.setText("Order For a Different Guest");
+            e.setId(2); 
+            e.setTextSize(10);
+            e.setPadding(8, 3, 8, 3);
+            e.setTypeface(Typeface.SERIF,Typeface.BOLD_ITALIC);
+            e.setLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT,LayoutParams.WRAP_CONTENT));
            
             if(NumberCustomers.getSelCust() == 1)
             {
@@ -135,6 +144,21 @@ public class ReviewPage extends Activity {
                       //Toast.makeText(getApplicationContext(), "Button Clicked.."+ (v.getId()+1), Toast.LENGTH_SHORT).show();
                 		JumpAct(v);
                 }
+                
+                
+                
+            });
+            
+            linear3.addView(e);            
+            e.setOnClickListener(new View.OnClickListener(){
+                
+                @Override
+                public void onClick(View v) {
+                	transitionNumCust(v);
+                }
+                
+                
+                
             });
              this.setContentView(scrollview);
 	}
@@ -154,7 +178,11 @@ public class ReviewPage extends Activity {
 	
 	public void onClickConnect(View view) {
 		Intent intent = new Intent(this, Connection.class);
-		//intent.putExtra("Alcohol_Data", Alcohol);
+		startActivity(intent);
+	}
+	
+	public void transitionNumCust(View view) {
+		Intent intent = new Intent(this, NumberCustomers.class);
 		startActivity(intent);
 	}
 	
