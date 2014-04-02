@@ -17,8 +17,17 @@ import android.widget.TextView;
 public class ReviewPage extends Activity {
 	static String alcoholSum="";
 	static String totalSum="";
+	private int chefClientId=0; //Init to 0 meaning has no client id yet, needs to receive Chef App broadcast.
 
     
+	public int getClient_id() {
+		return chefClientId;
+	}
+
+	public void setClient_id(int client_id) {
+		this.chefClientId = chefClientId;
+	}
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);

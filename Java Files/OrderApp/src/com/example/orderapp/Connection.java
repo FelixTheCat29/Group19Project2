@@ -21,16 +21,16 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 public class Connection extends Activity {
-	int chef_ID=0;
+	int chefID=0;
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
-		
+
 		// This call will result in better error messages if you
 		// try to do things in the wrong thread.
-		
-//		StrictMode.setThreadPolicy(new StrictMode.ThreadPolicy.Builder()
-//				.detectDiskReads().detectDiskWrites().detectNetwork()
-//				.penaltyLog().build());
+
+		//		StrictMode.setThreadPolicy(new StrictMode.ThreadPolicy.Builder()
+		//				.detectDiskReads().detectDiskWrites().detectNetwork()
+		//				.penaltyLog().build());
 
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_connection);
@@ -42,7 +42,7 @@ public class Connection extends Activity {
 
 		// Set up a timer task.  We will use the timer to check the
 		// input queue every 500 ms
-		
+
 		TCPReadTimerTask tcp_task = new TCPReadTimerTask();
 		Timer tcp_timer = new Timer();
 		tcp_timer.schedule(tcp_task, 3000, 500);
@@ -55,61 +55,33 @@ public class Connection extends Activity {
 	}
 
 	// Route called when the user presses "connect"
-	
+
 	public void openSocket(View view) {
 		ConnectionApplication app = (ConnectionApplication) getApplication();
 		TextView msgbox = (TextView) findViewById(R.id.error_message_box);
 
 		// Make sure the socket is not already opened 
-		
+
 		if (app.sock != null && app.sock.isConnected() && !app.sock.isClosed()) {
 			msgbox.setText("Socket already open");
 			return;
 		}
-		
+
 		// open the socket.  SocketConnect is a new subclass
-	    // (defined below).  This creates an instance of the subclass
+		// (defined below).  This creates an instance of the subclass
 		// and executes the code in it.
-		
+
 		new SocketConnect().execute((Void) null);
 	}
 
-//   public void onClickSendOrderWithClientID(View view){
-//	   String orderToSend = "";
-//	   ConnectionApplication app = (ConnectionApplication) getApplication();
-//	   int array1[] = Alcohol.getAl();
-//	   for(int i = 0 ; i < Alcohol.getAl().length ; i++)
-//       { 	
-//       	if (array1[i] != 0)
-//       	{
-//           orderToSend = orderToSend + Alcohol.getAlcohols(i)+": "+ array1[i];       
-//       	}
-//       }
-//	   EditText clientET = (EditText)findViewById(R.id.clientid);
-//	   int client_to_send = Integer.parseInt(clientET.getText().toString());
-//	   byte buf[] = new byte[orderToSend.length() + 1];
-//	   buf[0] = (byte) client_to_send; 
-//	   System.arraycopy(orderToSend.getBytes(), 0, buf, 1, orderToSend.length()); 
-//	   OutputStream out;
-//		try {
-//			out = app.sock.getOutputStream();
-//			try {
-//				out.write(buf, 0, orderToSend.length() + 1);
-//			} catch (IOException e) {
-//				e.printStackTrace();
-//			}
-//		} catch (IOException e) {
-//			e.printStackTrace();
-//		}  
-//   }
-//	
-	//  Called when the user wants to send a message
-	
+
+
+
 	public void sendMessage(View view) {
 		ConnectionApplication app = (ConnectionApplication) getApplication();
-		
+
 		// Get the message from the box
-		
+
 		//EditText et = (EditText) findViewById(R.id.MessageText);
 		//String msg = et.getText().toString();
 		String msg = ReviewPage.OrderSum();
@@ -120,18 +92,19 @@ public class Connection extends Activity {
 		int client_to_send = Integer.parseInt(clientET.getText().toString());
 		// Create an array of bytes.  First byte will be the
 		// message length, and the next ones will be the message
-		
-		byte buf[] = new byte[msg.length() + 1];
-		buf[0] = (byte) client_to_send; 
-		System.arraycopy(msg.getBytes(), 0, buf, 1, msg.length());
+
+		byte buf[] = new byte[msg.length() + 2];
+		buf[0] = (byte)client_to_send; 
+		buf[1] = (byte)0; //normal operations
+		System.arraycopy(msg.getBytes(), 0, buf, 2, msg.length());
 
 		// Now send through the output stream of the socket
-		
+
 		OutputStream out;
 		try {
 			out = app.sock.getOutputStream();
 			try {
-				out.write(buf, 0, msg.length() + 1);
+				out.write(buf, 0, msg.length() + 2);
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
@@ -140,8 +113,72 @@ public class Connection extends Activity {
 		}
 	}
 
-	// Called when the user closes a socket
+
+
+
+
+
+	//Broadcast empty message to get ChefApp to send back an empty message - To Update Chef client ID
+	public void requestChefID() {
+		ConnectionApplication app = (ConnectionApplication) getApplication();
+
+		byte buf[] = new byte[2];
+
+		buf[0] = (byte)255;
+		buf[1] = (byte)1; 	//special integer specifies chef app needs to reply with empty message to update 
+							//the clientID
+
+		// Now send through the output stream of the socket
+
+		OutputStream out;
+		try {
+			out = app.sock.getOutputStream();
+			try {
+				out.write(buf, 0, 2); //only writing 2 bytes, 255 and special int since it's a request 
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
+	}
+	//  Called when the user wants to send a message
+
+	public void sendOrder(View view) {
+		ConnectionApplication app = (ConnectionApplication) getApplication();
+
+		String msg = ReviewPage.OrderSum();
+		Log.i("con",""+chefID);
+		byte buf[] = new byte[msg.length() + 2];
+		if(chefID == 0)
+			chefID = 255;
+		else {
+			buf[0] = (byte)chefID; 
+			buf[1] = (byte)0; // special integer is zero for normal order sends.
+			System.arraycopy(msg.getBytes(), 0, buf, 2, msg.length());
+
+			// Now send through the output stream of the socket
+
+			OutputStream out;
+			try {
+				out = app.sock.getOutputStream();
+				try {
+					out.write(buf, 0, msg.length() + 2);
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+	}
 	
+	
+	
+
+	// Called when the user closes a socket
+
 	public void closeSocket(View view) {
 		ConnectionApplication app = (ConnectionApplication) getApplication();
 		Socket s = app.sock;
@@ -154,7 +191,7 @@ public class Connection extends Activity {
 	}
 
 	// Construct an IP address from the four boxes
-	
+
 	public String getConnectToIP() {
 		String addr = "";
 		EditText text_ip;
@@ -170,7 +207,7 @@ public class Connection extends Activity {
 	}
 
 	// Gets the Port from the appropriate field.
-	
+
 	public Integer getConnectToPort() {
 		Integer port;
 		EditText text_port;
@@ -180,18 +217,18 @@ public class Connection extends Activity {
 
 		return port;
 	}
+  
 
-
-    // This is the Socket Connect asynchronous thread.  Opening a socket
+	// This is the Socket Connect asynchronous thread.  Opening a socket
 	// has to be done in an Asynchronous thread in Android.  Be sure you
 	// have done the Asynchronous Tread tutorial before trying to understand
 	// this code.
-	
+
 	public class SocketConnect extends AsyncTask<Void, Void, Socket> {
 
 		// The main parcel of work for this thread.  Opens a socket
 		// to connect to the specified IP.
-		
+
 		protected Socket doInBackground(Void... voids) {
 			Socket s = null;
 			String ip = getConnectToIP();
@@ -210,60 +247,89 @@ public class Connection extends Activity {
 		// After executing the doInBackground method, this is 
 		// automatically called, in the UI (main) thread to store
 		// the socket in this app's persistent storage
-		
+
 		protected void onPostExecute(Socket s) {
 			ConnectionApplication myApp = (ConnectionApplication) Connection.this
 					.getApplication();
 			myApp.sock = s;
+
+			
+			byte buf[] = new byte[2];
+
+			buf[0] = (byte)255;
+			buf[1] = (byte)1; 	//special integer specifies chef app needs to reply with empty message to update 
+								//the clientID
+
+			// Now send through the output stream of the socket
+
+			OutputStream out;
+			try {
+				out = myApp.sock.getOutputStream();
+				try {
+					out.write(buf, 0, 2); //only writing 2 bytes, 255 and special int since it's a request 
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
 		}
 	}
 
 	// This is a timer Task.  Be sure to work through the tutorials
 	// on Timer Tasks before trying to understand this code.
-	
+
 	public class TCPReadTimerTask extends TimerTask {
 		public void run() {
 			ConnectionApplication app = (ConnectionApplication) getApplication();
 			if (app.sock != null && app.sock.isConnected()
 					&& !app.sock.isClosed()) {
-				
+
 				try {
 					InputStream in = app.sock.getInputStream();
 
 					// See if any bytes are available from the Middleman
-					
+
 					int bytes_avail = in.available();
 					if (bytes_avail > 0) {
-						
-						// If so, read them in and create a sring
-						
+
+						// If so, read them in and create a string
+
 						byte buf[] = new byte[bytes_avail];
 						in.read(buf);
-						
-						//chef_ID = (int)buf[0];
-						final String s = new String(buf, 0, bytes_avail, "US-ASCII");
-						//chef_ID = Integer.parseInt(s, 0);
-						
-						// As explained in the tutorials, the GUI can not be
-						// updated in an asyncrhonous task.  So, update the GUI
-						// using the UI thread.
-						
-						runOnUiThread(new Runnable() {
-							public void run() {
-								EditText et = (EditText) findViewById(R.id.RecvdMessage);
-								et.setText(s);
-							}
-						});
-						
+
+						chefID = buf[0];
+						Log.i("con",""+chefID); // Debugging 
+						int specialInt = buf[1];
+
+						// if the special integer is 1 or 2 it means the chef client ID is being 
+						// updated and we don't need to read the string.
+						if(specialInt == 0) {
+
+							final String s = new String(buf, 0, bytes_avail, "US-ASCII");						
+
+							// As explained in the tutorials, the GUI can not be
+							// updated in an asynchronous task.  So, update the GUI
+							// using the UI thread.
+
+							runOnUiThread(new Runnable() {
+								public void run() {
+									EditText et = (EditText) findViewById(R.id.RecvdMessage);
+									et.setText(s);
+								}
+							});
+						} //End of if statement
 					}
 				} catch (IOException e) {
 					e.printStackTrace();
 				}
-			}
+			} 	 
 		}	
 	}
-	@Override
-	public void onBackPressed() {
-	}
+
+
+	//	@Override
+	//	public void onBackPressed() {
+	//	}
 }
 
