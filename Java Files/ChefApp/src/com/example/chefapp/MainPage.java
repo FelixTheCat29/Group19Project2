@@ -1,9 +1,10 @@
 package com.example.chefapp;
 
-import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
+import android.os.Bundle;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 
 public class MainPage extends Activity {
@@ -20,10 +21,25 @@ public class MainPage extends Activity {
 		getMenuInflater().inflate(R.menu.main_page, menu);
 		return true;
 	}
+	
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+	    // Handle presses on the action bar items
+	    switch (item.getItemId()) {
+	        case R.id.action_settings:
+	    	    Intent intent = new Intent(this, Connection.class);
+	    	    startActivity(intent); 
+	            return true;
+	        default:
+	            return super.onOptionsItemSelected(item);
+	    }
+	}
 
 	public void Transistion(View view){
 	    Intent intent = new Intent(this, Connection.class);
 	    startActivity(intent); 
 		
 	}
+	
+	
 }
