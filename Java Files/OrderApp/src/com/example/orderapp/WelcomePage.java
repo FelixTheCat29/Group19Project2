@@ -21,6 +21,14 @@ import android.view.ViewGroup.LayoutParams;
 public class WelcomePage extends Activity {
 	
 	
+    static Customer Customer1 = new Customer(1);
+    static Customer Customer2 = new Customer(2);
+    static Customer Customer3 = new Customer(3);
+    static Customer Customer4 = new Customer(4);
+    
+    static Customer CustArray[] = {Customer1, Customer2, Customer3, Customer4};
+	
+	
 	Button button;
 	Button insidePopupButton;
 	LinearLayout layoutOfPopup;
@@ -73,6 +81,7 @@ catch(NumberFormatException nfe)
     Intent intent = new Intent(this, NumberCustomers.class); 
 
     Intent intent2 = new Intent(this, ViewMenu.class);
+
 
     
     if (x == 1){

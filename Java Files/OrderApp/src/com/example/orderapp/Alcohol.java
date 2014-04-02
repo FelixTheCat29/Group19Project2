@@ -44,8 +44,8 @@ public class Alcohol extends Activity {
 	
 	public static double getAlPrice(){
 		return price;
-		
 	}
+	
 	
 	public void onClickSaveAndCont(View view){
 
@@ -73,35 +73,43 @@ public class Alcohol extends Activity {
 		}
 		try{
 			int message1 = Integer.parseInt(EditText1.getText().toString());	
+			//NumberCustomers.CurrentCust.alcohol[0] = message1;
 			Kokanee = message1;
 		}
 			catch(NumberFormatException nfe)
 			{
 				Kokanee = 0;
+				//NumberCustomers.CurrentCust.alcohol[0] = 0;
 			}
 		
 		try{
 			int message2 = Integer.parseInt(EditText2.getText().toString());	
 			Chivas = message2;
+			//NumberCustomers.CurrentCust.alcohol[1] = message2;
 		}
 			catch(NumberFormatException nfe)
 			{
 				Chivas = 0;
+				//NumberCustomers.CurrentCust.alcohol[1] = 0;
 			}
 		try{
 			int message3 = Integer.parseInt(EditText3.getText().toString());	
 			Budweiser = message3;
+			//NumberCustomers.CurrentCust.alcohol[2] = message3;
 		}
 			catch(NumberFormatException nfe)
 			{
 				Budweiser = 0;
+				//NumberCustomers.CurrentCust.alcohol[2] = 0;
 			}
 		try{
 			int message4 = Integer.parseInt(EditText4.getText().toString());	
+		//	NumberCustomers.CurrentCust.alcohol[3] = 0;
 			Ballantines = message4;
 		}
 			catch(NumberFormatException nfe)
 			{
+		//		NumberCustomers.CurrentCust.alcohol[3] = 0;
 				Ballantines = 0;
 			}
 			
@@ -110,10 +118,15 @@ public class Alcohol extends Activity {
 		Alcohol[2] = Budweiser;
 		Alcohol[3] = Ballantines;
 		
+		NumberCustomers.CurrentCust.CustAl(Alcohol);
+	
+		
 		for(int i=0; i<AlcoholKind; i++)
 		{
 			price = AlcoholPrice[i]*Alcohol[i]+price;
 		}
+		
+		NumberCustomers.CurrentCust.Alsum = price;
 		
 		Intent intent = new Intent(this, ViewMenu.class);
 		//intent.putExtra("Alcohol_Data", Alcohol);

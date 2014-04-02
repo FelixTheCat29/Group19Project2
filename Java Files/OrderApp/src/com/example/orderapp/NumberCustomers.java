@@ -17,7 +17,8 @@ import android.widget.ScrollView;
 import android.widget.Toast;
 
 public class NumberCustomers extends Activity {
-    static int selectedCust = 0;  
+    static int selectedCust = 0;
+	public static Customer CurrentCust;  
 	Button b;
       ScrollView scrollview;
     /** Called when the activity is first created. */
@@ -54,6 +55,7 @@ public class NumberCustomers extends Activity {
                               // TODO Auto-generated method stub
                               //Toast.makeText(getApplicationContext(), "Button Clicked.."+ (v.getId()+1), Toast.LENGTH_SHORT).show();
                               selectedCust = (v.getId()+1);
+                              CurrentCust = WelcomePage.CustArray[selectedCust];
                               Transistion(v);
 
                         }
