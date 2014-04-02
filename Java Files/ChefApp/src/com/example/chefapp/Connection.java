@@ -19,7 +19,7 @@ import android.view.ViewGroup.LayoutParams;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-
+//Git comment test
 public class Connection extends Activity {
 	int chef_ID=0;
 	@Override
