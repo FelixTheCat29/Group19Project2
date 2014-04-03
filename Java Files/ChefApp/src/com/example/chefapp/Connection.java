@@ -542,7 +542,7 @@ public class Connection extends Activity {
 
 						if(specialInt == 0) {
 
-							final String s = new String(buf, 0, bytes_avail, "US-ASCII");
+							final String s = new String(buf, 2, bytes_avail-2, "US-ASCII");
 
 							// As explained in the tutorials, the GUI can not be
 							// updated in an asynchronous task.  So, update the GUI

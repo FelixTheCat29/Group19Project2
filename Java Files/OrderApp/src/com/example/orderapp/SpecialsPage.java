@@ -9,6 +9,8 @@ import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup.LayoutParams;
@@ -20,57 +22,29 @@ import android.widget.TextView;
 public class SpecialsPage extends Activity {
 	public static List<String> specialItems = new ArrayList<String>();
 	
+	public static String stringForUpdateSpecials;
+	public static int counter=0;
+	public static Handler mHandler;
+	
 	public List<String> getSpecialItems() {
 		return specialItems;
 	}
+	
+	
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		//setContentView(R.layout.activity_specials_page);
 		
-		ScrollView scrollview;
-		scrollview = new ScrollView(this);
-		LinearLayout linearlayout = new LinearLayout(this);
-		linearlayout.setOrientation(LinearLayout.VERTICAL);
-		scrollview.addView(linearlayout);
-		
-		
-		Button d = new Button(this);
-		d.setText("Update Specials");
-		d.setId(1); 
-		d.setTextSize(10);
-		d.setPadding(8, 3, 8, 3);
-		d.setTypeface(Typeface.SERIF,Typeface.BOLD_ITALIC);
-		d.setLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT,LayoutParams.WRAP_CONTENT));
-
-		linearlayout.addView(d);            
-		d.setOnClickListener(new View.OnClickListener(){
-
-			@Override
-			public void onClick(View v) {
-				
-				onClickRequestUpdateSpecials(v);
+		//UI Purpose
+		mHandler = new Handler() {
+			public void handleMessage(Message msg) {
+				Log.i("UI",""+stringForUpdateSpecials);
+				SpecialsPage.specialItems.add(0, stringForUpdateSpecials);
+				onResume();
 			}
-		});
-		this.setContentView(scrollview);
-			
-		TextView b;
-		
-		for(String s: specialItems) {
-			LinearLayout linear0 = new LinearLayout(this);
-			linear0.setOrientation(LinearLayout.HORIZONTAL);
-			linearlayout.addView(linear0);
-			b= new TextView(this);
-			b.setText(s);
-			b.setId(50);
-			b.setTextSize(25);
-			b.setPadding(18, 13, 18, 13);
-			b.setTypeface(Typeface.SERIF,Typeface.BOLD_ITALIC);
-			b.setLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT,LayoutParams.WRAP_CONTENT));
-			linear0.addView(b);
-			this.setContentView(scrollview);
-		}
+		};
 		
 	}
 

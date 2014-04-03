@@ -9,9 +9,10 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.util.Log;
 import android.view.Menu;
 import android.view.View;
@@ -19,6 +20,10 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 public class Connection extends Activity {
+	
+//	public static String stringForUpdateSpecials;
+//	public static int counter=0;
+//	public Handler mHandler;
 	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -38,6 +43,17 @@ public class Connection extends Activity {
 		et = (EditText) findViewById(R.id.error_message_box);
 		et.setKeyListener(null);
 
+		
+//		//UI Purpose
+//		mHandler = new Handler() {
+//			public void handleMessage(Message msg) {
+//				Log.i("UI",""+stringForUpdateSpecials);
+//				SpecialsPage.specialItems.add(stringForUpdateSpecials);
+//				
+//			}
+//		};
+//		
+		
 		// Set up a timer task.  We will use the timer to check the
 		// input queue every 500 ms
 
@@ -279,7 +295,13 @@ public class Connection extends Activity {
 	// on Timer Tasks before trying to understand this code.
 
 	public class TCPReadTimerTask extends TimerTask {
+		
 		public void run() {
+			
+			//UI
+//			SpecialsPage.counter++;
+//			SpecialsPage.mHandler.obtainMessage(1).sendToTarget();
+//			
 			ConnectionApplication app = (ConnectionApplication) getApplication();
 			if (app.sock != null && app.sock.isConnected()
 					&& !app.sock.isClosed()) {
@@ -326,7 +348,11 @@ public class Connection extends Activity {
 						else if (specialInt == 4) {
 							
 							final String s = new String(buf, 0, bytes_avail, "US-ASCII");
-							SpecialsPage.specialItems.add(s);
+							SpecialsPage.stringForUpdateSpecials = s;
+							//SpecialsPage.specialItems.add(s);
+							SpecialsPage.mHandler.obtainMessage(1).sendToTarget();
+
+							
  
 
 						}
