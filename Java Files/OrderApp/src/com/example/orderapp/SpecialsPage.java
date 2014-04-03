@@ -4,11 +4,9 @@ import java.io.IOException;
 import java.io.OutputStream;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.TextView;
 
 public class SpecialsPage extends Activity {
@@ -40,7 +38,7 @@ public class SpecialsPage extends Activity {
 		// message length, and the next ones will be the message
 
 		byte buf[] = new byte[2];
-		buf[0] = (byte)255; 
+		buf[0] = (byte)app.getChefClientID(); 
 		buf[1] = (byte)4; // 4 means request to update specials 
 		
 

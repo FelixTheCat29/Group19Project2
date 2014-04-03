@@ -21,15 +21,15 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 public class Connection extends Activity {
-	private int chefID=0;  //Init to 0 meaning has no client id yet, needs to receive Chef App broadcast.
-	
-	public int getChefClientID() {
-		return chefID;
-	}
-
-	private void setChefClientID(int client_id) {
-		this.chefID = client_id;
-	}
+//	private int chefID=0;  //Init to 0 meaning has no client id yet, needs to receive Chef App broadcast.
+//	
+//	public int getChefClientID() {
+//		return chefID;
+//	}
+//
+//	private void setChefClientID(int client_id) {
+//		this.chefID = client_id;
+//	}
 	
 	
 	@Override
@@ -159,12 +159,12 @@ public class Connection extends Activity {
 		ConnectionApplication app = (ConnectionApplication) getApplication();
 
 		String msg = ReviewPage.OrderSum();
-		Log.i("con",""+chefID);
+		Log.i("con",""+ app.getChefClientID());
 		byte buf[] = new byte[msg.length() + 2];
-		if(chefID == 0)
-			chefID = 255;
+		if(app.getChefClientID() == 0)
+			app.setChefClientID(255);
 		else {
-			buf[0] = (byte)chefID; 
+			buf[0] = (byte)app.getChefClientID(); 
 			buf[1] = (byte)0; // special integer is zero for normal order sends.
 			System.arraycopy(msg.getBytes(), 0, buf, 2, msg.length());
 
@@ -308,7 +308,7 @@ public class Connection extends Activity {
 						byte buf[] = new byte[bytes_avail];
 						in.read(buf);
 
-						Log.i("con",""+chefID); // Debugging 
+						Log.i("con",""+app.getChefClientID()); // Debugging 
 						int specialInt = buf[1];
 
 						// if the special integer is 1 or 2 it means the chef client ID is being 
@@ -331,7 +331,7 @@ public class Connection extends Activity {
 						//If the special integer is 2 the chef side is updating the client ID, set it here
 						else if(specialInt == 2) {
 							int chefClientID = buf[0];
-							setChefClientID(chefClientID);
+							app.setChefClientID(chefClientID);
 						}
 					}
 				} catch (IOException e) {
