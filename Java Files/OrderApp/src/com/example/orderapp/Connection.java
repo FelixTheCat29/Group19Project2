@@ -21,7 +21,17 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 public class Connection extends Activity {
-	int chefID=0;
+	private int chefID=0;  //Init to 0 meaning has no client id yet, needs to receive Chef App broadcast.
+	
+	public int getChefClientID() {
+		return chefID;
+	}
+
+	public void setChefClientID(int client_id) {
+		this.chefID = client_id;
+	}
+	
+	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 
@@ -298,7 +308,6 @@ public class Connection extends Activity {
 						byte buf[] = new byte[bytes_avail];
 						in.read(buf);
 
-						chefID = buf[0];
 						Log.i("con",""+chefID); // Debugging 
 						int specialInt = buf[1];
 
@@ -319,6 +328,11 @@ public class Connection extends Activity {
 								}
 							});
 						} //End of if statement
+						//If the special integer is 2 the chef side is updating the client ID, set it here
+						else if(specialInt == 2) {
+							int chefClientID = buf[0];
+							setChefClientID(chefClientID);
+						}
 					}
 				} catch (IOException e) {
 					e.printStackTrace();

@@ -71,6 +71,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/button5"
         android:layout_centerHorizontal="true"
+        android:onClick="onClickSpecials"
         android:text="@string/Specials_line" />
  <!--  This used to be the connection button -->
   <!--   <Button

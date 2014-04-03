@@ -496,7 +496,7 @@ public class Connection extends Activity {
 		byte buf[] = new byte[2];
 
 		buf[0] = (byte)orderClientID;
-		buf[1] = (byte)2; //special integer specifies chef app is updating the clientID
+		buf[1] = (byte)2; //special integer 2 specifies chef app is updating the clientID
 
 		// Now send through the output stream of the socket
 
