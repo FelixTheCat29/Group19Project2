@@ -27,7 +27,7 @@ public class Connection extends Activity {
 		return chefID;
 	}
 
-	public void setChefClientID(int client_id) {
+	private void setChefClientID(int client_id) {
 		this.chefID = client_id;
 	}
 	
