@@ -27,6 +27,10 @@
             android:name="com.example.chefapp.Connection"
             android:label="@string/getOrder" >
         </activity>
+         <activity
+            android:name="com.example.chefapp.UpdateSpecials"
+            android:label="@string/action_updateSpecials" >
+        </activity>
     </application>
 
 </manifest>
