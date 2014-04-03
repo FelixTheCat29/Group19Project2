@@ -9,28 +9,16 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 import android.app.Activity;
-import android.graphics.Typeface;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.View;
-import android.view.ViewGroup.LayoutParams;
 import android.widget.EditText;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 public class Connection extends Activity {
-//	private int chefID=0;  //Init to 0 meaning has no client id yet, needs to receive Chef App broadcast.
-//	
-//	public int getChefClientID() {
-//		return chefID;
-//	}
-//
-//	private void setChefClientID(int client_id) {
-//		this.chefID = client_id;
-//	}
-	
 	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -86,7 +74,7 @@ public class Connection extends Activity {
 
 
 
-
+	//Manual sending (reads client ID from textbox. If empty will crash)
 	public void sendMessage(View view) {
 		ConnectionApplication app = (ConnectionApplication) getApplication();
 
@@ -153,8 +141,9 @@ public class Connection extends Activity {
 		}
 
 	}
-	//  Called when the user wants to send a message
+	
 
+	//Automatic sending
 	public void sendOrder(View view) {
 		ConnectionApplication app = (ConnectionApplication) getApplication();
 
@@ -327,11 +316,19 @@ public class Connection extends Activity {
 									et.setText(s);
 								}
 							});
-						} //End of if statement
+						} 
 						//If the special integer is 2 the chef side is updating the client ID, set it here
 						else if(specialInt == 2) {
 							int chefClientID = buf[0];
 							app.setChefClientID(chefClientID);
+						}
+						// If the special integer is 4 the DE2 is sending updated specials from the SD card
+						else if (specialInt == 4) {
+							
+							final String s = new String(buf, 0, bytes_avail, "US-ASCII");
+							SpecialsPage.specialItems.add(s);
+ 
+
 						}
 					}
 				} catch (IOException e) {
