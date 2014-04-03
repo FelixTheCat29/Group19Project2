@@ -24,19 +24,20 @@ public final class R {
         public static final int ic_launcher=0x7f020000;
     }
     public static final class id {
+        public static final int ETupdateSpecials=0x7f08000b;
+        public static final int LinearLayout1=0x7f08000a;
         public static final int MessageText=0x7f080007;
         public static final int RecvdMessage=0x7f080008;
-        public static final int action_settings=0x7f08000c;
-        public static final int action_updateSpecials=0x7f08000d;
+        public static final int action_settings=0x7f08000d;
+        public static final int action_updateSpecials=0x7f08000e;
         public static final int button1=0x7f080006;
         public static final int clientid=0x7f080005;
-        public static final int editText1=0x7f08000a;
         public static final int error_message_box=0x7f080009;
         public static final int ip1=0x7f080000;
         public static final int ip2=0x7f080001;
         public static final int ip3=0x7f080002;
         public static final int ip4=0x7f080003;
-        public static final int menu_settings=0x7f08000b;
+        public static final int menu_settings=0x7f08000c;
         public static final int port=0x7f080004;
     }
     public static final class layout {

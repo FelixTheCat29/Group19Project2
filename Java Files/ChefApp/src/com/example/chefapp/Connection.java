@@ -351,7 +351,7 @@ public class Connection extends Activity {
 	}
 
 
-	//  Called when the user wants to send a message
+	//  Called when the user wants to send a message0
 
 	public void sendMessage(View view) {
 		ConnectionApplication app = (ConnectionApplication) getApplication();
