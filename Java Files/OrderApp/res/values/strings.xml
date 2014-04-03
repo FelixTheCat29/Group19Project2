@@ -22,6 +22,7 @@
     <string name="Main_Menu_line">Main Menu</string>
     <string name="Alcohol_line">Alcohol</string>
     <string name="Pops_line">Pops</string>
+    <string name="Specials_line">Specials</string>
     <string name="title_activity_menu_selection">Menu_selection</string>
     <string name="title_activity_menu__qnt_selection">Menu_Qnt_selection</string>
     <string name="title_activity_menu_qnty_selection">MenuQntySelection</string>
