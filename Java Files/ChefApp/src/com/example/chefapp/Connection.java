@@ -565,9 +565,9 @@ public class Connection extends Activity {
 			}
 		}	
 	}
-	@Override
-	public void onBackPressed() {
-	}
+//	@Override
+//	public void onBackPressed() {
+//	}
 }
 
 

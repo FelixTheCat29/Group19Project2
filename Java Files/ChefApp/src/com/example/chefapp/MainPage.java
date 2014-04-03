@@ -4,11 +4,8 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
-<<<<<<< HEAD
 import android.view.MenuInflater;
-=======
 import android.view.MenuItem;
->>>>>>> 1b71a604dc200f3446697790d475d4c4fa1bfacf
 import android.view.View;
 
 public class MainPage extends Activity {
