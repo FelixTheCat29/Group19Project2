@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="ChefApp/gen"/>
+	<classpathentry kind="src" path="ChefApp/src"/>
+	<classpathentry kind="src" path="OrderApp/gen"/>
+	<classpathentry kind="src" path="OrderApp/src"/>
+	<classpathentry kind="lib" path="ChefApp/bin/dexedLibs/android-support-v4-6939e63c06a927d036a5b7f200052065.jar"/>
+	<classpathentry kind="lib" path="ChefApp/libs/android-support-v4.jar"/>
+	<classpathentry kind="lib" path="OrderApp/bin/dexedLibs/android-support-v4-55695dbd541405f4298fb580de9490ae.jar"/>
+	<classpathentry kind="lib" path="OrderApp/bin/dexedLibs/android-support-v4-745aeb6eecf5f301a41081a91bb32128.jar"/>
+	<classpathentry kind="lib" path="OrderApp/bin/dexedLibs/android-support-v4-a261ad4d224065336d28480f689d36b9.jar"/>
+	<classpathentry kind="lib" path="OrderApp/bin/dexedLibs/android-support-v4-f2ca0024227d32644fd9f8bcdd4fb959.jar"/>
+	<classpathentry kind="lib" path="OrderApp/bin/dexedLibs/appcompat_v7-f19368786f9a9513b5162a49a5ca42b8.jar"/>
+	<classpathentry kind="lib" path="OrderApp/libs/android-support-v4.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="output" path="OrderApp/bin/classes"/>
+</classpath>

@@ -76,14 +76,36 @@ public class ReviewPage extends Activity {
 	  
 	            this.setContentView(scrollview);
 	        }
+	        for(int i = 0 ; i < NumberCustomers.CurrentCust.mainmenu.length ; i++)
+	        {	//array1[] should be outside of the for loop
+	        	int array1[] = NumberCustomers.CurrentCust.mainmenu;
+	        	if (array1[i] != 0)
+	        	{	
+	        		LinearLayout linear1 = new LinearLayout(this);
+                    linear1.setOrientation(LinearLayout.HORIZONTAL);
+                    linearlayout.addView(linear1);
+                    b = new TextView(this);
+                    AlcoholOrder += Main_menu.getMainDishes(i)+": "+ array1[i];
+                    b.setText(Main_menu.getMainDishes(i)+": "+ array1[i]);
+                    b.setId(i);
+                    b.setTextSize(20);
+                    b.setPadding(18, 13, 18, 13);
+		            b.setTypeface(Typeface.SERIF,Typeface.BOLD_ITALIC);
+		            b.setLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT,LayoutParams.WRAP_CONTENT));
+			           
+	            linear1.addView(b);
+	        	}
+	  
+	            this.setContentView(scrollview);
+	        }
 	        
 	        LinearLayout linear2 = new LinearLayout(this);
             linear2.setOrientation(LinearLayout.HORIZONTAL);
             linearlayout.addView(linear2);
 	        c = new TextView(this);
-	        DecimalFormat df = new DecimalFormat("#.00");
+	        DecimalFormat df = new DecimalFormat("#0.00");
             c.setText("Below is the total price for guest "+NumberCustomers.getSelCust()+": $"
-	        +String.valueOf(df.format(NumberCustomers.CurrentCust.Alsum)));
+	        +String.valueOf(df.format(NumberCustomers.CurrentCust.totalCustOrder())));
             c.setId(50);
             c.setTextSize(25);
             c.setPadding(18, 13, 18, 13);

@@ -13,11 +13,11 @@ public class Main_menu extends Activity {
 	int hamburger = 0;
 	int fries = 0;
 	int sandwich = 0;
-	static int MainMenu[] = {0,0,0,0}; //fixed elements just for now : Alcohol[kok, Bud, Chivas, Ballan]
+	static int MainMenu[] = {0,0,0,0};
 	int MainMenuKind = MainMenu.length;
-	static double MainMenuPrice[] = {5.00,7.00,5.00,6.00};
+	static double MainMenuPrice[] = {2.50,7.95,6.75,3.50};
 	static double price = 0;
-	
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -28,11 +28,12 @@ public class Main_menu extends Activity {
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.alcohol, menu);
+		//doge
+		getMenuInflater().inflate(R.menu.main_menu, menu);
 		return true;
 	}
-	public static String getAlcohols(int i){
-		String Al[] = {"Pizza","Hamburger","Fries","Sandwich"};
+	public static String getMainDishes(int i){
+		String Al[] = {"Pizza","Hamburger","Sandwich","French Fries"};
 		
 		return Al[i];
 	}
@@ -51,8 +52,7 @@ public class Main_menu extends Activity {
 
 		price = 0;
 		//buffer to send to DE2
-//		int Alcohol[] = {0,0,0,0}; //fixed elements just for now : Alcohol[kok, Bud, Chivas, Ballan]
-		
+
 		EditText EditText1 = (EditText) findViewById(R.id.editText1);
 		EditText EditText2 = (EditText) findViewById(R.id.editText2);
 		EditText EditText3 = (EditText) findViewById(R.id.editText3);
@@ -73,43 +73,35 @@ public class Main_menu extends Activity {
 		}
 		try{
 			int message1 = Integer.parseInt(EditText1.getText().toString());	
-			//NumberCustomers.CurrentCust.alcohol[0] = message1;
 			Pizza = message1;
 		}
 			catch(NumberFormatException nfe)
 			{
 				Pizza = 0;
-				//NumberCustomers.CurrentCust.alcohol[0] = 0;
 			}
 		
 		try{
 			int message2 = Integer.parseInt(EditText2.getText().toString());	
 			fries = message2;
-			//NumberCustomers.CurrentCust.alcohol[1] = message2;
 		}
 			catch(NumberFormatException nfe)
 			{
 				fries = 0;
-				//NumberCustomers.CurrentCust.alcohol[1] = 0;
 			}
 		try{
 			int message3 = Integer.parseInt(EditText3.getText().toString());	
 			hamburger = message3;
-			//NumberCustomers.CurrentCust.alcohol[2] = message3;
 		}
 			catch(NumberFormatException nfe)
 			{
 				hamburger = 0;
-				//NumberCustomers.CurrentCust.alcohol[2] = 0;
 			}
 		try{
 			int message4 = Integer.parseInt(EditText4.getText().toString());	
-		//	NumberCustomers.CurrentCust.alcohol[3] = 0;
 			sandwich = message4;
 		}
 			catch(NumberFormatException nfe)
 			{
-		//		NumberCustomers.CurrentCust.alcohol[3] = 0;
 				sandwich = 0;
 			}
 			
@@ -129,7 +121,6 @@ public class Main_menu extends Activity {
 		NumberCustomers.CurrentCust.MainMenuSum = price;
 		
 		Intent intent = new Intent(this, ViewMenu.class);
-		//intent.putExtra("Alcohol_Data", Alcohol);
 		startActivity(intent);
 		
 		
