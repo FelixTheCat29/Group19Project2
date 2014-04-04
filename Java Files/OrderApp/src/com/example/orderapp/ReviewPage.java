@@ -126,7 +126,7 @@ public class ReviewPage extends Activity {
             d.setPadding(8, 3, 8, 3);
             d.setTypeface(Typeface.SERIF,Typeface.BOLD_ITALIC);
             d.setLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT,LayoutParams.WRAP_CONTENT));
-	      
+     
             Button e = new Button(this);
               
             e.setText("Order For a Different Guest");
@@ -134,8 +134,7 @@ public class ReviewPage extends Activity {
             e.setTextSize(10);
             e.setPadding(8, 3, 8, 3);
             e.setTypeface(Typeface.SERIF,Typeface.BOLD_ITALIC);
-            e.setLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT,LayoutParams.WRAP_CONTENT));
-           
+
             if(NumberCustomers.getSelCust() == 1)
             {
             	WelcomePage.Customer1 = NumberCustomers.CurrentCust;
@@ -156,7 +155,7 @@ public class ReviewPage extends Activity {
             	WelcomePage.Customer4 = NumberCustomers.CurrentCust;
             }
             
-            
+          
             linear3.addView(d);            
             d.setOnClickListener(new View.OnClickListener(){
                 
@@ -171,6 +170,8 @@ public class ReviewPage extends Activity {
                 
             });
             
+            if(WelcomePage.getNumCust() != 1)
+            {  
             linear3.addView(e);            
             e.setOnClickListener(new View.OnClickListener(){
                 
@@ -182,6 +183,7 @@ public class ReviewPage extends Activity {
                 
                 
             });
+            }
              this.setContentView(scrollview);
 	}
 	

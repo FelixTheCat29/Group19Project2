@@ -28,7 +28,6 @@ public class Main_menu extends Activity {
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
-		//doge
 		getMenuInflater().inflate(R.menu.main_menu, menu);
 		return true;
 	}

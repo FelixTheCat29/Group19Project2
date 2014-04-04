@@ -85,6 +85,8 @@ catch(NumberFormatException nfe)
 
     
     if (x == 1){
+    	NumberCustomers.selectedCust = 1;
+        NumberCustomers.CurrentCust = CustArray[0];
     startActivity(intent2);   	
     }
     

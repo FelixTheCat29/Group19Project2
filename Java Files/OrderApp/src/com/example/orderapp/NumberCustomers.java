@@ -55,7 +55,7 @@ public class NumberCustomers extends Activity {
                               // TODO Auto-generated method stub
                               //Toast.makeText(getApplicationContext(), "Button Clicked.."+ (v.getId()+1), Toast.LENGTH_SHORT).show();
                               selectedCust = (v.getId()+1);
-                              CurrentCust = WelcomePage.CustArray[selectedCust];
+                              CurrentCust = WelcomePage.CustArray[(selectedCust-1)];
                               Transistion(v);
 
                         }
