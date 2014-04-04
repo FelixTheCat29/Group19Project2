@@ -6,23 +6,77 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.TimerTask;
 
+
+
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.Message;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.ViewGroup.LayoutParams;
+import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
+import android.widget.ScrollView;
+import android.widget.TextView;
 
 public class viewOrders extends Activity {
-	public static List<String> RecvOrders = new ArrayList<String>();
-	public static String RecvOrderString;
+	public static List<String> orders = new ArrayList<String>();
+	
+	public static String stringForOrders = "";
+	public static int counter=0;
 	public static Handler mHandler;
+	
+	public List<String> getOrders() {
+		return orders;
+	}
+
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_view_orders);
+		//setContentView(R.layout.activity_view_orders);
+		mHandler = new Handler() {
+			public void handleMessage(Message msg) {
+				Log.i("UI",""+stringForOrders);
+				viewOrders.orders.add( stringForOrders);
+				onResume();
+			}
+		};
+	}
+	
+	@Override
+	protected void onResume() {
+		super.onResume();
+		Log.i("MY_MESSAGE", "in onResume (ViewOrdersPage)");
+		
+		ScrollView scrollview;
+		scrollview = new ScrollView(this);
+		LinearLayout linearlayout = new LinearLayout(this);
+		linearlayout.setOrientation(LinearLayout.VERTICAL);
+		scrollview.addView(linearlayout);
+			
+		TextView b;
+		
+		for(String s: orders) {
+			LinearLayout linear0 = new LinearLayout(this);
+			linear0.setOrientation(LinearLayout.HORIZONTAL);
+			linearlayout.addView(linear0);
+			b= new TextView(this);
+			b.setText(s);
+			b.setId(50);
+			b.setTextSize(25);
+			b.setPadding(18, 13, 18, 13);
+			b.setTypeface(Typeface.SERIF,Typeface.BOLD_ITALIC);
+			b.setLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT,LayoutParams.WRAP_CONTENT));
+			linear0.addView(b);
+			this.setContentView(scrollview);
+		}
 	}
 
 	@Override
@@ -52,44 +106,4 @@ public class viewOrders extends Activity {
 	    }
 	}
 
-	
-	
-	public class TCPReadTimerTask extends TimerTask {
-		public void run() {
-			ConnectionApplication app = (ConnectionApplication) getApplication();
-			if (app.sock != null && app.sock.isConnected()
-					&& !app.sock.isClosed()) {
-
-				try {
-					InputStream in = app.sock.getInputStream();
-					// See if any bytes are available from the Middleman
-
-					int bytes_avail = in.available();
-					if (bytes_avail > 0) {
-
-						// If so, read them in and create a sring
-
-					byte buf[] = new byte[bytes_avail];
-					in.read(buf);
-
-					final String s = new String(buf, 2, bytes_avail - 2,
-								"US-ASCII");
-
-						// As explained in the tutorials, the GUI can not be
-						// updated in an asynchronous task. So, update the GUI
-						// using the UI thread.
-
-					runOnUiThread(new Runnable() {
-						public void run() {
-							EditText et = (EditText) findViewById(R.id.RecvdMessage);
-							et.setText(s);
-						}
-					});
-					}
-				} catch (IOException e) {
-					e.printStackTrace();
-				}
-			}
-		}	
-	}
 }

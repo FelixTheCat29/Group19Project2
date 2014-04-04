@@ -11,6 +11,7 @@ import java.util.TimerTask;
 
 import com.example.chefapp.ConnectionApplication;
 
+
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Typeface;
@@ -293,17 +294,20 @@ public class Connection extends Activity {
 						if(specialInt == 0) {
 
 							final String s = new String(buf, 2, bytes_avail-2, "US-ASCII");
+							viewOrders.stringForOrders= s;
+							//SpecialsPage.specialItems.add(s);
+							viewOrders.mHandler.obtainMessage(1).sendToTarget();
 
 							// As explained in the tutorials, the GUI can not be
 							// updated in an asynchronous task.  So, update the GUI
 							// using the UI thread.
 
-							runOnUiThread(new Runnable() {
-								public void run() {
-									EditText et = (EditText) findViewById(R.id.RecvdMessage);
-									et.setText(s);
-								}
-							});
+//							runOnUiThread(new Runnable() {
+//								public void run() {
+//									EditText et = (EditText) findViewById(R.id.RecvdMessage);
+//									et.setText(s);
+//								}
+//							});
 						}
 						else if(specialInt == 1) {
 
