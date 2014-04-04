@@ -3,6 +3,7 @@
 
     <string name="app_name">OrderApp</string>
     <string name="action_settings">Settings</string>
+    <string name="action_updateSpecials">Update Specials</string>
     <string name="hello_world">Hello world!</string>
     <string name="welcome_message">Welcome to Our Restaurant!</string>
     <string name="next">Next</string>
@@ -22,11 +23,13 @@
     <string name="Main_Menu_line">Main Menu</string>
     <string name="Alcohol_line">Alcohol</string>
     <string name="Pops_line">Pops</string>
+    <string name="Specials_line">Specials</string>
     <string name="title_activity_menu_selection">Menu_selection</string>
     <string name="title_activity_menu__qnt_selection">Menu_Qnt_selection</string>
     <string name="title_activity_menu_qnty_selection">MenuQntySelection</string>
     <string name="title_activity_menu__alcohol">Menu_Alcohol</string>
     <string name="title_activity_alcohol">Alcohol</string>
+    <string name="title_activity_specials_page">Today\'s Specials</string>
     <string name="Kokanee_line">Kokanee (bottle) $5.00</string>
     <string name="ChivasRegal_line">Chivas Regal (shot) $7.00</string>
     <string name="save_line">Save and Continue</string>

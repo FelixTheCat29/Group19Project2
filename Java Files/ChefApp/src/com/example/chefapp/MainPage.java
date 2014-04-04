@@ -32,6 +32,14 @@ public class MainPage extends Activity {
 	    	    Intent intent = new Intent(this, Connection.class);
 	    	    startActivity(intent); 
 	            return true;
+	        case R.id.action_updateSpecials:
+	        	Intent intent2 = new Intent(this, UpdateSpecials.class);
+	        	startActivity(intent2);
+	        	return true;
+	        case R.id.action_viewOrders:
+	        	Intent intent3 = new Intent(this, viewOrders.class);
+	        	startActivity(intent3);
+	        	return true;
 	        default:
 	            return super.onOptionsItemSelected(item);
 	    }

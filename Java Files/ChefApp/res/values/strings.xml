@@ -5,7 +5,9 @@
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>
     <string name="connection_line">connect</string>
-   
+    <string name="action_updateSpecials">Update Specials</string>
+   <string name="action_viewOrders">View Orders</string>
+   <string name="view_orders">View Order</string>
     <!-- Strings for activity_connection.xml -->
     <string name="label_ip">IP:</string>
     <string name="playsong">Play Song</string>
@@ -21,6 +23,7 @@
     <string name="refresh_socket">Show Sock.</string>
 	<string name="ClientID">Client ID</string>
 	<string name="getOrder">Recieve Order</string>
+	
     
 
 </resources>
