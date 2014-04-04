@@ -5,16 +5,11 @@ import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
-import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup.LayoutParams;
 import android.widget.Button;
-import android.widget.CheckBox;
-import android.widget.CompoundButton;
-import android.widget.CompoundButton.OnCheckedChangeListener;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
-import android.widget.Toast;
 
 public class NumberCustomers extends Activity {
     static int selectedCust = 0;
@@ -26,7 +21,12 @@ public class NumberCustomers extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
        
-        scrollview = new ScrollView(this);
+        //scrollview = new ScrollView(this);
+        
+        
+        setContentView(R.layout.activity_number_customers);
+        scrollview = (ScrollView) findViewById(R.id.ScrollView1);
+        
         LinearLayout linearlayout = new LinearLayout(this);
         linearlayout.setOrientation(LinearLayout.VERTICAL);
         scrollview.addView(linearlayout);

@@ -35,7 +35,7 @@
     <string name="ReviewAndCheckout_line">Review order and Check out</string>
     <string name="title_activity_review_page">ReviewPage</string>
     <string name="connection_line">connect</string>
-   
+
     <!-- Strings for activity_connection.xml -->
     <string name="label_ip">IP:</string>
     <string name="playsong">Play Song</string>
@@ -49,6 +49,11 @@
     <string name="play">Play</string>
     <string name="stop">Stop</string>
     <string name="refresh_socket">Show Sock.</string>
-	<string name="ClientID">Client ID</string>
+    <string name="ClientID">Client ID</string>
+    <string name="title_activity_main_menu">Main_menu</string>
+    <string name="hamburger">Hamburger $7.95</string>
+    <string name="pizza">Pizza(slice) $2.50</string>
+    <string name="fries">French Fries $3.50</string>
+    <string name="sandwich">Sandwich $6.75</string>
 
 </resources>
