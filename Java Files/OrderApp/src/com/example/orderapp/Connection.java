@@ -321,13 +321,13 @@ public class Connection extends Activity {
 
 						Log.i("con",""+app.getChefClientID()); // Debugging 
 						int specialInt = buf[1];
-
+						Log.i("update",""+specialInt); // Debugging
 						// if the special integer is 1 or 2 it means the chef client ID is being 
 						// updated and we don't need to read the string.
 						if(specialInt == 0) {
 
-							final String s = new String(buf, 0, bytes_avail, "US-ASCII");						
-
+							final String s = new String(buf, 2, bytes_avail-2, "US-ASCII");						
+							Log.i("Update",s);
 							// As explained in the tutorials, the GUI can not be
 							// updated in an asynchronous task.  So, update the GUI
 							// using the UI thread.
@@ -347,10 +347,12 @@ public class Connection extends Activity {
 						// If the special integer is 4 the DE2 is sending updated specials from the SD card
 						else if (specialInt == 4) {
 							
-							final String s = new String(buf, 0, bytes_avail, "US-ASCII");
+							final String s = new String(buf, 2, bytes_avail-2, "US-ASCII");
+							Log.i("Update",s);
 							SpecialsPage.stringForUpdateSpecials = s;
 							//SpecialsPage.specialItems.add(s);
 							SpecialsPage.mHandler.obtainMessage(1).sendToTarget();
+
 						}
 					}
 				} catch (IOException e) {

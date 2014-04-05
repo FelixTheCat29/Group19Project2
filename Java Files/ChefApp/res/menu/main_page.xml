@@ -4,18 +4,16 @@
         android:id="@+id/action_settings"
         android:orderInCategory="100"
         android:showAsAction="always"
-        android:title="@string/action_settings"/> 
-
+        android:title="@string/action_settings"/>
     <item
         android:id="@+id/action_updateSpecials"
         android:orderInCategory="100"
         android:showAsAction="always"
-        android:title="@string/action_updateSpecials"/> 
-	
+        android:title="@string/action_updateSpecials"/>
     <item
         android:id="@+id/action_viewOrders"
         android:orderInCategory="100"
         android:showAsAction="always"
         android:title="@string/action_viewOrders"/>
-</menu>
 
+</menu>

@@ -21,51 +21,65 @@ import android.widget.TextView;
 
 public class SpecialsPage extends Activity {
 	public static List<String> specialItems = new ArrayList<String>();
-	
+
 	public static String stringForUpdateSpecials = "";
+
 	public static int counter=0;
 	public static Handler mHandler;
-	
+
 	public List<String> getSpecialItems() {
 		return specialItems;
 	}
+
+
+
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		//setContentView(R.layout.activity_specials_page);
-		
+
 		//UI Purpose
 		mHandler = new Handler() {
 			public void handleMessage(Message msg) {
+				
 				Log.i("UI",""+stringForUpdateSpecials);
-				SpecialsPage.specialItems.add(0, stringForUpdateSpecials);
+				
+				if(specialItems.isEmpty())
+					SpecialsPage.specialItems.add(stringForUpdateSpecials);
+				else 
+					SpecialsPage.specialItems.set(0, stringForUpdateSpecials);
+				
+				Log.i("UI", ""+ specialItems.size());
+				for(int i=0; i<specialItems.size(); i++) {
+					Log.i("UI", ""+i + " " + specialItems.get(i));
+				}
 				onResume();
 			}
 		};
-		
+
 	}
 
-//	@Override
-//	public boolean onCreateOptionsMenu(Menu menu) {
-//		// Inflate the menu; this adds items to the action bar if it is present.
-//		getMenuInflater().inflate(R.menu.view_menu, menu);
-//
-//		return true;
-//	}
-	
+	//	@Override
+	//	public boolean onCreateOptionsMenu(Menu menu) {
+	//		// Inflate the menu; this adds items to the action bar if it is present.
+	//		getMenuInflater().inflate(R.menu.view_menu, menu);
+	//
+	//		return true;
+	//	}
+
 	@Override
 	protected void onResume() {
 		super.onResume();
 		Log.i("MY_MESSAGE", "in onResume (SpecialsPage)");
-		
+
 		ScrollView scrollview;
 		scrollview = new ScrollView(this);
 		LinearLayout linearlayout = new LinearLayout(this);
 		linearlayout.setOrientation(LinearLayout.VERTICAL);
 		scrollview.addView(linearlayout);
-		
-		
+
+
 		Button d = new Button(this);
 		d.setText("Update Specials");
 		d.setId(1); 
@@ -78,15 +92,16 @@ public class SpecialsPage extends Activity {
 		d.setOnClickListener(new View.OnClickListener(){
 
 			@Override
-		public void onClick(View v) {
-				
+
+			public void onClick(View v) {
+
 				onClickRequestUpdateSpecials(v);
 			}
 		});
 		this.setContentView(scrollview);
-			
+
 		TextView b;
-		
+
 		for(String s: specialItems) {
 			LinearLayout linear0 = new LinearLayout(this);
 			linear0.setOrientation(LinearLayout.HORIZONTAL);
@@ -116,7 +131,7 @@ public class SpecialsPage extends Activity {
 		byte buf[] = new byte[2];
 		buf[0] = (byte)app.getChefClientID(); //send to chef client ID but the DE2 will reply, not the chefApp 
 		buf[1] = (byte)4; // 4 means request to update specials 
-		
+
 
 		// Now send through the output stream of the socket
 
