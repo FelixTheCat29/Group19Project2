@@ -41,7 +41,7 @@ public class SpecialsPage extends Activity {
 		mHandler = new Handler() {
 			public void handleMessage(Message msg) {
 				Log.i("UI",""+stringForUpdateSpecials);
-				SpecialsPage.specialItems.add(0, stringForUpdateSpecials);
+				SpecialsPage.specialItems.add(stringForUpdateSpecials);
 				onResume();
 			}
 		};
