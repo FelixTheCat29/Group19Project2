@@ -20,38 +20,28 @@ import android.widget.ScrollView;
 import android.widget.TextView;
 
 public class SpecialsPage extends Activity {
-	public static List<String> specialItems = new ArrayList<String>();
+	
 
 	public static String stringForUpdateSpecials;
 	public static int counter=0;
 	public static Handler mHandler;
-
-	public List<String> getSpecialItems() {
-		return specialItems;
-	}
-
-
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		//setContentView(R.layout.activity_specials_page);
 
-		//UI Purpose
+		//UI update Purpose, parses the string containing specialItem1
 		mHandler = new Handler() {
 			public void handleMessage(Message msg) {
 				
 				Log.i("UI",""+stringForUpdateSpecials);
 				
-				if(specialItems.isEmpty())
-					SpecialsPage.specialItems.add(stringForUpdateSpecials);
+				if(SpecialItem.specialItems.isEmpty())
+					SpecialItem.specialItems.add(stringForUpdateSpecials);
 				else 
-					SpecialsPage.specialItems.set(0, stringForUpdateSpecials);
+					SpecialItem.specialItems.set(0, stringForUpdateSpecials);
 				
-				Log.i("UI", ""+ specialItems.size());
-				for(int i=0; i<specialItems.size(); i++) {
-					Log.i("UI", ""+i + " " + specialItems.get(i));
-				}
 				onResume();
 			}
 		};
@@ -99,7 +89,7 @@ public class SpecialsPage extends Activity {
 
 		TextView b;
 
-		for(String s: specialItems) {
+		for(String s: SpecialItem.specialItems) {
 			LinearLayout linear0 = new LinearLayout(this);
 			linear0.setOrientation(LinearLayout.HORIZONTAL);
 			linearlayout.addView(linear0);
