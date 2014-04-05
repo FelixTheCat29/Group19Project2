@@ -351,10 +351,6 @@ public class Connection extends Activity {
 							SpecialsPage.stringForUpdateSpecials = s;
 							//SpecialsPage.specialItems.add(s);
 							SpecialsPage.mHandler.obtainMessage(1).sendToTarget();
-
-							
- 
-
 						}
 					}
 				} catch (IOException e) {

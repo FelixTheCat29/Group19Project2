@@ -22,15 +22,13 @@ import android.widget.TextView;
 public class SpecialsPage extends Activity {
 	public static List<String> specialItems = new ArrayList<String>();
 	
-	public static String stringForUpdateSpecials;
+	public static String stringForUpdateSpecials = "";
 	public static int counter=0;
 	public static Handler mHandler;
 	
 	public List<String> getSpecialItems() {
 		return specialItems;
 	}
-	
-	
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -80,7 +78,7 @@ public class SpecialsPage extends Activity {
 		d.setOnClickListener(new View.OnClickListener(){
 
 			@Override
-			public void onClick(View v) {
+		public void onClick(View v) {
 				
 				onClickRequestUpdateSpecials(v);
 			}
