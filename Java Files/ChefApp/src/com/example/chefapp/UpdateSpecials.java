@@ -5,13 +5,43 @@ import java.io.IOException;
 import java.io.OutputStream;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 
 public class UpdateSpecials extends Activity {
+	
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		// Inflate the menu; this adds items to the action bar if it is present.
+		getMenuInflater().inflate(R.menu.menu_view_orders, menu);
+		return super.onCreateOptionsMenu(menu);
+	}
+
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		// Handle presses on the action bar items
+		switch (item.getItemId()) {
+		case R.id.action_settings:
+			Intent intent = new Intent(this, Connection.class);
+			startActivity(intent);
+			return true;
+		case R.id.action_updateSpecials:
+			Intent intent2 = new Intent(this, UpdateSpecials.class);
+			startActivity(intent2);
+			return true;
+		case R.id.action_viewOrders:
+			Intent intent3 = new Intent(this, viewOrders.class);
+			startActivity(intent3);
+			return true;
+		default:
+			return super.onOptionsItemSelected(item);
+		}
+	}
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -19,12 +49,12 @@ public class UpdateSpecials extends Activity {
 		setContentView(R.layout.activity_update_specials);
 	}
 
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.menu_update_specials, menu);
-		return true;
-	}
+//	@Override
+//	public boolean onCreateOptionsMenu(Menu menu) {
+//		// Inflate the menu; this adds items to the action bar if it is present.
+//		getMenuInflater().inflate(R.menu.menu_update_specials, menu);
+//		return true;
+//	}
 
 
 	@Override
