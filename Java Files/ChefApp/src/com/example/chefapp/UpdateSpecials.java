@@ -49,11 +49,21 @@ public class UpdateSpecials extends Activity {
 
 		ConnectionApplication app = (ConnectionApplication) getApplication();
 
-		// Get the message from the box
+		// Get the Items and corresponding prices from the edit boxes
 
-		EditText et = (EditText) findViewById(R.id.ETupdateSpecials);
-		String msg = et.getText().toString();
+		EditText et = (EditText) findViewById(R.id.Item1);
+		String Item1 = et.getText().toString();
 
+		et = (EditText) findViewById(R.id.Price1);
+		String Price1 = et.getText().toString();
+		
+		et = (EditText) findViewById(R.id.Item2);
+		String Item2 = et.getText().toString();
+		
+		et = (EditText) findViewById(R.id.Price2);
+		String Price2 = et.getText().toString();
+		
+		String msg =  Item1 + "$" + Price1 + "*" + Item2 + "$" + Price2 + "*";
 		// Create an array of bytes.  First byte will be the
 		// message length, and the next ones will be the message
 
