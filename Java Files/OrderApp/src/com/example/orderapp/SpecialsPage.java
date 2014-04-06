@@ -55,7 +55,7 @@ public class SpecialsPage extends Activity {
 				Log.i("Spec", "endItem1 "+endItem1);
 
 				int endPrice1 = stringForUpdateSpecials.indexOf('*');
-				String price1 = stringForUpdateSpecials.substring(endItem1,endPrice1);
+				String price1 = stringForUpdateSpecials.substring(endItem1+1,endPrice1);
 
 				Log.i("Spec", "end index of price1 "+ endPrice1);
 				Log.i("Spec", "price1 "+ price1);
@@ -71,24 +71,37 @@ public class SpecialsPage extends Activity {
 				Log.i("Spec", "item2 "+ item2);
 
 				int endPrice2 = afterItem1.indexOf('*');
-				String price2 = afterItem1.substring(endItem2,endPrice2);
+				String price2 = afterItem1.substring(endItem2+1,endPrice2);
 
 				Log.i("Spec", "end index of price2"+ endPrice2);
 				Log.i("Spec", "price2 "+ price2);
+				
+				double price1double = Double.parseDouble(price1);
+				double price2double = Double.parseDouble(price2);
+				
+				
+
+				Log.i("Double", "Price 1 in double: " + price1double);
+				Log.i("Double", "Price 2 in double: " +  price2double);//SpecialItem.specialItemPricesDouble
 
 				if(SpecialItem.specialItemPrices.size() < 2 ){
 					SpecialItem.specialItems.add(0, item1);
 					SpecialItem.specialItemPrices.add(0, price1);
+					SpecialItem.specialItemPricesDouble.add(0, price1double);
+					
 					SpecialItem.specialItems.add(1, item2);
 					SpecialItem.specialItemPrices.add(1, price2);
+					SpecialItem.specialItemPricesDouble.add(1, price2double);
 
 				} else {
 
 					SpecialItem.specialItems.set(0, item1);
 					SpecialItem.specialItemPrices.set(0, price1);
-
+					SpecialItem.specialItemPricesDouble.set(0, price1double);
+					
 					SpecialItem.specialItems.set(1, item2);
 					SpecialItem.specialItemPrices.set(1, price2);
+					SpecialItem.specialItemPricesDouble.set(1, price2double);
 				}
 				//Update the UI to display
 				onResume();
@@ -201,7 +214,16 @@ public class SpecialsPage extends Activity {
 
 	}
 
-
+	public double calculateTotal() {
+		double total=0.00;
+		for(int i=0; i< SpecialItem.specialItemQuantity.size() ; i++) {
+			total += SpecialItem.specialItemQuantity.get(i)* SpecialItem.specialItemPricesDouble.get(i);
+			
+		}
+		Log.i("double", "total comes to: " + total);
+		return total;
+	}
+	
 	public void onClickSaveAndCont(View view){
 
 		for(int i=0; i<editTextList.size(); i++) {
@@ -213,6 +235,7 @@ public class SpecialsPage extends Activity {
 			else 
 				SpecialItem.specialItemQuantity.set(i, qty);  
 		}
+		calculateTotal();
 		Intent intent = new Intent(this, ViewMenu.class);
 		startActivity(intent);
 

@@ -15,6 +15,7 @@ public class SpecialItem {
 	public static List<String> specialItems = new ArrayList<String>();
 	public static List<String> specialItemPrices = new ArrayList<String>();
 	public static List<Integer> specialItemQuantity = new ArrayList<Integer>();
+	public static List<Double> specialItemPricesDouble = new ArrayList<Double>();
 	
 }
 	
