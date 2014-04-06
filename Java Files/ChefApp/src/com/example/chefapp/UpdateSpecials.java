@@ -63,7 +63,7 @@ public class UpdateSpecials extends Activity {
 		et = (EditText) findViewById(R.id.Price2);
 		String Price2 = et.getText().toString();
 		
-		String msg =  Item1 + "$" + Price1 + "*" + Item2 + "$" + Price2 + "\0";
+		String msg =  Item1 + "$" + Price1 + "*" + Item2 + "$" + Price2 + "*";
 		// Create an array of bytes.  First byte will be the
 		// message length, and the next ones will be the message
 

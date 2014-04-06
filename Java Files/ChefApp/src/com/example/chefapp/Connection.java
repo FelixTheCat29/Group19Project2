@@ -9,24 +9,22 @@ import java.net.UnknownHostException;
 import java.util.Timer;
 import java.util.TimerTask;
 
-import com.example.chefapp.ConnectionApplication;
-
-
 import android.app.Activity;
 import android.content.Intent;
-import android.graphics.Typeface;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.util.Log;
+import android.os.Handler;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup.LayoutParams;
 import android.widget.EditText;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 public class Connection extends Activity {
+	
+
+	public static Handler mHandler = new Handler();
+
 	int orderClientID=0;
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
