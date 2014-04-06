@@ -50,7 +50,7 @@ public class SpecialsPage extends Activity {
 
 				int endItem1 = stringForUpdateSpecials.indexOf('$');
 				String item1 = stringForUpdateSpecials.substring(0,endItem1);
-
+  
 				Log.i("Spec", "Item1"+ item1);
 				Log.i("Spec", "endItem1 "+endItem1);
 
