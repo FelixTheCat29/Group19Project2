@@ -25,26 +25,30 @@
         android:text="@string/ReviewAndCheckout_line" />
 
     <Button
+        android:id="@+id/button7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/button6"
+        android:layout_alignRight="@+id/button4"
+        android:layout_marginBottom="21dp"
+        android:onClick="onClickConnect"
+        android:text="@string/connection_line" />
+
+    <Button
         android:id="@+id/button1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/text111"
         android:layout_centerHorizontal="true"
+        android:layout_marginTop="56dp"
+        android:onClick="onClickAppetizer"
         android:text="@string/appetizer_line" />
-
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/button1"
-        android:layout_centerHorizontal="true"
-        android:text="@string/dessert_line" />
 
     <Button
         android:id="@+id/button3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/button2"
+        android:layout_below="@+id/button1"
         android:layout_centerHorizontal="true"
         android:onClick="onClickMainMenu"
         android:text="@string/Main_Menu_line" />
@@ -57,23 +61,5 @@
         android:layout_centerHorizontal="true"
         android:onClick="onClickAlcohol"
         android:text="@string/Alcohol_line" />
-
-    <Button
-        android:id="@+id/button5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/button4"
-        android:layout_centerHorizontal="true"
-        android:text="@string/Pops_line" />
-
-    <Button
-        android:id="@+id/button7"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/button6"
-        android:layout_alignRight="@+id/button4"
-        android:layout_marginBottom="21dp"
-        android:onClick="onClickConnect"
-        android:text="@string/connection_line" />
 
 </RelativeLayout>

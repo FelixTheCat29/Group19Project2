@@ -6,6 +6,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup.LayoutParams;
@@ -55,7 +56,7 @@ public class ReviewPage extends Activity {
             
             //print the order for Alcohol on the screen
 	        for(int i = 0 ; i < NumberCustomers.CurrentCust.alcohol.length ; i++)
-	        {	//array1[] should be outside of the for loop
+	        {	
 	        	int array1[] = NumberCustomers.CurrentCust.alcohol;
 	        	if (array1[i] != 0)
 	        	{	
@@ -63,7 +64,8 @@ public class ReviewPage extends Activity {
                     linear1.setOrientation(LinearLayout.HORIZONTAL);
                     linearlayout.addView(linear1);
                     b = new TextView(this);
-                    AlcoholOrder += Alcohol.getAlcohols(i)+": "+ array1[i];
+                    //AlcoholOrder += Alcohol.getAlcohols(i)+": "+ array1[i];
+                    NumberCustomers.CurrentCust.customerSum += Alcohol.getAlcohols(i)+": "+ array1[i];
                     b.setText(Alcohol.getAlcohols(i)+": "+ array1[i]);
                     b.setId(i);
                     b.setTextSize(20);
@@ -76,8 +78,10 @@ public class ReviewPage extends Activity {
 	  
 	            this.setContentView(scrollview);
 	        }
+	        
+	        //print the order for Main Menu on the screen
 	        for(int i = 0 ; i < NumberCustomers.CurrentCust.mainmenu.length ; i++)
-	        {	//array1[] should be outside of the for loop
+	        {	
 	        	int array1[] = NumberCustomers.CurrentCust.mainmenu;
 	        	if (array1[i] != 0)
 	        	{	
@@ -85,8 +89,35 @@ public class ReviewPage extends Activity {
                     linear1.setOrientation(LinearLayout.HORIZONTAL);
                     linearlayout.addView(linear1);
                     b = new TextView(this);
-                    AlcoholOrder += Main_menu.getMainDishes(i)+": "+ array1[i];
+                    //AlcoholOrder += Main_menu.getMainDishes(i)+": "+ array1[i];
+                    NumberCustomers.CurrentCust.customerSum += Main_menu.getMainDishes(i)+": "+ array1[i];
                     b.setText(Main_menu.getMainDishes(i)+": "+ array1[i]);
+                    b.setId(i);
+                    b.setTextSize(20);
+                    b.setPadding(18, 13, 18, 13);
+		            b.setTypeface(Typeface.SERIF,Typeface.BOLD_ITALIC);
+		            b.setLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT,LayoutParams.WRAP_CONTENT));
+			           
+	            linear1.addView(b);
+	        	}
+	  
+	            this.setContentView(scrollview);
+	        }
+	        
+	        
+	      //print the order for Appetizer on the screen
+	        for(int i = 0 ; i < NumberCustomers.CurrentCust.appetizer.length ; i++)
+	        {	
+	        	int array1[] = NumberCustomers.CurrentCust.appetizer;
+	        	if (array1[i] != 0)
+	        	{	
+	        		LinearLayout linear1 = new LinearLayout(this);
+                    linear1.setOrientation(LinearLayout.HORIZONTAL);
+                    linearlayout.addView(linear1);
+                    b = new TextView(this);
+                    //AlcoholOrder += Appetizer.getAppetizer(i)+": "+ array1[i];
+                    NumberCustomers.CurrentCust.customerSum += Appetizer.getAppetizer(i)+": "+ array1[i];
+                    b.setText(Appetizer.getAppetizer(i)+": "+ array1[i]);
                     b.setId(i);
                     b.setTextSize(20);
                     b.setPadding(18, 13, 18, 13);
@@ -104,7 +135,7 @@ public class ReviewPage extends Activity {
             linearlayout.addView(linear2);
 	        c = new TextView(this);
 	        DecimalFormat df = new DecimalFormat("#0.00");
-            c.setText("Below is the total price for guest "+NumberCustomers.getSelCust()+": $"
+            c.setText("Below is the total price for guest "+ NumberCustomers.getSelCust()+": $"
 	        +String.valueOf(df.format(NumberCustomers.CurrentCust.totalCustOrder())));
             c.setId(50);
             c.setTextSize(25);
@@ -127,6 +158,9 @@ public class ReviewPage extends Activity {
             d.setTypeface(Typeface.SERIF,Typeface.BOLD_ITALIC);
             d.setLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT,LayoutParams.WRAP_CONTENT));
      
+           
+            
+            //go back for different customer
             Button e = new Button(this);
               
             e.setText("Order For a Different Guest");
@@ -217,10 +251,19 @@ public class ReviewPage extends Activity {
 	}
 	
 	public static String OrderString(){
+		
+		
 		OrderString= "";
-		OrderString= AlcoholOrder;
+		//OrderString= AlcoholOrder;
 		AlcoholOrder="";
+		OrderString = NumberCustomers.CurrentCust.customerSum;
+		
+		Log.i("debug", "Customer sum: " + NumberCustomers.CurrentCust.customerSum);
+		Log.i("debug", "Alcoho Order: " + AlcoholOrder);
+		Log.i("debug", "OrderString"  + OrderString);
+		
 		return OrderString;
+		
 	}
 	
 	public static void TableSum(int SelCust, double totalSum){

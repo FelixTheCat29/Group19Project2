@@ -38,6 +38,11 @@ public class ViewMenu extends Activity {
 		startActivity(intent5);
 	}
 	
+	public void onClickAppetizer(View view){
+		Intent intent6 = new Intent(this, Appetizer.class);
+		startActivity(intent6);
+	}
+	
 	public void onClickReviewAndCheckout(View view){
 		Intent intent = new Intent(this, ReviewPage.class);
 		startActivity(intent);

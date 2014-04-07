@@ -55,5 +55,10 @@
     <string name="pizza">Pizza(slice) $2.50</string>
     <string name="fries">French Fries $3.50</string>
     <string name="sandwich">Sandwich $6.75</string>
+    <string name="title_activity_appetizer">Appetizer</string>
+    <string name="edamame">Edamame $3.50</string>
+    <string name="salad">Salad $5.50</string>
+    <string name="cheese">Cheese $4.50</string>
+    <string name="shrimp">Shrimp(5) $4.00</string>
 
 </resources>

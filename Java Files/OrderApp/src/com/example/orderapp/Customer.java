@@ -3,24 +3,38 @@ package com.example.orderapp;
 public class Customer {
 	
 	int SelCust;
+	
+	static String customerSum; 
     int alcohol[] ={0,0,0,0};
     int mainmenu[] ={0,0,0,0};
+    int appetizer[]={0,0,0,0};
+    
     double Alsum;
     double MainMenuSum;
+    double AppetizerSum;
 	double orderSum = 0;
 	
 public Customer (int i)
 {
+String customerSum="";
 SelCust= i;
 int alcohol[] ={0,0,0,0};
 int mainmenu[] ={0,0,0,0};
+int appetizer[]={0,0,0,0};
+
 double Alsum;
 double MainMenuSum;
+double AppetizerSum;
 }
 
 public void CustMain(int order[])
 {
 	mainmenu = order;
+}
+
+public void CustAppetizer(int order[])
+{
+	appetizer=order;
 }
 
 
@@ -30,14 +44,14 @@ public void CustAl(int order[])
 }
 
 
-public void calculateTotal(double d, double e)
+public void calculateTotal(double alcohol, double mainmenu, double appetizer)
 {
-	orderSum = d+e;
+	orderSum = alcohol + mainmenu + appetizer;
 }
 
 public double totalCustOrder()
 {
-	calculateTotal(Alsum, MainMenuSum);
+	calculateTotal(Alsum, MainMenuSum, AppetizerSum);
 	return orderSum;
 }
 
