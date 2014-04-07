@@ -158,16 +158,26 @@ public class ReviewPage extends Activity {
             d.setTypeface(Typeface.SERIF,Typeface.BOLD_ITALIC);
             d.setLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT,LayoutParams.WRAP_CONTENT));
      
-           
-            
-            //go back for different customer
             Button e = new Button(this);
-              
-            e.setText("Order For a Different Guest");
-            e.setId(2); 
+            
+            
+            e.setText("Review Total Order");
+            e.setId(1); 
             e.setTextSize(10);
             e.setPadding(8, 3, 8, 3);
             e.setTypeface(Typeface.SERIF,Typeface.BOLD_ITALIC);
+            e.setLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT,LayoutParams.WRAP_CONTENT));
+     
+           
+            
+            //go back for different customer
+            Button f = new Button(this);
+              
+            f.setText("Order For a Different Guest");
+            f.setId(2); 
+            f.setTextSize(10);
+            f.setPadding(8, 3, 8, 3);
+            f.setTypeface(Typeface.SERIF,Typeface.BOLD_ITALIC);
 
             if(NumberCustomers.getSelCust() == 1)
             {
@@ -204,10 +214,23 @@ public class ReviewPage extends Activity {
                 
             });
             
-            if(WelcomePage.getNumCust() != 1)
-            {  
             linear3.addView(e);            
             e.setOnClickListener(new View.OnClickListener(){
+                
+                @Override
+                public void onClick(View v) {
+                	transitionTotRev(v);
+                }
+                
+                
+                
+            });
+            
+            
+            if(WelcomePage.getNumCust() != 1)
+            {  
+            linear3.addView(f);            
+            f.setOnClickListener(new View.OnClickListener(){
                 
                 @Override
                 public void onClick(View v) {
@@ -241,6 +264,11 @@ public class ReviewPage extends Activity {
 	
 	public void transitionNumCust(View view) {
 		Intent intent = new Intent(this, NumberCustomers.class);
+		startActivity(intent);
+	}
+	
+	public void transitionTotRev(View view) {
+		Intent intent = new Intent(this, TotalReview.class);
 		startActivity(intent);
 	}
 	

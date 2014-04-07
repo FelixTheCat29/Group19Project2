@@ -77,6 +77,10 @@
             android:name="com.example.orderapp.Appetizer"
             android:label="@string/title_activity_appetizer" >
         </activity>
+        <activity
+            android:name="com.example.orderapp.TotalReview"
+            android:label="@string/title_activity_total_review" >
+        </activity>
     </application>
 
 </manifest>

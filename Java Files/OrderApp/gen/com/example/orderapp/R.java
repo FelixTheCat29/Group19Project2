@@ -1144,13 +1144,15 @@ containing a value of this type.
         public static final int activity_number_customers=0x7f03001c;
         public static final int activity_review_page=0x7f03001d;
         public static final int activity_split_bill=0x7f03001e;
-        public static final int activity_view_menu=0x7f03001f;
-        public static final int fragment_appetizer=0x7f030020;
-        public static final int fragment_main=0x7f030021;
-        public static final int fragment_main_menu=0x7f030022;
-        public static final int popup=0x7f030023;
-        public static final int support_simple_spinner_dropdown_item=0x7f030024;
-        public static final int welcome_screen=0x7f030025;
+        public static final int activity_total_review=0x7f03001f;
+        public static final int activity_view_menu=0x7f030020;
+        public static final int fragment_appetizer=0x7f030021;
+        public static final int fragment_main=0x7f030022;
+        public static final int fragment_main_menu=0x7f030023;
+        public static final int fragment_total_review=0x7f030024;
+        public static final int popup=0x7f030025;
+        public static final int support_simple_spinner_dropdown_item=0x7f030026;
+        public static final int welcome_screen=0x7f030027;
     }
     public static final class menu {
         public static final int alcohol=0x7f0c0000;
@@ -1165,7 +1167,8 @@ containing a value of this type.
         public static final int number_customers=0x7f0c0009;
         public static final int review_page=0x7f0c000a;
         public static final int split_bill=0x7f0c000b;
-        public static final int view_menu=0x7f0c000c;
+        public static final int total_review=0x7f0c000c;
+        public static final int view_menu=0x7f0c000d;
     }
     public static final class string {
         public static final int Alcohol_line=0x7f0a0020;
@@ -1264,6 +1267,7 @@ containing a value of this type.
         public static final int title_activity_number_customers=0x7f0a0012;
         public static final int title_activity_review_page=0x7f0a002d;
         public static final int title_activity_split_bill=0x7f0a0014;
+        public static final int title_activity_total_review=0x7f0a0046;
         public static final int title_activity_view_menu=0x7f0a0015;
         public static final int welcome_message=0x7f0a0010;
         public static final int yes=0x7f0a001a;
