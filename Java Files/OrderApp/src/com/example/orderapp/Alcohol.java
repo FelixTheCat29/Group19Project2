@@ -135,6 +135,10 @@ public class Alcohol extends Activity {
 		
 	}
 	
+	@Override
+	public void onBackPressed() {
+	}
+	
 	
 }
 

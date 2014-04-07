@@ -12,10 +12,10 @@ public class Appetizer extends Activity {
 	int Edamame = 0;
 	int Salad = 0;
 	int Cheese = 0;
-	int Shrimp = 0;
-	static int Appetizer[] = {0,0,0,0}; //fixed elements just for now : Alcohol[kok, Bud, Chivas, Ballan]
+	//int Shrimp = 0;
+	static int Appetizer[] = {0,0,0}; //fixed elements just for now : Alcohol[kok, Bud, Chivas, Ballan]
 	int AppetizerKind = Appetizer.length;
-	static double AppetizerPrice[] = {5.00,7.00,5.00,6.00};
+	static double AppetizerPrice[] = {3.50,5.50,4.50};
 	static double price = 0;
 	
 	@Override
@@ -32,7 +32,7 @@ public class Appetizer extends Activity {
 		return true;
 	}
 	public static String getAppetizer(int i){
-		String Al[] = {"Edamame","Salad","Cheese","Shrimp"};
+		String Al[] = {"Edamame","Salad","Cheese"};
 		
 		return Al[i];
 	}
@@ -55,8 +55,8 @@ public class Appetizer extends Activity {
 		
 		EditText EditText1 = (EditText) findViewById(R.id.editText1);
 		EditText EditText2 = (EditText) findViewById(R.id.editText2);
-		EditText EditText3 = (EditText) findViewById(R.id.editText3);
-		EditText EditText4 = (EditText) findViewById(R.id.editText4);
+		EditText EditText3 = (EditText) findViewById(R.id.editText4);
+		//EditText EditText4 = (EditText) findViewById(R.id.editText4);
 		
 		
 		if(EditText1.getText().toString().matches("")){
@@ -68,9 +68,10 @@ public class Appetizer extends Activity {
 		if(EditText3.getText().toString().matches("")){
 			Cheese = 0;
 		}
-		if(EditText4.getText().toString().matches("")){
+		/*if(EditText4.getText().toString().matches("")){
 			Shrimp = 0;
 		}
+		*/
 		try{
 			int message1 = Integer.parseInt(EditText1.getText().toString());	
 			//NumberCustomers.CurrentCust.alcohol[0] = message1;
@@ -102,7 +103,7 @@ public class Appetizer extends Activity {
 				Cheese = 0;
 				//NumberCustomers.CurrentCust.alcohol[2] = 0;
 			}
-		try{
+	/*	try{
 			int message4 = Integer.parseInt(EditText4.getText().toString());	
 		//	NumberCustomers.CurrentCust.alcohol[3] = 0;
 			Shrimp = message4;
@@ -112,11 +113,11 @@ public class Appetizer extends Activity {
 		//		NumberCustomers.CurrentCust.alcohol[3] = 0;
 				Shrimp = 0;
 			}
-			
+		*/	
 		Appetizer[0] = Edamame;
 		Appetizer[1] = Salad;
 		Appetizer[2] = Cheese;
-		Appetizer[3] = Shrimp;
+		//Appetizer[3] = Shrimp;
 		
 		NumberCustomers.CurrentCust.CustAppetizer(Appetizer);
 	
@@ -134,7 +135,8 @@ public class Appetizer extends Activity {
 		
 		
 	}
-	
+	@Override
+	public void onBackPressed() {
+	}
 	
 }
-

@@ -125,6 +125,10 @@ public class Main_menu extends Activity {
 		
 	}
 	
+	@Override
+	public void onBackPressed() {
+	}
+	
 	
 }
 
