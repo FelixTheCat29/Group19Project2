@@ -154,7 +154,7 @@ public class Connection extends Activity {
 		
 		//String msg = ReviewPage.OrderString();
 		String msg = NumberCustomers.CurrentCust.customerSum;
-		NumberCustomers.CurrentCust.customerSum="";
+		//NumberCustomers.CurrentCust.customerSum="";
 		
 		Log.i("con",""+chefID);
 		Log.i("debug", "msg: " + msg);
