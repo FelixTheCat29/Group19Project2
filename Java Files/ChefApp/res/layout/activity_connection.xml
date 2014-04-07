@@ -101,20 +101,6 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content" >
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="sendMessage"
-            android:text="Send Message" />
-
-        <Button
-            android:id="@+id/button1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="onClickSendOrderWithClientID"
-            android:text="Send Order" />
-
     </LinearLayout>
 
     <Button
@@ -123,34 +109,10 @@
         android:onClick="closeSocket"
         android:text="Disconnect" />
 
-    <TextView
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:gravity="left"
-        android:text="Message to send:" />
-
-    <EditText
-        android:id="@+id/MessageText"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:text="Hi" >
-
         <requestFocus />
-    </EditText>
 
-    <TextView
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:gravity="left"
-        android:text="Message Received:" />
 
-    <EditText
-        android:id="@+id/RecvdMessage"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="number" />
+
 
     <TextView
         android:layout_width="fill_parent"

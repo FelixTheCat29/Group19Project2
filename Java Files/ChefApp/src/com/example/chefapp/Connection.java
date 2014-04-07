@@ -39,10 +39,10 @@ public class Connection extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_connection);
 
-		EditText et = (EditText) findViewById(R.id.RecvdMessage);
-		et.setKeyListener(null);
-		et = (EditText) findViewById(R.id.error_message_box);
-		et.setKeyListener(null);
+		//EditText et = (EditText) findViewById(R.id.RecvdMessage);
+		//et.setKeyListener(null);
+		//et = (EditText) findViewById(R.id.error_message_box);
+		//et.setKeyListener(null);
 
 		// Set up a timer task.  We will use the timer to check the
 		// input queue every 500 ms
