@@ -96,7 +96,10 @@ public class Connection extends Activity {
 		// (defined below).  This creates an instance of the subclass
 		// and executes the code in it.
 
-		new SocketConnect().execute((Void) null);	 
+		new SocketConnect().execute((Void) null);
+		Intent intent4 = new Intent(this, viewOrders.class);
+    	startActivity(intent4);
+		
 	}
 
 
@@ -292,8 +295,7 @@ public class Connection extends Activity {
 						if(specialInt == 0) {
 
 							final String s = new String(buf, 2, bytes_avail-2, "US-ASCII");
-							viewOrders.stringForOrders= s;
-							//SpecialsPage.specialItems.add(s);
+							viewOrders.stringForOrders= orderClientID+"#"+s;							//SpecialsPage.specialItems.add(s);
 							viewOrders.mHandler.obtainMessage(1).sendToTarget();
 
 							// As explained in the tutorials, the GUI can not be
