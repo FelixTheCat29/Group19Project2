@@ -73,34 +73,45 @@ public class Main_menu extends Activity {
 		try{
 			int message1 = Integer.parseInt(EditText1.getText().toString());	
 			Pizza = message1;
+			NumberCustomers.CurrentCust.mainmenu[0] = message1;
 		}
 			catch(NumberFormatException nfe)
 			{
 				Pizza = 0;
+				NumberCustomers.CurrentCust.mainmenu[0] = 0;
 			}
 		
 		try{
 			int message2 = Integer.parseInt(EditText2.getText().toString());	
 			fries = message2;
+			NumberCustomers.CurrentCust.mainmenu[1] = message2;
+
 		}
 			catch(NumberFormatException nfe)
 			{
+				NumberCustomers.CurrentCust.mainmenu[1] = 0;
 				fries = 0;
 			}
 		try{
 			int message3 = Integer.parseInt(EditText3.getText().toString());	
 			hamburger = message3;
+			NumberCustomers.CurrentCust.mainmenu[2] = message3;
+
 		}
 			catch(NumberFormatException nfe)
 			{
 				hamburger = 0;
+				NumberCustomers.CurrentCust.mainmenu[2] = 0;
 			}
 		try{
 			int message4 = Integer.parseInt(EditText4.getText().toString());	
 			sandwich = message4;
+			NumberCustomers.CurrentCust.mainmenu[3] = message4;
+
 		}
 			catch(NumberFormatException nfe)
 			{
+				NumberCustomers.CurrentCust.mainmenu[3] = 0;
 				sandwich = 0;
 			}
 			
@@ -109,7 +120,7 @@ public class Main_menu extends Activity {
 		MainMenu[2] = hamburger;
 		MainMenu[3] = sandwich;
 		
-		NumberCustomers.CurrentCust.CustMain(MainMenu);
+		//NumberCustomers.CurrentCust.CustMain(MainMenu);
 	
 		
 		for(int i=0; i<MainMenuKind; i++)

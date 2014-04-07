@@ -7,7 +7,7 @@ public class Customer {
 	static String customerSum; 
     int alcohol[] ={0,0,0,0};
     int mainmenu[] ={0,0,0,0};
-    int appetizer[]={0,0,0,0};
+    int appetizer[]={0,0,0};
     
     double Alsum;
     double MainMenuSum;
@@ -20,7 +20,7 @@ String customerSum="";
 SelCust= i;
 int alcohol[] ={0,0,0,0};
 int mainmenu[] ={0,0,0,0};
-int appetizer[]={0,0,0,0};
+int appetizer[]={0,0,0};
 
 double Alsum;
 double MainMenuSum;

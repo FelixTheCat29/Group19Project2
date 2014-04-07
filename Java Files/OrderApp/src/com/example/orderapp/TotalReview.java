@@ -37,14 +37,21 @@ public class TotalReview extends Activity {
 	        TextView b;
 	        TextView a;
 	        TextView c;
+
 	        
+	        
+        
+	       
 	        //////////////////////////////////////////////////////////////////////////////////////////////////////////////////customer1
 	       //Dynamically print "Below is the order for quest#" on top of the screen
+for (int j=0; j<WelcomePage.numCust; j++)
+{
+	        
 	        LinearLayout linear0 = new LinearLayout(this);
             linear0.setOrientation(LinearLayout.HORIZONTAL);
             linearlayout.addView(linear0);
 	        a = new TextView(this);
-            a.setText("Below is the order for guest 1");
+            a.setText("Below is the order for guest " + (j+1) + ":");
             a.setId(50);
             a.setTextSize(25);
             a.setPadding(18, 13, 18, 13);
@@ -53,11 +60,11 @@ public class TotalReview extends Activity {
             linear0.addView(a);
             this.setContentView(scrollview);
             
-            
+     
             //print the order for Alcohol on the screen
-	        for(int i = 0 ; i < WelcomePage.Customer1.alcohol.length ; i++)
+	        for(int i = 0 ; i < WelcomePage.CustArray[j].alcohol.length ; i++)
 	        {	
-	        	int array1[] = WelcomePage.Customer1.alcohol;
+	        	int array1[] = WelcomePage.CustArray[j].alcohol;
 	        	if (array1[i] != 0)
 	        	{	
 	        		LinearLayout linear1 = new LinearLayout(this);
@@ -65,7 +72,7 @@ public class TotalReview extends Activity {
                     linearlayout.addView(linear1);
                     b = new TextView(this);
                     //AlcoholOrder += Alcohol.getAlcohols(i)+": "+ array1[i];
-                    WelcomePage.Customer1.customerSum += Alcohol.getAlcohols(i)+": "+ array1[i];
+                    //WelcomePage.Customer1.customerSum += Alcohol.getAlcohols(i)+": "+ array1[i];
                     b.setText(Alcohol.getAlcohols(i)+": "+ array1[i]);
                     b.setId(i);
                     b.setTextSize(20);
@@ -80,9 +87,9 @@ public class TotalReview extends Activity {
 	        }
 	        
 	        //print the order for Main Menu on the screen
-	        for(int i = 0 ; i < WelcomePage.Customer1.mainmenu.length ; i++)
+	        for(int i = 0 ; i < WelcomePage.CustArray[j].mainmenu.length ; i++)
 	        {	
-	        	int array1[] = WelcomePage.Customer1.mainmenu;
+	        	int array1[] = WelcomePage.CustArray[j].mainmenu;
 	        	if (array1[i] != 0)
 	        	{	
 	        		LinearLayout linear1 = new LinearLayout(this);
@@ -90,7 +97,7 @@ public class TotalReview extends Activity {
                     linearlayout.addView(linear1);
                     b = new TextView(this);
                     //AlcoholOrder += Main_menu.getMainDishes(i)+": "+ array1[i];
-                    WelcomePage.Customer1.customerSum += Main_menu.getMainDishes(i)+": "+ array1[i];
+                    //WelcomePage.Customer1.customerSum += Main_menu.getMainDishes(i)+": "+ array1[i];
                     b.setText(Main_menu.getMainDishes(i)+": "+ array1[i]);
                     b.setId(i);
                     b.setTextSize(20);
@@ -106,9 +113,9 @@ public class TotalReview extends Activity {
 	        
 	        
 	      //print the order for Appetizer on the screen
-	        for(int i = 0 ; i < WelcomePage.Customer1.appetizer.length ; i++)
+	        for(int i = 0 ; i < WelcomePage.CustArray[j].appetizer.length ; i++)
 	        {	
-	        	int array1[] = WelcomePage.Customer1.appetizer;
+	        	int array1[] = WelcomePage.CustArray[j].appetizer;
 	        	if (array1[i] != 0)
 	        	{	
 	        		LinearLayout linear1 = new LinearLayout(this);
@@ -116,7 +123,7 @@ public class TotalReview extends Activity {
                     linearlayout.addView(linear1);
                     b = new TextView(this);
                     //AlcoholOrder += Appetizer.getAppetizer(i)+": "+ array1[i];
-                    WelcomePage.Customer1.customerSum += Appetizer.getAppetizer(i)+": "+ array1[i];
+                    //WelcomePage.Customer1.customerSum += Appetizer.getAppetizer(i)+": "+ array1[i];
                     b.setText(Appetizer.getAppetizer(i)+": "+ array1[i]);
                     b.setId(i);
                     b.setTextSize(20);
@@ -135,8 +142,8 @@ public class TotalReview extends Activity {
             linearlayout.addView(linear2);
 	        c = new TextView(this);
 	        DecimalFormat df = new DecimalFormat("#0.00");
-            c.setText("Below is the total price for guest "+ NumberCustomers.getSelCust()+": $"
-	        +String.valueOf(df.format(WelcomePage.Customer1.totalCustOrder())));
+            c.setText("Below is the total price for guest " + (j+1) + ": $"
+	        +String.valueOf(df.format(WelcomePage.CustArray[j].totalCustOrder())));
             c.setId(50);
             c.setTextSize(25);
             c.setPadding(18, 13, 18, 13);
@@ -144,114 +151,33 @@ public class TotalReview extends Activity {
             c.setLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT,LayoutParams.WRAP_CONTENT));
             linear2.addView(c);
             this.setContentView(scrollview);
-            /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// customer2
- 	       //Dynamically print "Below is the order for quest#" on top of the screen
-	       // LinearLayout linear0 = new LinearLayout(this);
-            linear0.setOrientation(LinearLayout.HORIZONTAL);
-            linearlayout.addView(linear0);
-	        a = new TextView(this);
-            a.setText("Below is the order for guest 1");
-            a.setId(50);
-            a.setTextSize(25);
-            a.setPadding(18, 13, 18, 13);
-            a.setTypeface(Typeface.SERIF,Typeface.BOLD_ITALIC);
-            a.setLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT,LayoutParams.WRAP_CONTENT));
-            linear0.addView(a);
-            this.setContentView(scrollview);
+          
             
-            
-            //print the order for Alcohol on the screen
-	        for(int i = 0 ; i < WelcomePage.Customer2.alcohol.length ; i++)
-	        {	
-	        	int array1[] = WelcomePage.Customer2.alcohol;
-	        	if (array1[i] != 0)
-	        	{	
-	        		LinearLayout linear1 = new LinearLayout(this);
-                    linear1.setOrientation(LinearLayout.HORIZONTAL);
-                    linearlayout.addView(linear1);
-                    b = new TextView(this);
-                    //AlcoholOrder += Alcohol.getAlcohols(i)+": "+ array1[i];
-                    WelcomePage.Customer2.customerSum += Alcohol.getAlcohols(i)+": "+ array1[i];
-                    b.setText(Alcohol.getAlcohols(i)+": "+ array1[i]);
-                    b.setId(i);
-                    b.setTextSize(20);
-                    b.setPadding(18, 13, 18, 13);
-		            b.setTypeface(Typeface.SERIF,Typeface.BOLD_ITALIC);
-		            b.setLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT,LayoutParams.WRAP_CONTENT));
-			           
-	            linear1.addView(b);
-	        	}
-	  
-	            this.setContentView(scrollview);
-	        }
-	        
-	        //print the order for Main Menu on the screen
-	        for(int i = 0 ; i < WelcomePage.Customer2.mainmenu.length ; i++)
-	        {	
-	        	int array1[] = WelcomePage.Customer2.mainmenu;
-	        	if (array1[i] != 0)
-	        	{	
-	        		LinearLayout linear1 = new LinearLayout(this);
-                    linear1.setOrientation(LinearLayout.HORIZONTAL);
-                    linearlayout.addView(linear1);
-                    b = new TextView(this);
-                    //AlcoholOrder += Main_menu.getMainDishes(i)+": "+ array1[i];
-                    WelcomePage.Customer2.customerSum += Main_menu.getMainDishes(i)+": "+ array1[i];
-                    b.setText(Main_menu.getMainDishes(i)+": "+ array1[i]);
-                    b.setId(i);
-                    b.setTextSize(20);
-                    b.setPadding(18, 13, 18, 13);
-		            b.setTypeface(Typeface.SERIF,Typeface.BOLD_ITALIC);
-		            b.setLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT,LayoutParams.WRAP_CONTENT));
-			           
-	            linear1.addView(b);
-	        	}
-	  
-	            this.setContentView(scrollview);
-	        }
-	        
-	        
-	      //print the order for Appetizer on the screen
-	        for(int i = 0 ; i < WelcomePage.Customer2.appetizer.length ; i++)
-	        {	
-	        	int array1[] = WelcomePage.Customer2.appetizer;
-	        	if (array1[i] != 0)
-	        	{	
-	        		LinearLayout linear1 = new LinearLayout(this);
-                    linear1.setOrientation(LinearLayout.HORIZONTAL);
-                    linearlayout.addView(linear1);
-                    b = new TextView(this);
-                    //AlcoholOrder += Appetizer.getAppetizer(i)+": "+ array1[i];
-                    WelcomePage.Customer2.customerSum += Appetizer.getAppetizer(i)+": "+ array1[i];
-                    b.setText(Appetizer.getAppetizer(i)+": "+ array1[i]);
-                    b.setId(i);
-                    b.setTextSize(20);
-                    b.setPadding(18, 13, 18, 13);
-		            b.setTypeface(Typeface.SERIF,Typeface.BOLD_ITALIC);
-		            b.setLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT,LayoutParams.WRAP_CONTENT));
-			           
-	            linear1.addView(b);
-	        	}
-	  
-	            this.setContentView(scrollview);
-	        }
-	        
-	        
-            linear2.setOrientation(LinearLayout.HORIZONTAL);
-            linearlayout.addView(linear2);
-	        c = new TextView(this);
-	        c.setText("Below is the total price for guest 2: $"
-	        +String.valueOf(df.format(WelcomePage.Customer2.totalCustOrder())));
-            c.setId(50);
-            c.setTextSize(25);
-            c.setPadding(18, 13, 18, 13);
-            c.setTypeface(Typeface.SERIF,Typeface.BOLD_ITALIC);
-            c.setLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT,LayoutParams.WRAP_CONTENT));
-            linear2.addView(c);
-            this.setContentView(scrollview);
-            
-            ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// customer3
-	        LinearLayout linear3 = new LinearLayout(this);
+}
+
+///////////////////////////////////////////////////////////////////////////
+
+LinearLayout linear0 = new LinearLayout(this);
+linear0.setOrientation(LinearLayout.HORIZONTAL);
+linearlayout.addView(linear0);
+a = new TextView(this);
+double total = 0;
+for (int j=0; j<WelcomePage.numCust; j++)
+{
+	total += WelcomePage.CustArray[j].orderSum;
+}
+DecimalFormat df = new DecimalFormat("#0.00");
+a.setText("Total price of order for the table: $"+ df.format(total));
+a.setId(50);
+a.setTextSize(25);
+a.setPadding(18, 13, 18, 13);
+a.setTypeface(Typeface.SERIF,Typeface.BOLD_ITALIC);
+a.setLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT,LayoutParams.WRAP_CONTENT));
+linear0.addView(a);
+this.setContentView(scrollview);
+
+
+			LinearLayout linear3 = new LinearLayout(this);
             linear3.setOrientation(LinearLayout.HORIZONTAL);
             linearlayout.addView(linear3);
             Button d = new Button(this);
@@ -265,16 +191,6 @@ public class TotalReview extends Activity {
             d.setLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT,LayoutParams.WRAP_CONTENT));
      
            
-            
-            //go back for different customer
-            Button e = new Button(this);
-              
-            e.setText("Order For a Different Guest");
-            e.setId(2); 
-            e.setTextSize(10);
-            e.setPadding(8, 3, 8, 3);
-            e.setTypeface(Typeface.SERIF,Typeface.BOLD_ITALIC);
-
            
           
             linear3.addView(d);            
@@ -291,20 +207,7 @@ public class TotalReview extends Activity {
                 
             });
             
-            if(WelcomePage.getNumCust() != 1)
-            {  
-            linear3.addView(e);            
-            e.setOnClickListener(new View.OnClickListener(){
-                
-                @Override
-                public void onClick(View v) {
-                	transitionNumCust(v);
-                }
-                
-                
-                
-            });
-            }
+ 
              this.setContentView(scrollview);
 	}
 	

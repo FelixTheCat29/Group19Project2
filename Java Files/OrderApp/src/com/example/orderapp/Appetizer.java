@@ -76,31 +76,37 @@ public class Appetizer extends Activity {
 			int message1 = Integer.parseInt(EditText1.getText().toString());	
 			//NumberCustomers.CurrentCust.alcohol[0] = message1;
 			Edamame = message1;
+			NumberCustomers.CurrentCust.appetizer[0] = message1;
 		}
 			catch(NumberFormatException nfe)
 			{
 				Edamame = 0;
+				NumberCustomers.CurrentCust.appetizer[0] = 0;
 				//NumberCustomers.CurrentCust.alcohol[0] = 0;
 			}
 		
 		try{
 			int message2 = Integer.parseInt(EditText2.getText().toString());	
 			Salad = message2;
+			NumberCustomers.CurrentCust.appetizer[1] = message2;
 			//NumberCustomers.CurrentCust.alcohol[1] = message2;
 		}
 			catch(NumberFormatException nfe)
 			{
 				Salad = 0;
+				NumberCustomers.CurrentCust.appetizer[1] = 0;
 				//NumberCustomers.CurrentCust.alcohol[1] = 0;
 			}
 		try{
 			int message3 = Integer.parseInt(EditText3.getText().toString());	
 			Cheese = message3;
+			NumberCustomers.CurrentCust.appetizer[2] = message3;
 			//NumberCustomers.CurrentCust.alcohol[2] = message3;
 		}
 			catch(NumberFormatException nfe)
 			{
 				Cheese = 0;
+				NumberCustomers.CurrentCust.appetizer[2] = 0;
 				//NumberCustomers.CurrentCust.alcohol[2] = 0;
 			}
 	/*	try{
@@ -119,7 +125,7 @@ public class Appetizer extends Activity {
 		Appetizer[2] = Cheese;
 		//Appetizer[3] = Shrimp;
 		
-		NumberCustomers.CurrentCust.CustAppetizer(Appetizer);
+		//NumberCustomers.CurrentCust.CustAppetizer(Appetizer);
 	
 		
 		for(int i=0; i<AppetizerKind; i++)
