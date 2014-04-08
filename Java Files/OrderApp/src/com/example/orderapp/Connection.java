@@ -21,7 +21,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 public class Connection extends Activity {
-	int chefID=0;
+	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 
@@ -147,12 +147,50 @@ public class Connection extends Activity {
 	//  Called when the user wants to send a message
 
 
-	//Automatic sending
+//	//Automatic sending
+//	public void sendOrder(View view) {
+//		ConnectionApplication app = (ConnectionApplication) getApplication();
+//
+//		String msg = ReviewPage.OrderSum();
+//		Log.i("con",""+ app.getChefClientID());
+//		byte buf[] = new byte[msg.length() + 2];
+//		if(app.getChefClientID() == 0)
+//			app.setChefClientID(255);
+//		else {
+//			buf[0] = (byte)app.getChefClientID(); 
+//			buf[1] = (byte)0; // special integer is zero for normal order sends.
+//			System.arraycopy(msg.getBytes(), 0, buf, 2, msg.length());
+//
+//			// Now send through the output stream of the socket
+//
+//			OutputStream out;
+//			try {
+//				out = app.sock.getOutputStream();
+//				try {
+//					out.write(buf, 0, msg.length() + 2);
+//				} catch (IOException e) {
+//					e.printStackTrace();
+//				}
+//			} catch (IOException e) {
+//				e.printStackTrace();
+//			}
+//		}
+//	}
+//	
+//	
+	
+	//  Called when the user wants to send a message
+
 	public void sendOrder(View view) {
+		
+		
 		ConnectionApplication app = (ConnectionApplication) getApplication();
 
-		String msg = ReviewPage.OrderSum();
-		Log.i("con",""+ app.getChefClientID());
+		
+		//String msg = ReviewPage.OrderString();
+		String msg = buildToSend();
+		//NumberCustomers.CurrentCust.customerSum="";
+		
 		byte buf[] = new byte[msg.length() + 2];
 		if(app.getChefClientID() == 0)
 			app.setChefClientID(255);
@@ -178,8 +216,6 @@ public class Connection extends Activity {
 	}
 	
 	
-	
-	
 
 	// Called when the user closes a socket
 
@@ -200,7 +236,8 @@ public class Connection extends Activity {
 		{
 			message = message + WelcomePage.CustArray[i].alcohol[0] + "/" + WelcomePage.CustArray[i].alcohol[1] + "/" + WelcomePage.CustArray[i].alcohol[2] + "/" +WelcomePage.CustArray[i].alcohol[3] + "/" +
 					            WelcomePage.CustArray[i].mainmenu[0] + "/" + WelcomePage.CustArray[i].mainmenu[1] + "/" + WelcomePage.CustArray[i].mainmenu[2] + "/" + WelcomePage.CustArray[i].mainmenu[3] + "/" +
-					            WelcomePage.CustArray[i].appetizer[0] + "/" + WelcomePage.CustArray[i].appetizer[1] + "/" + WelcomePage.CustArray[i].appetizer[2]+"*";
+					            WelcomePage.CustArray[i].appetizer[0] + "/" + WelcomePage.CustArray[i].appetizer[1] + "/" + WelcomePage.CustArray[i].appetizer[2]+ "/" +
+					            WelcomePage.CustArray[i].special[0] + "/" +WelcomePage.CustArray[i].special[1]+"*";
 		}
 		return message;
 	}

@@ -229,13 +229,14 @@ public class SpecialsPage extends Activity {
 		for(int i=0; i<editTextList.size(); i++) {
 			String qtyString = editTextList.get(i).getText().toString();
 			int qty = Integer.parseInt(qtyString);
-
+			NumberCustomers.CurrentCust.special[i] =qty; 
 			if(SpecialItem.specialItemQuantity.size() < 2 )
 				SpecialItem.specialItemQuantity.add(i, qty);  
 			else 
 				SpecialItem.specialItemQuantity.set(i, qty);  
 		}
 		NumberCustomers.CurrentCust.SpeSum = calculateTotal();
+		
 		Intent intent = new Intent(this, ViewMenu.class);
 		startActivity(intent);
 
