@@ -14,6 +14,8 @@ import android.view.View;
 import android.widget.EditText;
 
 public class UpdateSpecials extends Activity {
+	public static String[] specials= new String[2];
+	
 	
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
@@ -83,12 +85,16 @@ public class UpdateSpecials extends Activity {
 
 		EditText et = (EditText) findViewById(R.id.Item1);
 		String Item1 = et.getText().toString();
+		
+		specials[0]= Item1;
 
 		et = (EditText) findViewById(R.id.Price1);
 		String Price1 = et.getText().toString();
 		
 		et = (EditText) findViewById(R.id.Item2);
 		String Item2 = et.getText().toString();
+		
+		specials[1]= Item2;
 		
 		et = (EditText) findViewById(R.id.Price2);
 		String Price2 = et.getText().toString();

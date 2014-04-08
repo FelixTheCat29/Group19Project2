@@ -3,7 +3,9 @@ package com.example.chefapp;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -29,7 +31,10 @@ public class viewOrders extends Activity {
 	public static Handler mHandler;
 	public static List<String> customerOrder = new ArrayList<String>();
 	public static List<int[][]> eachOrder = new ArrayList<int[][]>();
+	
 
+	public static Map<Integer, List<String>> specialItemsMap = new HashMap<Integer, List<String>>();
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -67,6 +72,11 @@ public class viewOrders extends Activity {
 					// Elements of Customer are String[]
 				}
 				eachOrder.add(oneTable);
+				List<String> temp = new ArrayList<String>();
+				temp.add(UpdateSpecials.specials[0]);
+				temp.add(UpdateSpecials.specials[1]);
+				specialItemsMap.put(eachOrder.size()-1, temp );
+				
 				onResume();
 			}
 		};
@@ -100,10 +110,12 @@ public class viewOrders extends Activity {
 
 		String[] menuItems = { "Kokanee", "Budweiser", "Chivas", "Ballantines",
 				"Pizza", "Hamburger", "Sandwich", "French Fries", "Edamame",
-				"Salad", "Cheese", "Special 1", "Special 2" };
+				"Salad", "Cheese", "","" };
+		menuItems[11]=UpdateSpecials.specials[0];
+		menuItems[12]=UpdateSpecials.specials[1];
 		String special1 = menuItems[11];
 		String special2 = menuItems[12];
-		// When chef name special1 and special2, save them here
+		// When chef name 11 and special2, save them here
 
 		for (int ind = 0; ind < orders.size(); ind++) {
 			Log.i("OnResume", "in orders loop" + ind);
@@ -155,8 +167,12 @@ public class viewOrders extends Activity {
 						linear1.setOrientation(LinearLayout.HORIZONTAL);
 						sublayout.addView(linear1);
 						b = new TextView(this);
+						if(i<11){
 						b.setText(menuItems[i] + ": "
 								+ eachOrder.get(ind)[j][i]);
+						} else {
+							b.setText(specialItemsMap.get(ind).get(i-11) + ": " + eachOrder.get(ind)[j][i]);
+						}
 						b.setId(i);
 						b.setTextSize(20);
 						b.setPadding(18, 13, 18, 13);
