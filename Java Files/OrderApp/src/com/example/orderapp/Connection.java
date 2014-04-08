@@ -225,6 +225,8 @@ public class Connection extends Activity {
 		addr += "." + text_ip.getText().toString();
 		return addr;
 	}
+	
+
 
 	// Gets the Port from the appropriate field.
 

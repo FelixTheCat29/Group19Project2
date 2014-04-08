@@ -13,7 +13,7 @@ public class Appetizer extends Activity {
 	int Salad = 0;
 	int Cheese = 0;
 	//int Shrimp = 0;
-	static int Appetizer[] = {0,0,0}; //fixed elements just for now : Alcohol[kok, Bud, Chivas, Ballan]
+	static int Appetizer[] = {0,0,0}; 
 	int AppetizerKind = Appetizer.length;
 	static double AppetizerPrice[] = {3.50,5.50,4.50};
 	static double price = 0;

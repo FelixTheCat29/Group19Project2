@@ -235,7 +235,7 @@ public class SpecialsPage extends Activity {
 			else 
 				SpecialItem.specialItemQuantity.set(i, qty);  
 		}
-		calculateTotal();
+		NumberCustomers.CurrentCust.SpeSum = calculateTotal();
 		Intent intent = new Intent(this, ViewMenu.class);
 		startActivity(intent);
 

@@ -8,10 +8,12 @@ public class Customer {
     int alcohol[] ={0,0,0,0};
     int mainmenu[] ={0,0,0,0};
     int appetizer[]={0,0,0};
+    int special[]={0,0};
     
     double Alsum;
     double MainMenuSum;
     double AppetizerSum;
+    double SpeSum;
 	double orderSum = 0;
 	
 public Customer (int i)
@@ -21,10 +23,12 @@ SelCust= i;
 int alcohol[] ={0,0,0,0};
 int mainmenu[] ={0,0,0,0};
 int appetizer[]={0,0,0};
+int special[]={0,0};
 
 double Alsum;
 double MainMenuSum;
 double AppetizerSum;
+double SpeSum;
 }
 
 public void CustMain(int order[])
@@ -44,14 +48,14 @@ public void CustAl(int order[])
 }
 
 
-public void calculateTotal(double alcohol, double mainmenu, double appetizer)
+public void calculateTotal(double alcohol, double mainmenu, double appetizer, double special)
 {
-	orderSum = alcohol + mainmenu + appetizer;
+	orderSum = alcohol + mainmenu + appetizer + special;
 }
 
 public double totalCustOrder()
 {
-	calculateTotal(Alsum, MainMenuSum, AppetizerSum);
+	calculateTotal(Alsum, MainMenuSum, AppetizerSum, SpeSum);
 	return orderSum;
 }
 

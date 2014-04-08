@@ -136,6 +136,31 @@ for (int j=0; j<WelcomePage.numCust; j++)
 	  
 	            this.setContentView(scrollview);
 	        }
+
+	        for(int i = 0 ; i < WelcomePage.CustArray[j].special.length ; i++)
+	        {	
+	        	int array1[] = WelcomePage.CustArray[j].special;
+	        	if (array1[i] != 0)
+	        	{	
+	        		LinearLayout linear1 = new LinearLayout(this);
+                    linear1.setOrientation(LinearLayout.HORIZONTAL);
+                    linearlayout.addView(linear1);
+                    b = new TextView(this);
+                    //AlcoholOrder += Appetizer.getAppetizer(i)+": "+ array1[i];
+                    //WelcomePage.Customer1.customerSum += Appetizer.getAppetizer(i)+": "+ array1[i];
+                    b.setText(SpecialItem.specialItems.get(i)+": "+ array1[i]);
+                    b.setId(i);
+                    b.setTextSize(20);
+                    b.setPadding(18, 13, 18, 13);
+		            b.setTypeface(Typeface.SERIF,Typeface.BOLD_ITALIC);
+		            b.setLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT,LayoutParams.WRAP_CONTENT));
+			           
+	            linear1.addView(b);
+	        	}
+	  
+	            this.setContentView(scrollview);
+	        }
+	        
 	        
 	        LinearLayout linear2 = new LinearLayout(this);
             linear2.setOrientation(LinearLayout.HORIZONTAL);
