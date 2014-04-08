@@ -10,9 +10,10 @@ android:padding="10sp" >
         android:id="@+id/txtView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="90px"
+        android:layout_marginLeft="30px"
         android:layout_marginTop="65px"
-        android:text="@string/error_numb_people" />
+        android:text="@string/error_numb_people"
+        android:textColor="@color/red" />
 
 <Button
     android:id="@+id/btn_close_popup"

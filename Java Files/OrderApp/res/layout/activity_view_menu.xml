@@ -6,7 +6,8 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context=".ViewMenu" >
+    tools:context=".ViewMenu"
+    >
 
     <TextView
         android:id="@+id/text111"
@@ -40,7 +41,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/text111"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="56dp"
+        android:layout_marginTop="10dp"
         android:onClick="onClickAppetizer"
         android:text="@string/appetizer_line" />
 

@@ -1,22 +1,21 @@
 package com.example.orderapp;
 
-import android.os.Bundle;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
+import android.os.Bundle;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
-import android.widget.SeekBar;
 import android.widget.TextView;
-import android.view.View.OnClickListener;
-import android.view.ViewGroup.LayoutParams;
 
 public class WelcomePage extends Activity {
 	
@@ -116,6 +115,9 @@ catch(NumberFormatException nfe)
 		btnClosePopup = (Button) layout.findViewById(R.id.btn_close_popup); 
 		btnClosePopup.setOnClickListener(cancel_button_click_listener);
 
+		btnClosePopup.setTextColor(Color.RED);
+		
+		
 		} catch (Exception e) { 
 		e.printStackTrace(); 
 		} 

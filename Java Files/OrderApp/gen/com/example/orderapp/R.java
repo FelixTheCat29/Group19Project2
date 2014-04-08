@@ -794,10 +794,26 @@ containing a value of this type.
         public static final int abc_split_action_bar_is_narrow=0x7f060002;
     }
     public static final class color {
-        public static final int abc_search_url_text_holo=0x7f070003;
+        public static final int abc_search_url_text_holo=0x7f070013;
         public static final int abc_search_url_text_normal=0x7f070000;
         public static final int abc_search_url_text_pressed=0x7f070002;
         public static final int abc_search_url_text_selected=0x7f070001;
+        public static final int aqua=0x7f07000c;
+        public static final int black=0x7f070012;
+        public static final int blue=0x7f070010;
+        public static final int fuchsia=0x7f070005;
+        public static final int gray=0x7f070008;
+        public static final int green=0x7f07000f;
+        public static final int lime=0x7f07000d;
+        public static final int maroon=0x7f07000b;
+        public static final int navy=0x7f070011;
+        public static final int olive=0x7f070009;
+        public static final int purple=0x7f07000a;
+        public static final int red=0x7f070006;
+        public static final int silver=0x7f070007;
+        public static final int teal=0x7f07000e;
+        public static final int white=0x7f070003;
+        public static final int yellow=0x7f070004;
     }
     public static final class dimen {
         /**  Default height of an action bar. 
@@ -996,7 +1012,7 @@ containing a value of this type.
         public static final int LinearLayout1=0x7f050050;
         public static final int MessageText=0x7f05004b;
         public static final int RecvdMessage=0x7f05004c;
-        public static final int ScrollView1=0x7f05004f;
+        public static final int RelativeLayout1=0x7f05004f;
         public static final int action_bar=0x7f05001c;
         public static final int action_bar_activity_content=0x7f050015;
         public static final int action_bar_container=0x7f05001b;
