@@ -153,7 +153,7 @@ public class Connection extends Activity {
 
 		
 		//String msg = ReviewPage.OrderString();
-		String msg = NumberCustomers.CurrentCust.customerSum;
+		String msg = buildToSend();
 		//NumberCustomers.CurrentCust.customerSum="";
 		
 		Log.i("con",""+chefID);
@@ -197,6 +197,17 @@ public class Connection extends Activity {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+	}
+	
+	public String buildToSend(){
+		String message = "";
+		for(int i=0; i<WelcomePage.getNumCust(); i++)
+		{
+			message = message + WelcomePage.CustArray[i].alcohol[0] + "/" + WelcomePage.CustArray[i].alcohol[1] + "/" + WelcomePage.CustArray[i].alcohol[2] + "/" +WelcomePage.CustArray[i].alcohol[3] + "/" +
+					            WelcomePage.CustArray[i].mainmenu[0] + "/" + WelcomePage.CustArray[i].mainmenu[1] + "/" + WelcomePage.CustArray[i].mainmenu[2] + "/" + WelcomePage.CustArray[i].mainmenu[3] + "/" +
+					            WelcomePage.CustArray[i].appetizer[0] + "/" + WelcomePage.CustArray[i].appetizer[1] + "/" + WelcomePage.CustArray[i].appetizer[2]+"*";
+		}
+		return message;
 	}
 
 	// Construct an IP address from the four boxes

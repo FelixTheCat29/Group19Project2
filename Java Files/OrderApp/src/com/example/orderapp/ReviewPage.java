@@ -199,7 +199,8 @@ public class ReviewPage extends Activity {
             	WelcomePage.Customer4 = NumberCustomers.CurrentCust;
             }
             
-          
+          if(WelcomePage.getNumCust() == 1)
+          {
             linear3.addView(d);            
             d.setOnClickListener(new View.OnClickListener(){
                 
@@ -208,6 +209,23 @@ public class ReviewPage extends Activity {
                       // TODO Auto-generated method stub
                       //Toast.makeText(getApplicationContext(), "Button Clicked.."+ (v.getId()+1), Toast.LENGTH_SHORT).show();
                 		JumpAct(v);
+                }
+                
+                
+                
+            });
+          } 
+ 
+            
+            
+            if(WelcomePage.getNumCust() != 1)
+            {  
+            linear3.addView(f);            
+            f.setOnClickListener(new View.OnClickListener(){
+                
+                @Override
+                public void onClick(View v) {
+                	transitionNumCust(v);
                 }
                 
                 
@@ -226,20 +244,6 @@ public class ReviewPage extends Activity {
                 
             });
             
-            
-            if(WelcomePage.getNumCust() != 1)
-            {  
-            linear3.addView(f);            
-            f.setOnClickListener(new View.OnClickListener(){
-                
-                @Override
-                public void onClick(View v) {
-                	transitionNumCust(v);
-                }
-                
-                
-                
-            });
             }
              this.setContentView(scrollview);
 	}
