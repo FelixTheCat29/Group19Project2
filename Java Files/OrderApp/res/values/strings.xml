@@ -61,13 +61,10 @@
     <string name="cheese">Cheese $4.50</string>
     <string name="shrimp">Shrimp(5) $4.00</string>
     <string name="title_activity_total_review">TotalReview</string>
-
-    
     <string name="action_updateSpecials">Update Specials</string>
-
     <string name="Specials_line">Specials</string>
-    
     <string name="title_activity_specials_page">Today\'s Specials</string>
-   
-    
+    <string name="title_activity_waiting">Waiting</string>
+    <string name="waiting">The chef has recieved your order, we will alert you when your order is almost done!</string>
+
 </resources>

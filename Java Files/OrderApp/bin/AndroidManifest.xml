@@ -85,6 +85,10 @@
             android:name="com.example.orderapp.SpecialsPage"
             android:label="@string/title_activity_specials_page" >
         </activity>
+        <activity
+            android:name="com.example.orderapp.Waiting"
+            android:label="@string/title_activity_waiting" >
+        </activity>
     </application>
 
 </manifest>

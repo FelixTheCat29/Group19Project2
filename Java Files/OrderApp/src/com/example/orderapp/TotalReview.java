@@ -238,7 +238,7 @@ this.setContentView(scrollview);
 	
 	private void JumpAct(View v) {
 		// TODO Auto-generated method stub
-        Intent intent = new Intent(this, Connection.class);
+        Intent intent = new Intent(this, Waiting.class);
         startActivity(intent);
 	}
 	
@@ -250,7 +250,7 @@ this.setContentView(scrollview);
 	}
 	
 	public void onClickConnect(View view) {
-		Intent intent = new Intent(this, Connection.class);
+		Intent intent = new Intent(this, Waiting.class);
 		startActivity(intent);
 	}
 	

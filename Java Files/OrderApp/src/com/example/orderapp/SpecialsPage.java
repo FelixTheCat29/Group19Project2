@@ -273,7 +273,9 @@ public class SpecialsPage extends Activity {
 
 	}
 
-
+	@Override
+	public void onBackPressed() {
+	}
 
 
 }

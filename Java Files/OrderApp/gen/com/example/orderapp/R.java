@@ -82,12 +82,14 @@ public final class R {
         public static final int activity_split_bill=0x7f030008;
         public static final int activity_total_review=0x7f030009;
         public static final int activity_view_menu=0x7f03000a;
-        public static final int fragment_appetizer=0x7f03000b;
-        public static final int fragment_main=0x7f03000c;
-        public static final int fragment_main_menu=0x7f03000d;
-        public static final int fragment_total_review=0x7f03000e;
-        public static final int popup=0x7f03000f;
-        public static final int welcome_screen=0x7f030010;
+        public static final int activity_waiting=0x7f03000b;
+        public static final int fragment_appetizer=0x7f03000c;
+        public static final int fragment_main=0x7f03000d;
+        public static final int fragment_main_menu=0x7f03000e;
+        public static final int fragment_total_review=0x7f03000f;
+        public static final int fragment_waiting=0x7f030010;
+        public static final int popup=0x7f030011;
+        public static final int welcome_screen=0x7f030012;
     }
     public static final class menu {
         public static final int alcohol=0x7f070000;
@@ -104,6 +106,7 @@ public final class R {
         public static final int split_bill=0x7f07000b;
         public static final int total_review=0x7f07000c;
         public static final int view_menu=0x7f07000d;
+        public static final int waiting=0x7f07000e;
     }
     public static final class string {
         public static final int Alcohol_line=0x7f050013;
@@ -167,6 +170,8 @@ public final class R {
         public static final int title_activity_split_bill=0x7f050007;
         public static final int title_activity_total_review=0x7f050039;
         public static final int title_activity_view_menu=0x7f050008;
+        public static final int title_activity_waiting=0x7f05003d;
+        public static final int waiting=0x7f05003e;
         public static final int welcome_message=0x7f050003;
         public static final int yes=0x7f05000d;
     }
