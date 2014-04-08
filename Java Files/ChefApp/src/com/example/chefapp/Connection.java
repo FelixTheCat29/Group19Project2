@@ -295,7 +295,9 @@ public class Connection extends Activity {
 						if(specialInt == 0) {
 
 							final String s = new String(buf, 2, bytes_avail-2, "US-ASCII");
-							viewOrders.stringForOrders= orderClientID+"#"+s;							//SpecialsPage.specialItems.add(s);
+							viewOrders.stringForOrders = s;
+							viewOrders.clientIDList.add(orderClientID);
+							//viewOrders.stringForOrders= orderClientID+"#"+s;							//SpecialsPage.specialItems.add(s);
 							viewOrders.mHandler.obtainMessage(1).sendToTarget();
 
 							// As explained in the tutorials, the GUI can not be
