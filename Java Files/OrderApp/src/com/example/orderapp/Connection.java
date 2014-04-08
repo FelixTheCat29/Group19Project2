@@ -166,9 +166,9 @@ public class Connection extends Activity {
 		String msg = ReviewPage.OrderSum();
 		Log.i("con",""+ app.getChefClientID());
 		byte buf[] = new byte[msg.length() + 2];
-		if(app.getChefClientID() == 0)
-			app.setChefClientID(255);
-		else {
+//		if(app.getChefClientID() == 0)
+//			app.setChefClientID(255);
+//		else {
 			buf[0] = (byte)app.getChefClientID(); 
 			buf[1] = (byte)0; // special integer is zero for normal order sends.
 			System.arraycopy(msg.getBytes(), 0, buf, 2, msg.length());
@@ -186,7 +186,7 @@ public class Connection extends Activity {
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
-		}
+		//}
 	}
 	
 	
