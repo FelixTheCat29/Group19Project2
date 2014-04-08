@@ -4,6 +4,7 @@ import java.text.DecimalFormat;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.util.Log;
@@ -14,13 +15,14 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 public class TotalReview extends Activity {
 	static String AlcoholOrder="";
 	static double totalSum=0;
 	static double[] TableOrder;
 	static String OrderString="";
+	int colorArray[]={Color.RED,Color.BLUE,Color.GREEN,Color.MAGENTA};
+	
     
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -43,15 +45,20 @@ public class TotalReview extends Activity {
         
 	       
 	        //////////////////////////////////////////////////////////////////////////////////////////////////////////////////customer1
-	       //Dynamically print "Below is the order for quest#" on top of the screen
+	        //Dynamically print "Below is the order for quest#" on top of the screen
+	        
+	        
 for (int j=0; j<WelcomePage.numCust; j++)
 {
+	
+	
 	        
 	        LinearLayout linear0 = new LinearLayout(this);
             linear0.setOrientation(LinearLayout.HORIZONTAL);
             linearlayout.addView(linear0);
 	        a = new TextView(this);
-            a.setText("Below is the order for guest " + (j+1) + ":");
+	        a.setTextColor(colorArray[j]);
+            a.setText("Order for guest " + (j+1) + ":");
             a.setId(50);
             a.setTextSize(25);
             a.setPadding(18, 13, 18, 13);
@@ -71,6 +78,7 @@ for (int j=0; j<WelcomePage.numCust; j++)
                     linear1.setOrientation(LinearLayout.HORIZONTAL);
                     linearlayout.addView(linear1);
                     b = new TextView(this);
+                    b.setTextColor(colorArray[j]);
                     //AlcoholOrder += Alcohol.getAlcohols(i)+": "+ array1[i];
                     //WelcomePage.Customer1.customerSum += Alcohol.getAlcohols(i)+": "+ array1[i];
                     b.setText(Alcohol.getAlcohols(i)+": "+ array1[i]);
@@ -96,6 +104,7 @@ for (int j=0; j<WelcomePage.numCust; j++)
                     linear1.setOrientation(LinearLayout.HORIZONTAL);
                     linearlayout.addView(linear1);
                     b = new TextView(this);
+                    b.setTextColor(colorArray[j]);
                     //AlcoholOrder += Main_menu.getMainDishes(i)+": "+ array1[i];
                     //WelcomePage.Customer1.customerSum += Main_menu.getMainDishes(i)+": "+ array1[i];
                     b.setText(Main_menu.getMainDishes(i)+": "+ array1[i]);
@@ -122,6 +131,7 @@ for (int j=0; j<WelcomePage.numCust; j++)
                     linear1.setOrientation(LinearLayout.HORIZONTAL);
                     linearlayout.addView(linear1);
                     b = new TextView(this);
+                    b.setTextColor(colorArray[j]);
                     //AlcoholOrder += Appetizer.getAppetizer(i)+": "+ array1[i];
                     //WelcomePage.Customer1.customerSum += Appetizer.getAppetizer(i)+": "+ array1[i];
                     b.setText(Appetizer.getAppetizer(i)+": "+ array1[i]);
@@ -141,8 +151,9 @@ for (int j=0; j<WelcomePage.numCust; j++)
             linear2.setOrientation(LinearLayout.HORIZONTAL);
             linearlayout.addView(linear2);
 	        c = new TextView(this);
+	        c.setTextColor(colorArray[j]);
 	        DecimalFormat df = new DecimalFormat("#0.00");
-            c.setText("Below is the total price for guest " + (j+1) + ": $"
+            c.setText("Total price for guest " + (j+1) + ": $"
 	        +String.valueOf(df.format(WelcomePage.CustArray[j].totalCustOrder())));
             c.setId(50);
             c.setTextSize(25);
@@ -167,7 +178,7 @@ for (int j=0; j<WelcomePage.numCust; j++)
 	total += WelcomePage.CustArray[j].orderSum;
 }
 DecimalFormat df = new DecimalFormat("#0.00");
-a.setText("Total price of order for the table: $"+ df.format(total));
+a.setText("Total price for the entire table: $"+ df.format(total));
 a.setId(50);
 a.setTextSize(25);
 a.setPadding(18, 13, 18, 13);
@@ -184,6 +195,7 @@ this.setContentView(scrollview);
             
             
             d.setText("Confirm Order");
+            d.setTextColor(Color.BLUE);
             d.setId(1); 
             d.setTextSize(10);
             d.setPadding(8, 3, 8, 3);

@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -96,6 +97,7 @@ catch(NumberFormatException nfe)
     if (x > 4 || x == 0)
     {
     	initiatePopupWindow();
+    	
     }
     
     
@@ -103,13 +105,18 @@ catch(NumberFormatException nfe)
 	private PopupWindow pwindo;
 	private void initiatePopupWindow() { 
 		try { 
+			
+			MediaPlayer mp = MediaPlayer.create(this, R.raw.slayer);  
+			  mp.start();
+			
+			
 		// We need to get the instance of the LayoutInflater 
 		LayoutInflater inflater = (LayoutInflater) WelcomePage.this 
 		.getSystemService(Context.LAYOUT_INFLATER_SERVICE); 
 		View layout = inflater.inflate(R.layout.popup,(ViewGroup)
 
 		findViewById(R.id.popup_element)); 
-		pwindo = new PopupWindow(layout, 350, 350, true); 
+		pwindo = new PopupWindow(layout, 450, 450, true); 
 		pwindo.showAtLocation(layout, Gravity.CENTER, 0, 0);
 
 		btnClosePopup = (Button) layout.findViewById(R.id.btn_close_popup); 

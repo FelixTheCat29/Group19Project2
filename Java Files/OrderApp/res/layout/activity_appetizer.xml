@@ -56,7 +56,8 @@
         android:layout_alignLeft="@+id/button1"
         android:layout_alignParentTop="true"
         android:layout_marginTop="66dp"
-        android:text="@string/edamame" />
+        android:text="@string/edamame"
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/textView2"
@@ -65,7 +66,8 @@
         android:layout_alignLeft="@+id/textView1"
         android:layout_below="@+id/textView1"
         android:layout_marginTop="41dp"
-        android:text="@string/salad" />
+        android:text="@string/salad"
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/textView4"
@@ -74,6 +76,7 @@
         android:layout_alignLeft="@+id/textView2"
         android:layout_below="@+id/textView2"
         android:layout_marginTop="41dp"
-        android:text="@string/cheese" />
+        android:text="@string/cheese"
+        android:textStyle="bold" />
 
 </RelativeLayout>

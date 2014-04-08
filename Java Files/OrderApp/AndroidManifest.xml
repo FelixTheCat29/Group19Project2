@@ -81,6 +81,18 @@
             android:name="com.example.orderapp.TotalReview"
             android:label="@string/title_activity_total_review" >
         </activity>
+        <activity
+            android:name="com.example.orderapp.SpecialsPage"
+            android:label="@string/title_activity_specials_page" >
+        </activity>
+        <activity
+            android:name="com.example.orderapp.SpecialItem"
+            android:label="@string/title_activity_special_item" >
+        </activity>
+        <activity
+            android:name="com.example.orderapp.Waiting"
+            android:label="@string/title_activity_waiting" >
+        </activity>
     </application>
 
 </manifest>

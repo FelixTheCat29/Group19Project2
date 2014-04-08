@@ -61,22 +61,29 @@
     <string name="cheese">Cheese $4.50</string>
     <string name="shrimp">Shrimp(5) $4.00</string>
     <string name="title_activity_total_review">TotalReview</string>
-    
+    <string name="action_updateSpecials">Update Specials</string>
+    <string name="Specials_line">Specials</string>
+    <string name="title_activity_specials_page">Today\'s Specials</string>
+    <string name="title_activity_waiting">Waiting</string>
+    <string name="waiting">The chef has recieved your order, we will alert you when your order is almost done!</string>
+
     <color name="white">#FFFFFF</color>
- <color name="yellow">#FFFF00</color>
- <color name="fuchsia">#FF00FF</color>
- <color name="red">#FF0000</color>
- <color name="silver">#C0C0C0</color>
- <color name="gray">#808080</color>
- <color name="olive">#808000</color>
- <color name="purple">#800080</color>
- <color name="maroon">#800000</color>
- <color name="aqua">#00FFFF</color>
- <color name="lime">#00FF00</color>
- <color name="teal">#008080</color>
- <color name="green">#008000</color>
- <color name="blue">#0000FF</color>
- <color name="navy">#000080</color>
- <color name="black">#000000</color>
+    <color name="yellow">#FFFF00</color>
+    <color name="fuchsia">#FF00FF</color>
+    <color name="red">#FF0000</color>
+    <color name="silver">#C0C0C0</color>
+    <color name="gray">#808080</color>
+    <color name="olive">#808000</color>
+    <color name="purple">#800080</color>
+    <color name="maroon">#800000</color>
+    <color name="aqua">#00FFFF</color>
+    <color name="lime">#00FF00</color>
+    <color name="teal">#008080</color>
+    <color name="green">#008000</color>
+    <color name="blue">#0000FF</color>
+    <color name="navy">#000080</color>
+    <color name="black">#000000</color>
+
+    <string name="title_activity_special_item">SpecialItem</string>
 
 </resources>

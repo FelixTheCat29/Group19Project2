@@ -54,6 +54,11 @@ public class ViewMenu extends Activity {
 		//intent.putExtra("Alcohol_Data", Alcohol);
 		startActivity(intent);
 	}
+	
+	public void onClickSpecials(View view) {
+		Intent intent = new Intent(this, SpecialsPage.class);
+		startActivity(intent);
+	}
 
 	
 }

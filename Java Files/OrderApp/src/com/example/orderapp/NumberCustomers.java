@@ -38,13 +38,15 @@ public class NumberCustomers extends Activity {
        
         for(int i = 0; i<WelcomePage.getNumCust();i++)
         {
+        	
+        	int colorArray[]={Color.RED,Color.BLUE,Color.GREEN,Color.MAGENTA};
             
         	// Creating a new Left Button with Margin
             Button buttonLeftWithMargin = new Button(this);
             buttonLeftWithMargin.setText("Order for guest "+(i+1));
             
             // Add a Layout to the Button with Margin
-            AddButtonLayout(buttonLeftWithMargin, RelativeLayout.ALIGN_PARENT_LEFT, 30+i*100, 80+i*100, 0, 0);
+            AddButtonLayout(buttonLeftWithMargin, RelativeLayout.ALIGN_PARENT_LEFT, 300, 80+i*200, 0, 0);
      
             
             //add button to the view
@@ -55,7 +57,7 @@ public class NumberCustomers extends Activity {
             buttonLeftWithMargin.setId(i);
             
             //set color
-            buttonLeftWithMargin.setTextColor(Color.RED);
+            buttonLeftWithMargin.setTextColor(colorArray[i]);
             
         	/*LinearLayout linear1 = new LinearLayout(this);
             linear1.setOrientation(LinearLayout.HORIZONTAL);
