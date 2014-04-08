@@ -146,24 +146,18 @@ public class Connection extends Activity {
 	}
 	//  Called when the user wants to send a message
 
+
+	//Automatic sending
 	public void sendOrder(View view) {
-		
-		
 		ConnectionApplication app = (ConnectionApplication) getApplication();
 
-		
-		//String msg = ReviewPage.OrderString();
-		String msg = buildToSend();
-		//NumberCustomers.CurrentCust.customerSum="";
-		
-		Log.i("con",""+chefID);
-		Log.i("debug", "msg: " + msg);
-		
+		String msg = ReviewPage.OrderSum();
+		Log.i("con",""+ app.getChefClientID());
 		byte buf[] = new byte[msg.length() + 2];
-		if(chefID == 0)
-			chefID = 255;
+		if(app.getChefClientID() == 0)
+			app.setChefClientID(255);
 		else {
-			buf[0] = (byte)chefID; 
+			buf[0] = (byte)app.getChefClientID(); 
 			buf[1] = (byte)0; // special integer is zero for normal order sends.
 			System.arraycopy(msg.getBytes(), 0, buf, 2, msg.length());
 
@@ -182,6 +176,7 @@ public class Connection extends Activity {
 			}
 		}
 	}
+	
 	
 	
 	
@@ -225,8 +220,6 @@ public class Connection extends Activity {
 		addr += "." + text_ip.getText().toString();
 		return addr;
 	}
-	
-
 
 	// Gets the Port from the appropriate field.
 
@@ -301,8 +294,14 @@ public class Connection extends Activity {
 	// This is a timer Task.  Be sure to work through the tutorials
 	// on Timer Tasks before trying to understand this code.
 
-	public class TCPReadTimerTask extends TimerTask {
+public class TCPReadTimerTask extends TimerTask {
+		
 		public void run() {
+			
+			//UI
+//			SpecialsPage.counter++;
+//			SpecialsPage.mHandler.obtainMessage(1).sendToTarget();
+//			
 			ConnectionApplication app = (ConnectionApplication) getApplication();
 			if (app.sock != null && app.sock.isConnected()
 					&& !app.sock.isClosed()) {
@@ -320,16 +319,15 @@ public class Connection extends Activity {
 						byte buf[] = new byte[bytes_avail];
 						in.read(buf);
 
-						chefID = buf[0];
-						Log.i("con",""+chefID); // Debugging 
+						Log.i("con",""+app.getChefClientID()); // Debugging 
 						int specialInt = buf[1];
-
+						Log.i("update",""+specialInt); // Debugging
 						// if the special integer is 1 or 2 it means the chef client ID is being 
 						// updated and we don't need to read the string.
 						if(specialInt == 0) {
 
-							final String s = new String(buf, 0, bytes_avail, "US-ASCII");						
-
+							final String s = new String(buf, 2, bytes_avail-2, "US-ASCII");						
+							Log.i("Update",s);
 							// As explained in the tutorials, the GUI can not be
 							// updated in an asynchronous task.  So, update the GUI
 							// using the UI thread.
@@ -340,7 +338,22 @@ public class Connection extends Activity {
 									et.setText(s);
 								}
 							});
-						} //End of if statement
+						} 
+						//If the special integer is 2 the chef side is updating the client ID, set it here
+						else if(specialInt == 2) {
+							int chefClientID = buf[0];
+							app.setChefClientID(chefClientID);
+						}
+						// If the special integer is 4 the DE2 is sending updated specials from the SD card
+						else if (specialInt == 4) {
+							
+							final String s = new String(buf, 2, bytes_avail-2, "US-ASCII");
+							Log.i("Update",s);
+							SpecialsPage.stringForUpdateSpecials = s;
+							//SpecialsPage.specialItems.add(s);
+							SpecialsPage.mHandler.obtainMessage(1).sendToTarget();
+
+						}
 					}
 				} catch (IOException e) {
 					e.printStackTrace();
