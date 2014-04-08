@@ -134,7 +134,7 @@ public class viewOrders extends Activity {
 				sublayout.setOrientation(LinearLayout.VERTICAL);
 				linear0.addView(sublayout);
 				LinearLayout sublayout_0 = new LinearLayout(this);
-				sublayout_0.setOrientation(LinearLayout.VERTICAL);
+				sublayout_0.setOrientation(LinearLayout.HORIZONTAL);
 				sublayout.addView(sublayout_0);
 
 				a = new TextView(this);
@@ -189,13 +189,13 @@ public class viewOrders extends Activity {
 			d.setOnClickListener(new View.OnClickListener() {
 				@Override
 				public void onClick(View v) {
+					sendAlert(clientIDList.get(v.getId()));
 					linearlayout.removeView(linearHeader);
 					linearlayout.removeView(linear0);
 					linearlayout.removeView(linear2);
 					linearlayout.removeView(linearGap);
-					clientIDList.remove(v.getId());
 					orders.remove(v.getId());
-					//sendAlert(clientIDList.get(v.getId()));
+					clientIDList.remove(v.getId());
 				}
 			});
 
@@ -293,6 +293,7 @@ public class viewOrders extends Activity {
 	}
 
 	private void sendAlert(int clientID) {
+		Log.i("inside SendAlert", ""+clientID);
 		ConnectionApplication app = (ConnectionApplication) getApplication();
 		// byte buf[] = new byte[msg.length() + 2];
 		byte buf[] = new byte[2];
