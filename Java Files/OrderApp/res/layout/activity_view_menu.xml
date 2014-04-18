@@ -6,7 +6,8 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context=".ViewMenu" >
+    tools:context=".ViewMenu"
+    >
 
     <TextView
         android:id="@+id/text111"
@@ -25,63 +26,45 @@
         android:text="@string/ReviewAndCheckout_line" />
 
     <Button
-        android:id="@+id/button1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/text111"
-        android:layout_centerHorizontal="true"
-        android:text="@string/appetizer_line" />
-
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/button1"
-        android:layout_centerHorizontal="true"
-        android:text="@string/dessert_line" />
-
-    <Button
-        android:id="@+id/button3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/button2"
-        android:layout_centerHorizontal="true"
-        android:text="@string/Main_Menu_line" />
-
-    <Button
         android:id="@+id/button4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/button3"
         android:layout_centerHorizontal="true"
         android:onClick="onClickAlcohol"
-        android:text="@string/Alcohol_line" />
+        android:text="@string/Alcohol_line"
+        android:textColor="@color/blue" />
 
     <Button
-        android:id="@+id/button5"
+        android:id="@+id/button3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/button4"
+        android:layout_below="@+id/button1"
         android:layout_centerHorizontal="true"
-        android:text="@string/Pops_line" />
-   
+        android:onClick="onClickMainMenu"
+        android:text="@string/Main_Menu_line"
+        android:textColor="@color/blue" />
+
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/buttonSpecials"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="28dp"
+        android:onClick="onClickAppetizer"
+        android:text="@string/appetizer_line"
+        android:textColor="@color/blue" />
+
     <Button
         android:id="@+id/buttonSpecials"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/button5"
-        android:layout_centerHorizontal="true"
+        android:layout_alignLeft="@+id/button1"
+        android:layout_below="@+id/text111"
+        android:layout_marginTop="28dp"
         android:onClick="onClickSpecials"
-        android:text="@string/Specials_line" />
- <!--  This used to be the connection button -->
-  <!--   <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/buttonSpecials"
-        android:layout_alignRight="@+id/button4"
-        android:layout_marginBottom="21dp"
-        android:onClick="onClickConnect"
-        android:text="@string/connection_line" /> -->
-    
+        android:text="@string/Specials_line"
+        android:textColor="@color/red" />
 
 </RelativeLayout>

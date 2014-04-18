@@ -6,7 +6,8 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context=".Alcohol" >
+    tools:context=".Alcohol"
+    android:background="@drawable/champ" >
 
     <Button
         android:id="@+id/button1"
@@ -58,22 +59,24 @@
         android:inputType="number" />
 
     <TextView
-        android:id="@+id/textView1"
+        android:id="@+id/textView1dd"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/button1"
         android:layout_alignParentTop="true"
         android:layout_marginTop="66dp"
-        android:text="@string/Kokanee_line" />
+        android:text="@string/Kokanee_line"
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/textView1"
-        android:layout_below="@+id/textView1"
+        android:layout_alignLeft="@+id/textView1dd"
+        android:layout_below="@+id/textView1dd"
         android:layout_marginTop="41dp"
-        android:text="@string/ChivasRegal_line" />
+        android:text="@string/ChivasRegal_line"
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/textView4"
@@ -82,7 +85,8 @@
         android:layout_alignLeft="@+id/textView3"
         android:layout_below="@+id/textView3"
         android:layout_marginTop="32dp"
-        android:text="@string/Ballantines_line" />
+        android:text="@string/Ballantines_line"
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/textView3"
@@ -91,6 +95,7 @@
         android:layout_alignLeft="@+id/textView2"
         android:layout_below="@+id/textView2"
         android:layout_marginTop="38dp"
-        android:text="@string/Budweiser_line" />
+        android:text="@string/Budweiser_line"
+        android:textStyle="bold" />
 
 </RelativeLayout>

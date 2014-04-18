@@ -47,8 +47,11 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:inputType="number"
-            android:text="100" />
-
+            android:text="100" 
+            >
+        <requestFocus />
+        </EditText>
+            
     </LinearLayout>
 
     <LinearLayout
@@ -102,15 +105,15 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content" >
 
-        <Button
+<!--        <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="sendMessage"
             android:text="Send Message" />
-
+-->
         <Button
             android:id="@+id/button1"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:onClick="sendOrder"
             android:text="Send Order" />
@@ -122,7 +125,7 @@
         android:layout_height="wrap_content"
         android:onClick="closeSocket"
         android:text="Disconnect" />
-
+<!--
     <TextView
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
@@ -151,7 +154,7 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="number" />
-
+-->
     <TextView
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"

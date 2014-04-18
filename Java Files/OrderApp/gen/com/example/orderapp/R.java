@@ -10,131 +10,203 @@ package com.example.orderapp;
 public final class R {
     public static final class attr {
     }
+    public static final class color {
+        public static final int aqua=0x7f070009;
+        public static final int black=0x7f07000f;
+        public static final int blue=0x7f07000d;
+        public static final int fuchsia=0x7f070002;
+        public static final int gray=0x7f070005;
+        public static final int green=0x7f07000c;
+        public static final int lime=0x7f07000a;
+        public static final int maroon=0x7f070008;
+        public static final int navy=0x7f07000e;
+        public static final int olive=0x7f070006;
+        public static final int purple=0x7f070007;
+        public static final int red=0x7f070003;
+        public static final int silver=0x7f070004;
+        public static final int teal=0x7f07000b;
+        public static final int white=0x7f070000;
+        public static final int yellow=0x7f070001;
+    }
     public static final class dimen {
         /**  Default screen margins, per the Android Design guidelines. 
+
+         Example customization of dimensions originally defined in res/values/dimens.xml
+         (such as screen margins) for screens with more than 820dp of available width. This
+         would include 7" and 10" devices in landscape (~960dp and ~1280dp respectively).
+    
 
          Customize dimensions originally defined in res/values/dimens.xml (such as
          screen margins) for sw720dp devices (e.g. 10" tablets) in landscape here.
     
          */
-        public static final int activity_horizontal_margin=0x7f040000;
-        public static final int activity_vertical_margin=0x7f040001;
+        public static final int activity_horizontal_margin=0x7f050000;
+        public static final int activity_vertical_margin=0x7f050001;
     }
     public static final class drawable {
-        public static final int ic_launcher=0x7f020000;
+        public static final int appetizer=0x7f020000;
+        public static final int champ=0x7f020001;
+        public static final int ic_launcher=0x7f020002;
+        public static final int noodle=0x7f020003;
+        public static final int order=0x7f020004;
+        public static final int order2=0x7f020005;
+        public static final int pasta=0x7f020006;
+        public static final int skull=0x7f020007;
+        public static final int skull2=0x7f020008;
+        public static final int skull3=0x7f020009;
+        public static final int welcome=0x7f02000a;
     }
     public static final class id {
-        public static final int LinearLayout1=0x7f080012;
-        public static final int MessageText=0x7f08000f;
-        public static final int RecvdMessage=0x7f080010;
-        public static final int action_settings=0x7f08001f;
-        public static final int btn_close_popup=0x7f08001d;
-        public static final int button1=0x7f080000;
-        public static final int button2=0x7f080014;
-        public static final int button3=0x7f080017;
-        public static final int button4=0x7f080018;
-        public static final int button5=0x7f080019;
-        public static final int button6=0x7f080016;
-        public static final int buttonNext=0x7f08001e;
-        public static final int buttonSpecials=0x7f08001a;
-        public static final int buttonUpdateSpecials=0x7f080013;
-        public static final int clientid=0x7f08000e;
-        public static final int editText1=0x7f080001;
-        public static final int editText2=0x7f080005;
-        public static final int editText3=0x7f080003;
-        public static final int editText4=0x7f080006;
-        public static final int error_message_box=0x7f080011;
-        public static final int ip1=0x7f080009;
-        public static final int ip2=0x7f08000a;
-        public static final int ip3=0x7f08000b;
-        public static final int ip4=0x7f08000c;
-        public static final int menu_settings=0x7f080020;
-        public static final int popup_element=0x7f08001b;
-        public static final int port=0x7f08000d;
-        public static final int text111=0x7f080015;
-        public static final int textView1=0x7f080008;
-        public static final int textView2=0x7f080002;
-        public static final int textView3=0x7f080004;
-        public static final int textView4=0x7f080007;
-        public static final int txtView=0x7f08001c;
+        public static final int LinearLayout1=0x7f0a0012;
+        public static final int RelativeLayout1=0x7f0a0011;
+        public static final int action_settings=0x7f0a001e;
+        public static final int action_viewMenu=0x7f0a0020;
+        public static final int btn_close_popup=0x7f0a001c;
+        public static final int button1=0x7f0a0000;
+        public static final int button2=0x7f0a0013;
+        public static final int button3=0x7f0a0018;
+        public static final int button4=0x7f0a0017;
+        public static final int button6=0x7f0a0016;
+        public static final int buttonNext=0x7f0a001d;
+        public static final int buttonSpecials=0x7f0a0019;
+        public static final int buttonUpdateSpecials=0x7f0a0014;
+        public static final int clientid=0x7f0a000e;
+        public static final int container=0x7f0a0010;
+        public static final int editText1=0x7f0a0001;
+        public static final int editText2=0x7f0a0005;
+        public static final int editText3=0x7f0a0003;
+        public static final int editText4=0x7f0a0006;
+        public static final int error_message_box=0x7f0a000f;
+        public static final int ip1=0x7f0a0009;
+        public static final int ip2=0x7f0a000a;
+        public static final int ip3=0x7f0a000b;
+        public static final int ip4=0x7f0a000c;
+        public static final int menu_settings=0x7f0a001f;
+        public static final int popup_element=0x7f0a001a;
+        public static final int port=0x7f0a000d;
+        public static final int text111=0x7f0a0015;
+        public static final int textView1dd=0x7f0a0008;
+        public static final int textView2=0x7f0a0002;
+        public static final int textView3=0x7f0a0004;
+        public static final int textView4=0x7f0a0007;
+        public static final int txtView=0x7f0a001b;
     }
     public static final class layout {
         public static final int activity_alcohol=0x7f030000;
-        public static final int activity_connection=0x7f030001;
-        public static final int activity_number_customers=0x7f030002;
-        public static final int activity_review_page=0x7f030003;
-        public static final int activity_specials_page=0x7f030004;
-        public static final int activity_split_bill=0x7f030005;
-        public static final int activity_view_menu=0x7f030006;
-        public static final int popup=0x7f030007;
-        public static final int welcome_screen=0x7f030008;
+        public static final int activity_appetizer=0x7f030001;
+        public static final int activity_connection=0x7f030002;
+        public static final int activity_main=0x7f030003;
+        public static final int activity_main_menu=0x7f030004;
+        public static final int activity_number_customers=0x7f030005;
+        public static final int activity_review_page=0x7f030006;
+        public static final int activity_special_item=0x7f030007;
+        public static final int activity_specials_page=0x7f030008;
+        public static final int activity_split_bill=0x7f030009;
+        public static final int activity_total_review=0x7f03000a;
+        public static final int activity_view_menu=0x7f03000b;
+        public static final int activity_waiting=0x7f03000c;
+        public static final int fragment_appetizer=0x7f03000d;
+        public static final int fragment_main=0x7f03000e;
+        public static final int fragment_main_menu=0x7f03000f;
+        public static final int fragment_special_item=0x7f030010;
+        public static final int fragment_specials_page=0x7f030011;
+        public static final int fragment_total_review=0x7f030012;
+        public static final int fragment_waiting=0x7f030013;
+        public static final int otherpopup=0x7f030014;
+        public static final int popup=0x7f030015;
+        public static final int welcome_screen=0x7f030016;
     }
     public static final class menu {
-        public static final int alcohol=0x7f070000;
-        public static final int connection_menu=0x7f070001;
-        public static final int main=0x7f070002;
-        public static final int menu__alcohol=0x7f070003;
-        public static final int menu__qnt_selection=0x7f070004;
-        public static final int menu_qnty_selection=0x7f070005;
-        public static final int menu_selection=0x7f070006;
-        public static final int number_customers=0x7f070007;
-        public static final int review_page=0x7f070008;
-        public static final int split_bill=0x7f070009;
-        public static final int view_menu=0x7f07000a;
+        public static final int alcohol=0x7f090000;
+        public static final int appetizer=0x7f090001;
+        public static final int connection_menu=0x7f090002;
+        public static final int main=0x7f090003;
+        public static final int main_menu=0x7f090004;
+        public static final int menu__alcohol=0x7f090005;
+        public static final int menu__qnt_selection=0x7f090006;
+        public static final int menu_qnty_selection=0x7f090007;
+        public static final int menu_selection=0x7f090008;
+        public static final int number_customers=0x7f090009;
+        public static final int review_page=0x7f09000a;
+        public static final int special_item=0x7f09000b;
+        public static final int specials_page=0x7f09000c;
+        public static final int split_bill=0x7f09000d;
+        public static final int total_review=0x7f09000e;
+        public static final int view_menu=0x7f09000f;
+        public static final int waiting=0x7f090010;
+    }
+    public static final class raw {
+        public static final int slayer=0x7f040000;
     }
     public static final class string {
-        public static final int Alcohol_line=0x7f050014;
-        public static final int Ask_split_bill=0x7f05000d;
-        public static final int Ballantines_line=0x7f050021;
-        public static final int Budweiser_line=0x7f050020;
-        public static final int ChivasRegal_line=0x7f05001e;
-        public static final int ClientID=0x7f050031;
-        public static final int Kokanee_line=0x7f05001d;
-        public static final int Main_Menu_line=0x7f050013;
-        public static final int Pops_line=0x7f050015;
-        public static final int ReviewAndCheckout_line=0x7f050022;
-        public static final int Specials_line=0x7f050016;
-        public static final int action_settings=0x7f050001;
-        public static final int action_updateSpecials=0x7f050002;
-        public static final int app_name=0x7f050000;
-        public static final int appetizer_line=0x7f050011;
-        public static final int clear=0x7f05002a;
-        public static final int close=0x7f05000c;
-        public static final int connect=0x7f050029;
-        public static final int connection_line=0x7f050024;
-        public static final int dessert_line=0x7f050012;
-        public static final int error_numb_people=0x7f05000b;
-        public static final int hello_world=0x7f050003;
-        public static final int input_number_customers=0x7f050007;
+        public static final int Alcohol_line=0x7f060014;
+        public static final int Ask_split_bill=0x7f06000d;
+        public static final int Ballantines_line=0x7f06001f;
+        public static final int Budweiser_line=0x7f06001e;
+        public static final int ChivasRegal_line=0x7f06001c;
+        public static final int ClientID=0x7f06002f;
+        public static final int Kokanee_line=0x7f06001b;
+        public static final int Main_Menu_line=0x7f060013;
+        public static final int Pops_line=0x7f060015;
+        public static final int ReviewAndCheckout_line=0x7f060020;
+        public static final int Specials_line=0x7f06003c;
+        public static final int action_settings=0x7f060002;
+        public static final int action_updateSpecials=0x7f06003b;
+        public static final int action_viewMenu=0x7f060000;
+        public static final int app_name=0x7f060001;
+        public static final int appetizer_line=0x7f060011;
+        public static final int cheese=0x7f060038;
+        public static final int clear=0x7f060028;
+        public static final int close=0x7f06000c;
+        public static final int connect=0x7f060027;
+        public static final int connection_line=0x7f060022;
+        public static final int dessert_line=0x7f060012;
+        public static final int edamame=0x7f060036;
+        public static final int error_numb_people=0x7f06000b;
+        public static final int foodready=0x7f060041;
+        public static final int fries=0x7f060033;
+        public static final int hamburger=0x7f060031;
+        public static final int hello_world=0x7f060003;
+        public static final int input_number_customers=0x7f060007;
         /**  Strings for activity_connection.xml 
          */
-        public static final int label_ip=0x7f050025;
-        public static final int label_myip=0x7f05002d;
-        public static final int label_port=0x7f050027;
-        public static final int menu_settings=0x7f05002b;
-        public static final int next=0x7f050005;
-        public static final int no=0x7f05000f;
-        public static final int orderGuestNumber=0x7f050010;
-        public static final int play=0x7f05002e;
-        public static final int playsong=0x7f050026;
-        public static final int printsong=0x7f050028;
-        public static final int refresh_socket=0x7f050030;
-        public static final int save_line=0x7f05001f;
-        public static final int stop=0x7f05002f;
-        public static final int table_info=0x7f05000a;
-        public static final int title_activity_alcohol=0x7f05001b;
-        public static final int title_activity_main=0x7f05002c;
-        public static final int title_activity_menu__alcohol=0x7f05001a;
-        public static final int title_activity_menu__qnt_selection=0x7f050018;
-        public static final int title_activity_menu_qnty_selection=0x7f050019;
-        public static final int title_activity_menu_selection=0x7f050017;
-        public static final int title_activity_number_customers=0x7f050006;
-        public static final int title_activity_review_page=0x7f050023;
-        public static final int title_activity_specials_page=0x7f05001c;
-        public static final int title_activity_split_bill=0x7f050008;
-        public static final int title_activity_view_menu=0x7f050009;
-        public static final int welcome_message=0x7f050004;
-        public static final int yes=0x7f05000e;
+        public static final int label_ip=0x7f060023;
+        public static final int label_myip=0x7f06002b;
+        public static final int label_port=0x7f060025;
+        public static final int menu_settings=0x7f060029;
+        public static final int next=0x7f060005;
+        public static final int no=0x7f06000f;
+        public static final int orderGuestNumber=0x7f060010;
+        public static final int pizza=0x7f060032;
+        public static final int play=0x7f06002c;
+        public static final int playsong=0x7f060024;
+        public static final int printsong=0x7f060026;
+        public static final int refresh_socket=0x7f06002e;
+        public static final int salad=0x7f060037;
+        public static final int sandwich=0x7f060034;
+        public static final int save_line=0x7f06001d;
+        public static final int shrimp=0x7f060039;
+        public static final int stop=0x7f06002d;
+        public static final int table_info=0x7f06000a;
+        public static final int title_activity_alcohol=0x7f06001a;
+        public static final int title_activity_appetizer=0x7f060035;
+        public static final int title_activity_main=0x7f06002a;
+        public static final int title_activity_main_menu=0x7f060030;
+        public static final int title_activity_menu__alcohol=0x7f060019;
+        public static final int title_activity_menu__qnt_selection=0x7f060017;
+        public static final int title_activity_menu_qnty_selection=0x7f060018;
+        public static final int title_activity_menu_selection=0x7f060016;
+        public static final int title_activity_number_customers=0x7f060006;
+        public static final int title_activity_review_page=0x7f060021;
+        public static final int title_activity_special_item=0x7f060040;
+        public static final int title_activity_specials_page=0x7f06003d;
+        public static final int title_activity_split_bill=0x7f060008;
+        public static final int title_activity_total_review=0x7f06003a;
+        public static final int title_activity_view_menu=0x7f060009;
+        public static final int title_activity_waiting=0x7f06003e;
+        public static final int waiting=0x7f06003f;
+        public static final int welcome_message=0x7f060004;
+        public static final int yes=0x7f06000e;
     }
     public static final class style {
         /** 
@@ -158,10 +230,10 @@ public final class R {
     
  API 14 theme customizations can go here. 
          */
-        public static final int AppBaseTheme=0x7f060000;
+        public static final int AppBaseTheme=0x7f080000;
         /**  Application theme. 
  All customizations that are NOT specific to a particular API-level can go here. 
          */
-        public static final int AppTheme=0x7f060001;
+        public static final int AppTheme=0x7f080001;
     }
 }

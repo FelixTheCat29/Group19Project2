@@ -2,6 +2,7 @@ package com.example.orderapp;
 
 import java.io.IOException;
 import java.io.OutputStream;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,6 +14,8 @@ import android.os.Handler;
 import android.os.Message;
 import android.text.InputType;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup.LayoutParams;
 import android.widget.Button;
@@ -35,6 +38,36 @@ public class SpecialsPage extends Activity {
 		super.onCreate(savedInstanceState);
 		//setContentView(R.layout.activity_specials_page);
 
+		//		ScrollView scrollview;
+		//		scrollview = new ScrollView(this);
+		//		LinearLayout linearlayout = new LinearLayout(this);
+		//		linearlayout.setOrientation(LinearLayout.VERTICAL);
+		//		scrollview.addView(linearlayout);
+		//		
+		//		if(Connection.updatedSpecials == false) {
+		//			TextView b; 
+		//			b= new TextView(this);
+		//			b.setText("No specials yet, stay tuned!");
+		//			b.setId(50);
+		//			b.setTextSize(25);
+		//			b.setPadding(18, 13, 18, 13);
+		//			b.setTypeface(Typeface.SERIF,Typeface.BOLD_ITALIC);
+		//			b.setLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT,LayoutParams.WRAP_CONTENT));
+		//			linearlayout.addView(b);
+		//			
+		//		} else {
+		//			TextView b; 
+		//			b= new TextView(this);
+		//			b.setText("New special menu update. Click the update button!");
+		//			b.setId(50);
+		//			b.setTextSize(25);
+		//			b.setPadding(18, 13, 18, 13);
+		//			b.setTypeface(Typeface.SERIF,Typeface.BOLD_ITALIC);
+		//			b.setLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT,LayoutParams.WRAP_CONTENT));
+		//			linearlayout.addView(b);
+		//		}
+		//			
+		//		this.setContentView(scrollview);
 		//UI update Purpose, parses the string containing specialItem1
 		mHandler = new Handler() {
 			public void handleMessage(Message msg) {
@@ -50,7 +83,7 @@ public class SpecialsPage extends Activity {
 
 				int endItem1 = stringForUpdateSpecials.indexOf('$');
 				String item1 = stringForUpdateSpecials.substring(0,endItem1);
-  
+
 				Log.i("Spec", "Item1"+ item1);
 				Log.i("Spec", "endItem1 "+endItem1);
 
@@ -75,11 +108,11 @@ public class SpecialsPage extends Activity {
 
 				Log.i("Spec", "end index of price2"+ endPrice2);
 				Log.i("Spec", "price2 "+ price2);
-				
+
 				double price1double = Double.parseDouble(price1);
 				double price2double = Double.parseDouble(price2);
-				
-				
+
+
 
 				Log.i("Double", "Price 1 in double: " + price1double);
 				Log.i("Double", "Price 2 in double: " +  price2double);//SpecialItem.specialItemPricesDouble
@@ -88,7 +121,7 @@ public class SpecialsPage extends Activity {
 					SpecialItem.specialItems.add(0, item1);
 					SpecialItem.specialItemPrices.add(0, price1);
 					SpecialItem.specialItemPricesDouble.add(0, price1double);
-					
+
 					SpecialItem.specialItems.add(1, item2);
 					SpecialItem.specialItemPrices.add(1, price2);
 					SpecialItem.specialItemPricesDouble.add(1, price2double);
@@ -98,7 +131,7 @@ public class SpecialsPage extends Activity {
 					SpecialItem.specialItems.set(0, item1);
 					SpecialItem.specialItemPrices.set(0, price1);
 					SpecialItem.specialItemPricesDouble.set(0, price1double);
-					
+
 					SpecialItem.specialItems.set(1, item2);
 					SpecialItem.specialItemPrices.set(1, price2);
 					SpecialItem.specialItemPricesDouble.set(1, price2double);
@@ -106,17 +139,18 @@ public class SpecialsPage extends Activity {
 				//Update the UI to display
 				onResume();
 			}
+
 		};
 
 	}
 
-	//	@Override
-	//	public boolean onCreateOptionsMenu(Menu menu) {
-	//		// Inflate the menu; this adds items to the action bar if it is present.
-	//		getMenuInflater().inflate(R.menu.view_menu, menu);
-	//
-	//		return true;
-	//	}
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		// Inflate the menu; this adds items to the action bar if it is present.
+		getMenuInflater().inflate(R.menu.specials_page, menu);
+
+		return true;
+	}
 
 	@Override
 	protected void onResume() {
@@ -129,6 +163,30 @@ public class SpecialsPage extends Activity {
 		linearlayout.setOrientation(LinearLayout.VERTICAL);
 		scrollview.addView(linearlayout);
 
+		//		if(Connection.updatedSpecials == false) {
+		//			TextView b; 
+		//			b= new TextView(this);
+		//			b.setText("No specials yet, stay tuned!");
+		//			b.setId(50);
+		//			b.setTextSize(25);
+		//			b.setPadding(18, 13, 18, 13);
+		//			b.setTypeface(Typeface.SERIF,Typeface.BOLD_ITALIC);
+		//			b.setLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT,LayoutParams.WRAP_CONTENT));
+		//			linearlayout.addView(b);
+		//			this.setContentView(scrollview);
+		//
+		//		} else {
+		//			TextView b; 
+		//			b= new TextView(this);
+		//			b.setText("No specials menu? Click the update button!");
+		//			b.setId(50);
+		//			b.setTextSize(25);
+		//			b.setPadding(18, 13, 18, 13);
+		//			b.setTypeface(Typeface.SERIF,Typeface.BOLD_ITALIC);
+		//			b.setLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT,LayoutParams.WRAP_CONTENT));
+		//			linearlayout.addView(b);
+		//			this.setContentView(scrollview);
+		//		}
 		TextView b;
 		TextView c;
 		EditText e;
@@ -142,6 +200,8 @@ public class SpecialsPage extends Activity {
 			Log.i("Crash", "Item: "+ item);
 			Log.i("Crash", "Price: " + price);
 
+			
+			
 			LinearLayout linear0 = new LinearLayout(this);
 			linear0.setOrientation(LinearLayout.HORIZONTAL);
 			linearlayout.addView(linear0);
@@ -155,7 +215,8 @@ public class SpecialsPage extends Activity {
 			b.setLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT,LayoutParams.WRAP_CONTENT));
 
 			c = new TextView(this);
-			c.setText(price);
+			DecimalFormat df = new DecimalFormat("#0.00");
+			c.setText("$" + price);
 			c.setId(50);
 			c.setTextSize(25);
 			c.setPadding(18, 13, 18, 13);
@@ -172,6 +233,7 @@ public class SpecialsPage extends Activity {
 			linear0.addView(e); 
 			this.setContentView(scrollview);
 		}
+
 		Button d = new Button(this);
 		d.setText("Update Specials");
 		d.setId(1); 
@@ -190,6 +252,7 @@ public class SpecialsPage extends Activity {
 			}	
 		});
 		this.setContentView(scrollview);
+
 
 		Button f = new Button(this);
 		f.setText("Save and Continue");
@@ -218,27 +281,45 @@ public class SpecialsPage extends Activity {
 		double total=0.00;
 		for(int i=0; i< SpecialItem.specialItemQuantity.size() ; i++) {
 			total += SpecialItem.specialItemQuantity.get(i)* SpecialItem.specialItemPricesDouble.get(i);
-			
+
 		}
 		Log.i("double", "total comes to: " + total);
 		return total;
 	}
-	
+
 	public void onClickSaveAndCont(View view){
 
 		for(int i=0; i<editTextList.size(); i++) {
 			String qtyString = editTextList.get(i).getText().toString();
-			int qty = Integer.parseInt(qtyString);
-
+			int qty = 0;
+			if(!qtyString .equals(""))
+				qty = Integer.parseInt(qtyString);
+			NumberCustomers.CurrentCust.special[i] =qty;
+	
 			if(SpecialItem.specialItemQuantity.size() < 2 )
 				SpecialItem.specialItemQuantity.add(i, qty);  
 			else 
 				SpecialItem.specialItemQuantity.set(i, qty);  
 		}
-		calculateTotal();
+		NumberCustomers.CurrentCust.SpeSum = calculateTotal();
+
 		Intent intent = new Intent(this, ViewMenu.class);
 		startActivity(intent);
 
+	}
+
+
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		// Handle presses on the action bar items
+		switch (item.getItemId()) {
+		case R.id.action_viewMenu:
+			Intent intent = new Intent(this, ViewMenu.class);
+			startActivity(intent);
+			return true;
+		default:
+			return super.onOptionsItemSelected(item);
+		}
 	}
 
 
@@ -272,7 +353,9 @@ public class SpecialsPage extends Activity {
 
 	}
 
-
+	@Override
+	public void onBackPressed() {
+	}
 
 
 }
