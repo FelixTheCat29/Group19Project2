@@ -31,10 +31,9 @@ public class viewOrders extends Activity {
 	public static Handler mHandler;
 	public static List<String> customerOrder = new ArrayList<String>();
 	public static List<int[][]> eachOrder = new ArrayList<int[][]>();
-	
 
 	public static Map<Integer, List<String>> specialItemsMap = new HashMap<Integer, List<String>>();
-	
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -75,8 +74,8 @@ public class viewOrders extends Activity {
 				List<String> temp = new ArrayList<String>();
 				temp.add(UpdateSpecials.specials[0]);
 				temp.add(UpdateSpecials.specials[1]);
-				specialItemsMap.put(eachOrder.size()-1, temp );
-				
+				specialItemsMap.put(eachOrder.size() - 1, temp);
+
 				onResume();
 			}
 		};
@@ -108,11 +107,11 @@ public class viewOrders extends Activity {
 		//
 		// }
 
-		String[] menuItems = { "Kokanee", "Budweiser", "Chivas", "Ballantines",
+		String[] menuItems = { "Kokanee", "Chivas", "Budweiser", "Ballantines",
 				"Pizza", "Hamburger", "Sandwich", "French Fries", "Edamame",
-				"Salad", "Cheese", "","" };
-		menuItems[11]=UpdateSpecials.specials[0];
-		menuItems[12]=UpdateSpecials.specials[1];
+				"Salad", "Cheese", "", "" };
+		menuItems[11] = UpdateSpecials.specials[0];
+		menuItems[12] = UpdateSpecials.specials[1];
 		String special1 = menuItems[11];
 		String special2 = menuItems[12];
 		// When chef name 11 and special2, save them here
@@ -167,11 +166,12 @@ public class viewOrders extends Activity {
 						linear1.setOrientation(LinearLayout.HORIZONTAL);
 						sublayout.addView(linear1);
 						b = new TextView(this);
-						if(i<11){
-						b.setText(menuItems[i] + ": "
-								+ eachOrder.get(ind)[j][i]);
+						if (i < 11) {
+							b.setText(menuItems[i] + ": "
+									+ eachOrder.get(ind)[j][i]);
 						} else {
-							b.setText(specialItemsMap.get(ind).get(i-11) + ": " + eachOrder.get(ind)[j][i]);
+							b.setText(specialItemsMap.get(ind).get(i - 11)
+									+ ": " + eachOrder.get(ind)[j][i]);
 						}
 						b.setId(i);
 						b.setTextSize(20);
@@ -207,11 +207,17 @@ public class viewOrders extends Activity {
 				public void onClick(View v) {
 					sendAlert(clientIDList.get(v.getId()));
 					linearlayout.removeView(linearHeader);
+					Log.i("after linearHeader", "");
 					linearlayout.removeView(linear0);
+					Log.i("after linearHeader", "");
 					linearlayout.removeView(linear2);
+					Log.i("after linearHeader", "");
 					linearlayout.removeView(linearGap);
 					orders.remove(v.getId());
+					Log.i("after linearHeader", "");
 					clientIDList.remove(v.getId());
+					Log.i("after linearHeader", "");
+					eachOrder.remove(v.getId());
 				}
 			});
 
@@ -309,13 +315,14 @@ public class viewOrders extends Activity {
 	}
 
 	private void sendAlert(int clientID) {
-		Log.i("inside SendAlert", ""+clientID);
+		Log.i("inside SendAlert", "" + clientID);
 		ConnectionApplication app = (ConnectionApplication) getApplication();
 		// byte buf[] = new byte[msg.length() + 2];
 		byte buf[] = new byte[2];
-		buf[0] = (byte) clientID;
+		buf[0] = (byte)clientID;
+		Log.i("after","");
 		buf[1] = (byte) 5; // 5 means order is completed;
-
+		Log.i("test","");
 		// Now send through the output stream of the socket
 		OutputStream out;
 		try {

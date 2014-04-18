@@ -23,6 +23,8 @@
     <string name="refresh_socket">Show Sock.</string>
 	<string name="ClientID">Client ID</string>
 	<string name="getOrder">Recieve Order</string>
+	<string name="nofield">Error: one of the fields is empty</string>
+	<string name="close">Close</string>
 	
     
 

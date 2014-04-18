@@ -5,16 +5,28 @@ import java.io.IOException;
 import java.io.OutputStream;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.View.OnClickListener;
+import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.EditText;
+import android.widget.PopupWindow;
 
 public class UpdateSpecials extends Activity {
 	public static String[] specials= new String[2];
+	Button btnClosePopup;
+	PopupWindow popupMessage;
+
 	
 	
 	@Override
@@ -86,18 +98,28 @@ public class UpdateSpecials extends Activity {
 		EditText et = (EditText) findViewById(R.id.Item1);
 		String Item1 = et.getText().toString();
 		
+		
+		
 		specials[0]= Item1;
+		
+		
 
 		et = (EditText) findViewById(R.id.Price1);
 		String Price1 = et.getText().toString();
 		
+		
 		et = (EditText) findViewById(R.id.Item2);
 		String Item2 = et.getText().toString();
+		
+		
 		
 		specials[1]= Item2;
 		
 		et = (EditText) findViewById(R.id.Price2);
 		String Price2 = et.getText().toString();
+		
+		if(Price2.equals("")|| Price1.equals("") || Item1.equals("") || Item2.equals(""))
+			initiatePopupWindow();
 		
 		String msg =  Item1 + "$" + Price1 + "*" + Item2 + "$" + Price2 + "*";
 		// Create an array of bytes.  First byte will be the
@@ -122,5 +144,42 @@ public class UpdateSpecials extends Activity {
 			e.printStackTrace();
 		}
 	}
+	
+	private PopupWindow pwindo;
+	private void initiatePopupWindow() { 
+		try { 
+
+			//MediaPlayer mp = MediaPlayer.create(this, R.raw.slayer);  
+			//mp.start();
+
+
+			// We need to get the instance of the LayoutInflater 
+			LayoutInflater inflater = (LayoutInflater) UpdateSpecials.this 
+					.getSystemService(Context.LAYOUT_INFLATER_SERVICE); 
+			View layout = inflater.inflate(R.layout.popup,(ViewGroup)
+
+					findViewById(R.id.popup_element)); 
+			pwindo = new PopupWindow(layout, 450, 450, true); 
+			pwindo.showAtLocation(layout, Gravity.CENTER, 0, 0);
+
+			
+			btnClosePopup = (Button) layout.findViewById(R.id.btn_close_popup); 
+			btnClosePopup.setOnClickListener(cancel_button_click_listener);
+
+			btnClosePopup.setTextColor(Color.RED);
+
+
+		} catch (Exception e) { 
+			e.printStackTrace(); 
+		} 
+	}
+
+	private OnClickListener cancel_button_click_listener = new OnClickListener() { 
+		public void onClick(View v) { 
+			pwindo.dismiss();
+
+		}
+
+	};
 }
 
