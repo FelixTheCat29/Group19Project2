@@ -36,7 +36,6 @@ char globalSpecialItem2[50];
 struct table
 {
 	int tableID;
-	int quadrant;
 	int numOfCustomers; // number of customers at the table, used to print stuff out... we're not dividing the order by customer
 	char* order;
 	int qtys[30][4]; //30 should be enough.. for now
